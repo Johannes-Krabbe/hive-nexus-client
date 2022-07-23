@@ -1,0 +1,23 @@
+@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_colors.scss';
+@use 'styles/abstracts/_typeface.scss';
+
+.Headline {
+    @include typeface.hero-span;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 1;
+    color: colors.$text-headline;
+    @include brpoint.size(sm) {
+        margin-left: 50px;
+    }
+    @include brpoint.size(md) {
+        font-size: 80px;
+    }
+
+    @include brpoint.size(lg) {
+        font-size: 94px;
+        line-height: 100px;
+    }
+}

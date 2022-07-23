@@ -1,0 +1,132 @@
+@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.container {
+  width: 100%;
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.wrapper {
+  width: calc(100% - 48px);
+  margin: 16px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include brpoint.size(sm) {
+    width: calc(100% - 64px);
+  }
+
+  @include brpoint.size(md) {
+    margin: 0 auto;
+    width: calc(100% - 128px);
+    border-bottom: 1px solid #F3F5F6;
+  }
+
+  @include brpoint.size(lg) {
+    width: calc(100% - 240px);
+  }
+
+  @include brpoint.size(xl) {
+    max-width: 1440px;
+  }
+}
+
+.navigation {
+  display: flex;
+  @include brpoint.size(md) {
+    margin-top: -1px;
+  }
+}
+
+.burger {
+  width: 24px;
+  height: 16px;
+  @include brpoint.size(md) {
+    display: none;
+  }
+}
+.navigationList {
+  position: fixed;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  flex-flow: column;
+  display: none;
+  @include brpoint.size(md) {
+    display: flex;
+    position: relative;
+    flex-flow: wrap;
+  }
+}
+
+.navigationMobile {
+  background-color: rgba(white, 0.07);
+  backdrop-filter: blur(24px);
+  height: calc(100vh - 56px);
+  left: 0;
+  top: 56px;
+  width: 100vw;
+  display: flex;
+  @include brpoint.size(md) {
+    display: flex;
+    position: relative;
+    flex-flow: wrap;
+    height: auto;
+    width: auto;
+    backdrop-filter: none;
+    background-color: transparent;
+    top: auto;
+    left: auto;
+  }
+}
+
+.navigationItem {
+  font-size: 20px;
+  line-height: 135%;
+  color: colors.$text-headline;
+  font-weight: 700;
+  margin-top: 32px;
+  @include brpoint.size(md) {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 86px;
+    margin: 0 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  a {
+    display: inline-block;
+  }
+
+  &:hover {
+    border-color: #2C435C;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    @include brpoint.size(md) {
+      margin-right: 0;
+      padding: 12px 28px;
+      background-color: #AAFFC4;
+      border-radius: 80px;
+      line-height: 14px;
+      max-height: 38px;
+      border: none;
+    }
+  }
+}

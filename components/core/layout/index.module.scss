@@ -1,0 +1,37 @@
+@use '../../../styles/abstracts/brpoint';
+
+// TODO: what is this?
+
+
+.Container {
+  width: calc(100% - 48px);
+  margin: 0 auto;
+
+  @include brpoint.size(sm) {
+    width: calc(100% - 64px);
+  }
+
+  @include brpoint.size(md) {
+    width: calc(100% - 128px);
+  }
+
+  @include brpoint.size(lg) {
+    width: calc(100% - 240px);
+  }
+
+  @include brpoint.size(xl) {
+    max-width: 1440px;
+  }
+
+  & > section:not(:last-child) {
+    margin-bottom: 40px;
+
+    @include brpoint.size(lg) {
+      margin-bottom: 120px;
+    }
+
+    @include brpoint.size(xl) {
+      margin-bottom: 200px;
+    }
+  }
+}

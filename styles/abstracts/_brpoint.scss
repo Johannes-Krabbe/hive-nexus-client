@@ -1,0 +1,13 @@
+@mixin size($size) {
+  @if $size == sm {
+    @media (min-width: 37.5rem) { @content; } // 600px
+  } @else if $size == md {
+    @media (min-width: 64rem) { @content; } // 1024px
+  } @else if $size == lg {
+    @media (min-width: 80rem) { @content; } // 1280px
+  } @else if $size == hero {
+    @media (min-width: 85rem) { @content; } // 1360px
+  }@else if $size == xl {
+    @media (min-width: 105rem) { @content; } // 1680px
+  }
+}

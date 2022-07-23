@@ -1,0 +1,114 @@
+@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.Footer {
+  background-color: #fff;
+  text-transform: capitalize;
+
+  & > .Outer {
+    width: calc(100% - 48px);
+    margin: 0 auto;
+    position: relative;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    
+    &:after {
+      content: '';
+      width: 52px;
+      height:31px;
+      position: absolute;
+      top: 190px;
+      right: 55px;
+      @include brpoint.size(sm) {
+        right: 113px;
+        top: 240px;
+      }
+      @include brpoint.size(md) {
+        right: 130px;
+        top: 340px;
+      }
+      @include brpoint.size(lg) {
+        right: 380px;
+        top: 340px;
+      }
+    }
+
+    @include brpoint.size(sm) {
+      width: calc(100% - 64px);
+    }
+
+    @include brpoint.size(md) {
+      width: calc(100% - 128px);
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    @include brpoint.size(lg) {
+      width: calc(100% - 240px);
+    }
+
+    @include brpoint.size(xl) {
+      max-width: 1440px;
+      padding-bottom: 168px;
+    }
+  }
+}
+
+.MenuContainer {
+  // TODO: replace font
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 27px;
+  color: #152E4A;
+  @include brpoint.size(sm) {
+    font-size: 23px;
+    line-height: 32px;
+  }
+  @include brpoint.size(md) {
+    font-size: 34px;
+    line-height: 45px;
+  }
+  @include brpoint.size(lg) {
+    font-size: 38px;
+    line-height: 51px;
+  }
+
+  li {
+    margin: 0 0 24px 0;
+
+    .Link {
+      cursor: pointer;
+    }
+  }
+}
+
+.LegalContainer {
+  margin: 48px 0 0 0;
+  // TODO: replace font
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+  color: #152E4A;
+  @include brpoint.size(sm) {
+
+  }
+
+  li {
+    margin: 0 0 24px 0;
+  }
+}
+
+.CopyrightContainer {
+  margin: 70px 0 0 0;
+  // TODO: replace font
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #152E4A;
+  @include brpoint.size(sm) {
+
+  }
+}

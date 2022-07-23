@@ -1,0 +1,37 @@
+@mixin goudy {
+  font-family: 'goudy-old-style', serif;
+}
+
+@mixin goudy-regular {
+  @include goudy;
+  font-weight: 400;
+}
+
+@mixin reckless {
+  font-family: 'Reckless-Neue', serif;
+}
+
+@mixin reckless-bold-italic {
+  @include reckless;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@mixin akkurat {
+  font-family: 'AkkuratLL', Helvetica, sans-serif;
+}
+
+@mixin akkurat-black {
+  @include akkurat;
+  font-weight: 900;
+}
+
+@mixin akkurat-bold {
+  @include akkurat;
+  font-weight: 700;
+}
+
+@mixin akkurat-regular {
+  @include akkurat;
+  font-weight: 400;
+}

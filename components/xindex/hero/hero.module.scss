@@ -1,0 +1,78 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_fonts.scss';
+@use 'styles/abstracts/_colors.scss';
+@use 'styles/abstracts/_brpoint.scss';
+
+.Container {
+  margin-top: 10px;
+
+  @include brpoint.size(sm) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(2, max-content);
+    gap: 33px 24px;
+  }
+
+  @include brpoint.size(md) {
+    margin-top: 136px;
+  }
+
+  @include brpoint.size(lg) {
+    margin-top: 120px;
+  }
+
+  @include brpoint.size(xl) {
+    margin-top: 50px;
+  }
+
+  .Headline {
+    grid-column: 1 / span 12;
+    grid-row-start: 1;
+    @include fonts.goudy-regular;
+    @include typeface.hero;
+    color: colors.$text-headline;
+    position: relative;
+
+    @include brpoint.size(hero) {
+      margin: 0;
+      width: auto;
+    }
+
+    span {
+      @include fonts.reckless-bold-italic;
+      @include typeface.hero-span;
+      position: relative;
+    }
+
+    .HeadlinePart {
+      @include brpoint.size(md) {
+        position: absolute;
+        bottom: -100px;
+        right: 13%;
+      }
+
+      @include brpoint.size(lg) {
+        right: 20%;
+        bottom: -130px;
+      }
+    }
+  }
+  .Description {
+    grid-column: 1 / span 10;
+    grid-row-start: 2;
+    @include typeface.p1;
+    color: colors.$text-paragraph;
+    margin-top: 24px;
+
+    @include brpoint.size(sm) {
+      margin-top: 0;
+    }
+    @include brpoint.size(md) {
+      grid-column-end: span 6;
+    }
+
+    @include brpoint.size(lg) {
+      grid-column-end: span 5;
+    }
+  }
+}

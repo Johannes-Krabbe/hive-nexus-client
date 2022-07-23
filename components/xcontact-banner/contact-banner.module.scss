@@ -1,0 +1,76 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_fonts.scss';
+@use 'styles/abstracts/_colors.scss';
+@use 'styles/abstracts/_brpoint.scss';
+
+.Container {
+  display: flex;
+  justify-content: center;
+  margin: 65px auto 0px;
+  flex-flow: column;
+  @include brpoint.size(xl) {
+    flex-flow: row;
+    margin: 100px auto 0px;
+  }
+}
+
+.ContactDetails {
+  width: 100%;
+  padding: 0;
+  @include brpoint.size(xl) {
+    width: 50%;
+  }
+
+  h3 {
+    margin: 0;
+    @include fonts.akkurat-black;
+    font-size: 21px;
+    line-height: 28px;
+    color: colors.$text-headline;
+    @include brpoint.size(xl) {
+      font-size: 30px;
+      line-height: 25px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+      @include brpoint.size(xl) {
+        margin-bottom: 35px;
+      }
+    }
+  }
+}
+
+.Offices {
+  width: 100%;
+  display: flex;
+  margin-top: 32px;
+  @include brpoint.size(sm) {
+    margin-top: 40px;
+  }
+  @include brpoint.size(md) {
+    margin-top: 0;
+  }
+  @include brpoint.size(xl) {
+    width: 50%;
+  }
+}
+
+.Office {
+  width: 50%;
+  margin: 0;
+
+  h4 {
+    margin: 0 0 16px 0;
+    @include typeface.h2;
+    color: colors.$text-headline;
+    @include brpoint.size(md) {
+      margin: 0 0 29px 0;
+    }
+  }
+
+  p {
+    @include typeface.p1;
+    color: colors.$text-paragraph;
+  }
+}

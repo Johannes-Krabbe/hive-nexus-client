@@ -1,0 +1,230 @@
+/*
+ *
+ * INSTRUCTIONS
+ *
+ * Copy the Legal Disclaimer and the @font-faces statements to your regular CSS file.
+ * The font file(s) should be placed relative to the regular CSS file.
+ *
+ */
+
+/*
+ * Legal Disclaimer for Web licence
+ *
+ * Licence to use self-hosted webfonts for displaying dynamic text on specified website domains. Our package includes WOFF and WOFF2 font formats.
+ *
+ * Should the license page views limit be exceeded the license holder will be required to contact Lineto.com for an upgrade.
+ * 
+ * It is strictly prohibited to rename the font and to download or use these fonts in any other media. 
+ * 
+ * These Web fonts are licensed exclusively for the use on the following domain(s) and their subdomains:
+ *
+ * peaksandpies.com (monthly pageviews: <50K)
+ *
+ */
+
+/* complete */
+
+@font-face {
+  font-family: "AkkuratLLWeb-ThinItalic";
+  src: url("AkkuratLLWeb-ThinItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-ThinItalic";
+  src: url("AkkuratLLWeb-ThinItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Thin";
+  src: url("AkkuratLLWeb-Thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Thin";
+  src: url("AkkuratLLWeb-Thin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Light";
+  src: url("AkkuratLLWeb-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Light";
+  src: url("AkkuratLLWeb-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-LightItalic";
+  src: url("AkkuratLLWeb-LightItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-LightItalic";
+  src: url("AkkuratLLWeb-LightItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Regular";
+  src: url("AkkuratLLWeb-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Regular";
+  src: url("AkkuratLLWeb-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Bold";
+  src: url("AkkuratLLWeb-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Bold";
+  src: url("AkkuratLLWeb-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-BoldItalic";
+  src: url("AkkuratLLWeb-BoldItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-BoldItalic";
+  src: url("AkkuratLLWeb-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Black";
+  src: url("AkkuratLLWeb-Black.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Black";
+  src: url("AkkuratLLWeb-Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Italic";
+  src: url("AkkuratLLWeb-Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-Italic";
+  src: url("AkkuratLLWeb-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-BlackItalic";
+  src: url("AkkuratLLWeb-BlackItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLWeb-BlackItalic";
+  src: url("AkkuratLLWeb-BlackItalic.woff2") format("woff2");
+}
+
+
+/* subset */
+
+@font-face {
+  font-family: "AkkuratLLSub-ThinItalic";
+  src: url("AkkuratLLSub-ThinItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-ThinItalic";
+  src: url("AkkuratLLSub-ThinItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Thin";
+  src: url("AkkuratLLSub-Thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Thin";
+  src: url("AkkuratLLSub-Thin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Light";
+  src: url("AkkuratLLSub-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Light";
+  src: url("AkkuratLLSub-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-LightItalic";
+  src: url("AkkuratLLSub-LightItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-LightItalic";
+  src: url("AkkuratLLSub-LightItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Regular";
+  src: url("AkkuratLLSub-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Regular";
+  src: url("AkkuratLLSub-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Bold";
+  src: url("AkkuratLLSub-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Bold";
+  src: url("AkkuratLLSub-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-BoldItalic";
+  src: url("AkkuratLLSub-BoldItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-BoldItalic";
+  src: url("AkkuratLLSub-BoldItalic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Black";
+  src: url("AkkuratLLSub-Black.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Black";
+  src: url("AkkuratLLSub-Black.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Italic";
+  src: url("AkkuratLLSub-Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-Italic";
+  src: url("AkkuratLLSub-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-BlackItalic";
+  src: url("AkkuratLLSub-BlackItalic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "AkkuratLLSub-BlackItalic";
+  src: url("AkkuratLLSub-BlackItalic.woff2") format("woff2");
+}
+
+

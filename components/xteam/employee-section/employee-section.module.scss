@@ -1,0 +1,87 @@
+@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.Container {
+  width: 100%;
+  text-align: center;
+  margin: 40px auto 64px;
+  @include brpoint.size(md) {
+    margin: 40px auto 80px;
+  }
+  @include brpoint.size(md) {
+    margin: 48px auto 120px;
+  }
+  @include brpoint.size(lg) {
+    margin: 80px auto 120px;
+  }
+
+  .Ampersand {
+    font-family: 'AkkuratLL', sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 135%;
+    color: colors.$text-headline;
+    margin: 24px 0;
+    @include brpoint.size(sm) {
+      margin: 40px auto 24px;
+    }
+    @include brpoint.size(md) {
+      font-size: 90px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .Emojis {
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    white-space: pre-line;
+    br {
+      display: none;
+    }
+    @include brpoint.size(sm) {
+      br {
+        display: block;
+      }
+    }
+    @include brpoint.size(md) {
+      font-size: 32px;
+      line-height: 36px;
+    }
+  }
+
+  .Text {
+    margin: 24px auto;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 135%;
+    text-align: center;
+    color: colors.$text-paragraph;
+    @include brpoint.size(sm) {
+      font-size: 24px;
+    }
+    @include brpoint.size(md) {
+      font-size: 34px;
+      margin: 40px auto;
+    }
+    @include brpoint.size(lg) {
+      font-size: 38px;
+      margin: 40px auto;
+    }
+
+  }
+
+  .Employees {
+    @include brpoint.size(md) {
+      width: 80%;
+    }
+  }
+
+  .JobDescriptions {
+    @include brpoint.size(md) {
+      width: 90%;
+    }
+  }
+}

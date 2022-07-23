@@ -1,0 +1,155 @@
+@use './brpoint.scss';
+@use './fonts.scss';
+
+// Type scale - mobile
+$hero-size: 3.125rem; // 50px
+$hero-span-size: 2.625rem; // 42px
+$intro-size: 1.875rem; // 30px
+$subhead-size: .9375rem; // 18px
+$h1-size: 1.75rem; // 28px
+$h2-size: 1rem; // 16px
+$h3-size: .875rem; // 14px
+$p1-size: .938rem; // 15px
+$p2-size: .8125rem; // 13px
+
+// Type scale - desktop
+$hero-size-desktop: 9.5rem; // 152px
+$hero-span-size-desktop: 7.875rem; // 126px
+$intro-size-desktop: 2.375rem; // 38px
+$subhead-size-desktop: 1.125rem; // 18px
+$h1-size-desktop: 2.375rem; // 38px
+$h2-size-desktop: 1.3125rem; // 21px
+$h3-size-desktop: 1.125rem; // 18px
+$p1-size-desktop: 1.125rem; // 18px
+$p2-size-desktop: .875rem; // 14px
+
+@mixin hero {
+  @include fonts.goudy-regular;
+  font-size: $hero-size;
+  line-height: 110%;
+
+  @include brpoint.size(sm) {
+    font-size: 6rem;
+    line-height: 100%;
+  }
+  @include brpoint.size(md) {
+    font-size: 6.25rem;
+    line-height: 100%;
+  }
+  @include brpoint.size(lg) {
+    font-size: 126px;
+    line-height: 87%;
+  }
+  @include brpoint.size(hero) {
+    font-size: $hero-size-desktop;
+  }
+}
+
+@mixin hero-span {
+  @include fonts.reckless-bold-italic;
+  font-size: $hero-span-size;
+  line-height: 110%;
+  display: block;
+
+  & + br {
+    display: none;
+  }
+
+  @include brpoint.size(sm) {
+    font-size: 5rem;
+    line-height: 110%;
+  }
+  @include brpoint.size(md) {
+    font-size: 6.25rem;
+    line-height: 110%;
+    display: inline;
+    & + br {
+      display: block;
+    }
+  }
+  @include brpoint.size(lg) {
+    font-size: 126px;
+    line-height: 87%;
+  }
+  @include brpoint.size(hero) {
+    font-size: $hero-span-size-desktop;
+    line-height: 87%;
+  }
+}
+
+@mixin intro {
+  @include fonts.goudy-regular;
+  font-size: $intro-size;
+  line-height: 130%;
+
+  @include brpoint.size(md) {
+    font-size: $intro-size-desktop;
+  }
+}
+
+@mixin subhead {
+  @include fonts.goudy-regular;
+  font-size: $subhead-size;
+  line-height: 135%;
+
+  @include brpoint.size(md) {
+    font-size: $subhead-size-desktop;
+  }
+}
+
+@mixin h1 {
+  @include fonts.akkurat-black;
+  font-size: $h1-size;
+  line-height: 135%;
+
+  @include brpoint.size(md) {
+    font-size: $h1-size-desktop;
+  }
+}
+
+@mixin h2 {
+  @include fonts.akkurat-bold;
+  font-size: $h2-size;
+  line-height: 135%;
+
+  @include brpoint.size(md) {
+    font-size: $h2-size-desktop;
+  }
+}
+
+@mixin h3 {
+  @include fonts.akkurat-bold;
+  font-size: $h3-size;
+  line-height: 135%;
+
+  @include brpoint.size(md) {
+    font-size: $h3-size-desktop;
+  }
+}
+
+@mixin p1 {
+  @include fonts.akkurat-regular;
+  font-size: $p1-size;
+  line-height: 150%;
+
+  @include brpoint.size(md) {
+    font-size: $p1-size-desktop;
+  }
+}
+
+@mixin p2 {
+  @include fonts.akkurat-bold;
+  font-size: $p2-size;
+  line-height: 150%;
+
+  @include brpoint.size(md) {
+    font-size: $p2-size-desktop;
+  }
+}
+
+@mixin p3 {
+  @include fonts.akkurat-regular;
+  font-size: 12px;
+  line-height: 150%;
+}
+

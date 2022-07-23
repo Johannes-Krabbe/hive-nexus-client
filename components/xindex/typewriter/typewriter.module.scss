@@ -1,0 +1,29 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+@use 'styles/abstracts/_brpoint.scss';
+
+.Container {
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid colors.$grey;
+}
+
+.Display {
+  width: 100%;
+  margin: 0 auto;
+  @include typeface.intro;
+  color: colors.$text-paragraph;
+  text-align: center;
+  padding: 16px 0;
+
+  @include brpoint.size(md) {
+    padding: 24px 46px;
+  }
+  @include brpoint.size(xl) {
+    padding-top: 0;
+  }
+
+  .Typewriter__cursor {
+    color: colors.$green
+  }
+}

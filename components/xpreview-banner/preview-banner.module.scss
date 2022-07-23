@@ -1,0 +1,35 @@
+.Preview {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  background-color: #ededed;
+
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.Preview-button {
+  background-color: #152E4A;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  min-width: 115px;
+  height: 40px;
+  outline: none;
+  border: 1px solid #152E4A;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 350ms ease;
+  display: flex;
+}
+
+.hidden {
+  display: none;
+}

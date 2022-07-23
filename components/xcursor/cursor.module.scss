@@ -1,0 +1,38 @@
+.cursor {
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.15s ease;
+  width: 200px;
+  height: 200px;
+  background: #FFD2BA;
+  opacity: 0.8;
+  filter: blur(50px);
+  z-index: 3;
+  cursor: none;
+}
+.cursor::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border: 2px solid blue;
+  border-radius: 50%;
+  opacity: .5;
+}
+@keyframes cursorAnim {
+  0% {
+    transform: translate(50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(50%, -50%) scale(20);
+  }
+  100% {
+    transform: translate(50%, -50%) scale(3);
+    opacity: 1;
+  }
+}
+.expand {
+  // animation: cursorAnim .5s forwards;
+}

@@ -1,0 +1,42 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.input {
+  position: relative;
+  caret-color: colors.$green;
+
+  .label {
+    font-weight: 400;
+    @include typeface.p3;
+    color: colors.$input-blue;
+    position: absolute;
+    inset: 30px 24px;
+    transition: all .15s ease-in-out;
+  }
+
+  .field {
+    width: 100%;
+    padding: 30px 24px;
+    background-color: colors.$background;
+    border: none;
+    border-radius: 8px;
+    @include typeface.p1;
+    color: colors.$text-paragraph;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &.active {
+    .label {
+      color: colors.$input-blue;
+      top: 16px;
+    }
+
+    .field {
+      padding-top: 42px;
+      padding-bottom: 18px;
+    }
+  }
+}

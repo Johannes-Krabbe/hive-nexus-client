@@ -1,0 +1,12 @@
+@use 'styles/abstracts/_brpoint.scss';
+
+.JobsList {
+  width: 100%;
+  margin: 32px 0;
+  @include brpoint.size(sm) {
+    margin: 48px 0;
+  }
+  @include brpoint.size(lg) {
+    margin: 80px 0;
+  }
+}
