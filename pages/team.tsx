@@ -1,10 +1,12 @@
-import Hero from '../components/core/hero/hero'
+import type { NextPage } from 'next'
+
+import Hero from '../components/core/hero/hero';
 // import ManagersSection from '../components/team/manager-section/manager-section'
 // import EmployeeSection from "../components/team/employee-section/employee-section";
 // import ButtonSection from "../components/button-section/button-section";
 // import {getClient, overlayDrafts} from "../lib/sanity.server";
 // import {usePreview} from "../lib/hooks/usePreview";
-import styles from '../components/core/layout/index.module.scss'
+import styles from '../components/core/layout/index.module.scss';
 
 // export async function getStaticProps({preview = false}) {
 //     const query = `*[_type == "team"]{
@@ -46,7 +48,7 @@ const Team: NextPage = () => {
 		<>
 			<Hero
 				headline={headline}
-				subheadline={subHeadline}/>
+				subHeadline={subHeadline}/>
 			<div className={styles.Container}>
 				Team Page Coming Here
 			</div>

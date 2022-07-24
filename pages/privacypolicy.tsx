@@ -1,10 +1,10 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 
-import Hero from '../components/core/hero/hero'
+import Hero from '../components/core/hero/hero';
 // import ContentBlock from '../components/legal/content-block/content-block';
 // import { getClient, overlayDrafts } from '../lib/sanity.server'
 // import { usePreview } from '../lib/hooks/usePreview'
-import styles from '../components/core/layout/index.module.scss'
+import styles from '../components/core/layout/index.module.scss';
 
 // export async function getStaticProps({ preview = false }) {
 //   const query = `*[_type == "privacypolicy"]{
@@ -48,7 +48,7 @@ const PrivacyPolicy: NextPage = () => {
 		<>
 			<Hero
 				headline={headline}
-				subheadline={subHeadline}/>
+				subHeadline={subHeadline}/>
 			<div className={styles.Container}>
 				PrivacyPolicy Page Coming Here
 			</div>

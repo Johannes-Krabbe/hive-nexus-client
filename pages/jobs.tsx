@@ -1,12 +1,12 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 
-import Hero from '../components/core/hero/hero'
+import Hero from '../components/core/hero/hero';
 // import JobsList from "../components/jobs/jobs-list/jobs-list"
 // import ButtonSection from "../components/button-section/button-section"
 // import IntroductionTextBox from '../components/jobs/introduction-text-box/introduction-text-box'
 // import { getClient, overlayDrafts } from '../lib/sanity.server'
 // import { usePreview } from '../lib/hooks/usePreview'
-import styles from '../components/core/layout/index.module.scss'
+import styles from '../components/core/layout/index.module.scss';
 
 // export async function getStaticProps({ preview = false }) {
 //   const query = `*[_type == "jobs"]{
@@ -48,7 +48,7 @@ const Jobs: NextPage = () => {
 		<>
 			<Hero
 				headline={headline}
-				subheadline={subHeadline}/>
+				subHeadline={subHeadline}/>
 			<div className={styles.Container}>
 				Jobs Page Coming Here
 			</div>

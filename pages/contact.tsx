@@ -48,7 +48,7 @@ const Contact: NextPage = () => {
     <>
   	  <Hero
     	  headline={headline}
-        subheadline={subHeadline}/>
+        subHeadline={subHeadline}/>
         <div className={styles.Container}>
       	  Contact Page Coming Here
         </div>

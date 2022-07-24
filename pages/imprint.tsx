@@ -46,7 +46,7 @@ const Imprint: NextPage = () => {
 		<>
 			<Hero
 				headline={headline}
-				subheadline={subHeadline}/>
+				subHeadline={subHeadline}/>
 			<div className={styles.Container}>
 				Imprint Page Coming Here
 			</div>
