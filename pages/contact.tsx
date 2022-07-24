@@ -1,3 +1,5 @@
+import type { NextPage } from 'next'
+
 import Hero from '../components/core/hero/hero'
 // import ContactBanner from '../components/contact-banner/contact-banner'
 // import ContactForm from '../components/contact/contact-form/contact-form'

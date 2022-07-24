@@ -27,8 +27,8 @@ const Layout = ({children}: Props) => {
 
 	return (
 		<>
-			<NavBar />
-      <CustomHead title={headTitle}/>
+		<NavBar />
+		<CustomHead title={headTitle}/>
 			<main className="container">
 				{children}
 			</main>

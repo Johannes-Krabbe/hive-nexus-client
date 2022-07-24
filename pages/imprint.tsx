@@ -1,3 +1,5 @@
+import type { NextPage } from 'next'
+
 import Hero from '../components/core/hero/hero'
 // import ContentBlock from '../components/legal/content-block/content-block';
 // import { getClient, overlayDrafts } from '../lib/sanity.server'

@@ -1,3 +1,5 @@
+import type { NextPage } from 'next'
+
 import Hero from '../components/core/hero/hero'
 // import JobsList from "../components/jobs/jobs-list/jobs-list"
 // import ButtonSection from "../components/button-section/button-section"
