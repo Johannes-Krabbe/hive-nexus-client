@@ -1,6 +1,6 @@
 @use '../../../styles/abstracts/brpoint';
 
-.Container {
+.container {
   width: calc(100% - 48px);
   margin: 0 auto;
 
@@ -20,15 +20,55 @@
     max-width: 1440px;
   }
 
-  & > section:not(:last-child) {
-    margin-bottom: 40px;
+  & > section:not([class*="typewriter"]) {
+    padding-bottom: 24px;
+
+    &:not(:first-child) {
+      padding-top: 24px;
+    }
+
+    @include brpoint.size(sm) {
+      padding-bottom: 32px;
+
+      &:not(:first-child) {
+        padding-top: 32px;
+      }
+    }
+
+    @include brpoint.size(md) {
+      padding-bottom: 64px;
+
+      &:not(:first-child) {
+        padding-top: 64px;
+      }
+    }
 
     @include brpoint.size(lg) {
-      margin-bottom: 120px;
+      padding-bottom: 80px;
+
+      &:not(:first-child) {
+        padding-top: 80px;
+      }
+    }
+  }
+
+  & > section {
+    margin-bottom: 48px;
+
+    @include brpoint.size(sm) {
+      margin-bottom: 54px;
+    }
+
+    @include brpoint.size(md) {
+      margin-bottom: 48px;
+    }
+
+    @include brpoint.size(lg) {
+      margin-bottom: 80px;
     }
 
     @include brpoint.size(xl) {
-      margin-bottom: 200px;
+      margin-bottom: 120px;
     }
   }
 }

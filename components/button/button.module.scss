@@ -1,7 +1,8 @@
 @use 'styles/abstracts/_brpoint.scss';
 @use 'styles/abstracts/_colors.scss';
 
-.cta {
+.Button {
+  width: 220px;
   padding: 16px 40px;
   margin: 24px 0 0 0;
   border-radius: 60px;
@@ -12,6 +13,7 @@
   display: inline-block;
   border: 1px solid transparent;
   transition: border .5ms ease-in-out;
+
   @include brpoint.size(md) {
     margin: 32px 0 0 0;
     font-size: 16px;
@@ -25,6 +27,7 @@
   &.primary {
     background-color: colors.$green;
     color: colors.$text-headline;
+
     &:hover {
       border: 1px solid colors.$green;
     }
@@ -32,6 +35,7 @@
 
   &.secondary {
     background-color: #86C1FF;
+
     &:hover {
       border-color: #86C1FF;
     }
@@ -40,10 +44,12 @@
   &.dark {
     background-color: colors.$text-headline;
     color: #FFFFFF;
+
     &:hover {
       border: 1px solid colors.$text-headline;
     }
   }
+
   &:active {
     transform: scale(.95);
   }

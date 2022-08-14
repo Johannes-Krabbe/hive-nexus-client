@@ -1,6 +1,6 @@
 @use 'styles/abstracts/_brpoint.scss';
 
-\* {
+* {
   box-sizing: border-box;
 }
 
@@ -14,7 +14,16 @@ html, body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
   font-family: "AkkuratLL", Helvetica, sans-serif;
+
+  &.lock-scroll {
+    overflow-y: hidden;
+
+    @include brpoint.size(md) {
+      overflow-y: visible;
+    }
+  }
 }
 
 h1,
@@ -25,10 +34,11 @@ p {
 }
 
 body {
-  padding-top: 58px;
+  position: relative;
+  padding-top: 58.25px;
 
-  @include brpoint.size(sm) {
-    padding-top: 89px;
+  @include brpoint.size(md) {
+    padding-top: 90px;
   }
 }
 

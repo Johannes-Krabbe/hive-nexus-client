@@ -1,23 +1,27 @@
 @use 'styles/abstracts/_brpoint.scss';
 
-.Container {
+.container {
   width: 100%;
   margin-top: 56px;
   margin-bottom: 56px;
   display: flex;
   justify-content: flex-end;
+
   @include brpoint.size(sm) {
     margin-top: 48px;
     margin-bottom: 72px;
   }
+
   @include brpoint.size(md) {
     margin-top: 83px;
     margin-bottom: 82px;
   }
+
   @include brpoint.size(lg) {
     margin-top: 115px;
     margin-bottom: 111px;
   }
+
   @include brpoint.size(xl) {
     margin-bottom: 104px;
   }
@@ -25,21 +29,30 @@
 
 .FormWrapper {
   width: 100%;
-  @include brpoint.size(sm) {
-    width: 50%;
+
+  @include brpoint.size(md) {
+    max-width: 513px;
+  }
+
+  @include brpoint.size(lg) {
+    max-width: 597px;
+  }
+
+  @include brpoint.size(xl) {
+    max-width: 830px;
   }
 }
 
 .Form {
-  width: 80%;
   display: flex;
   flex-direction: column;
 
-  & > div {
-    margin-bottom: 24px;
+  & > div:not(:last-child) {
+    margin-bottom: 16px;
   }
 
-  input[class^="Button_cta"] {
+  [class^="button-standard_cta"],
+  [class^="button-icon_cta"] {
     margin-top: 40px;
   }
 }
