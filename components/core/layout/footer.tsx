@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 
 import styles from './footer.module.scss'
-// import styles from './'
 
 type Props = {
 	// children: ReactNode;
@@ -62,11 +61,11 @@ const Footer = () => {
 						{menuItems.map((item, idx) => (
 							<li key={idx}>
 								{item.path ===  currentPath ?
-									<div className={styles.Link} onClick={scrollToTop}>
+									<div onClick={scrollToTop}>
 										<a>{item.name}</a>
-											</div>
+									</div>
 									:
-									<Link className={styles.Link} href={item.path}>
+									<Link href={item.path}>
 										<a>{item.name}</a>
 									</Link>
 								}
