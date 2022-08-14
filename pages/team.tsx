@@ -41,15 +41,15 @@ const Team: NextPage = () => {
   // usePreview(preview)
 
 	const headline = 'Teamheadline'
-	const subHeadline = 'TeamsubHeadline'
+	const subheadline = 'Teamsubheadline'
 
 
   return (
 		<>
 			<Hero
 				headline={headline}
-				subHeadline={subHeadline}/>
-			<div className={styles.Container}>
+				subheadline={subheadline}/>
+			<div className={styles.container}>
 				Team Page Coming Here
 			</div>
 			{/* {sections.map(section => {

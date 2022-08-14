@@ -4,7 +4,7 @@ import styles from '../components/core/layout/index.module.scss'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.Container}>
+    <div className={styles.container}>
       Home Page Coming Here
       {/* {sections.map((section) => {
         switch (section._type) {

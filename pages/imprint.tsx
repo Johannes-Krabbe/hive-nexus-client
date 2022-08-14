@@ -39,15 +39,15 @@ const Imprint: NextPage = () => {
   // usePreview(preview)
 
 	const headline = 'ImprintHeadline'
-	const subHeadline = 'ImprintSubHeadline'
+	const subheadline = 'Imprintsubheadline'
 
 
   return (
 		<>
 			<Hero
 				headline={headline}
-				subHeadline={subHeadline}/>
-			<div className={styles.Container}>
+				subheadline={subheadline}/>
+			<div className={styles.container}>
 				Imprint Page Coming Here
 			</div>
       {/* {sections.map(section => {

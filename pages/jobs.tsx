@@ -41,15 +41,15 @@ const Jobs: NextPage = () => {
   // usePreview(preview)
 
 	const headline = 'JobsHeadline'
-	const subHeadline = 'JobsSubHeadline'
+	const subheadline = 'Jobssubheadline'
 
 
   return (
 		<>
 			<Hero
 				headline={headline}
-				subHeadline={subHeadline}/>
-			<div className={styles.Container}>
+				subheadline={subheadline}/>
+			<div className={styles.container}>
 				Jobs Page Coming Here
 			</div>
       {/* {sections.map(section => {

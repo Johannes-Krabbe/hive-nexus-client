@@ -41,15 +41,15 @@ const PrivacyPolicy: NextPage = () => {
   // usePreview(preview)
 
 	const headline = 'PrivacyHeadline'
-	const subHeadline = 'PrivacySubHeadline'
+	const subheadline = 'Privacysubheadline'
 
 
   return (
 		<>
 			<Hero
 				headline={headline}
-				subHeadline={subHeadline}/>
-			<div className={styles.Container}>
+				subheadline={subheadline}/>
+			<div className={styles.container}>
 				PrivacyPolicy Page Coming Here
 			</div>
 	</>
