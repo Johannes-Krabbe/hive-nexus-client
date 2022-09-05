@@ -4,15 +4,10 @@ import { useState } from "react";
 import Link from 'next/link'
 import Image from 'next/image'
 
-import Close from '.././../../public/assets/images/core/close.svg'
-import Burger from '.././../../public/assets/images/core/burger.svg'
-
-// import { PreviewBanner } from '../../../preview-banner/preview-banner'
-// import { usePreviewContext } from '../../../../context/preview'
+import Close from '/public/assets/images/core/close.svg'
+import Burger from '/public/assets/images/core/burger.svg'
 
 const NavBar = () => {
-  // const [preview] = usePreviewContext()
-
   const [active, setActive] = useState(false)
   const toggle = () => setActive((active) => !active)
 
@@ -40,6 +35,7 @@ const NavBar = () => {
       <div className={styles.wrapper}>
         <div className={styles.brand}>
           <Link href="/">
+            {/* TODO: Logo */}
             {/* <Image alt="pp-logo" src={Logo} /> */}
             Logo Coming Here
           </Link>
@@ -59,7 +55,6 @@ const NavBar = () => {
           </ul>
         </nav>
       </div>
-      {/* { preview && <PreviewBanner/> } */}
     </header>
 	);
 }
