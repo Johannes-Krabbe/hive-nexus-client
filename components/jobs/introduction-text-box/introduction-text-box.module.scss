@@ -4,9 +4,11 @@
 
 .container {
   margin: 48px auto;
+
   @include brpoint.size(sm) {
     margin: 56px auto 48px;
   }
+  
   @include brpoint.size(md) {
     margin: 90px auto 80px;
   }
@@ -14,6 +16,7 @@
 
 .textBox {
   color: colors.$text-paragraph;
+
   @include typeface.intro;
 
   @include brpoint.size(md) {

@@ -5,9 +5,11 @@
 
 .Container {
   margin: 0 -24px;
+
   @include brpoint.size(md) {
     margin: 0 auto;
   }
+  
   .Headline {
     @include typeface.intro;
     color: colors.$text-paragraph;

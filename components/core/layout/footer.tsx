@@ -3,39 +3,40 @@ import Link from 'next/link'
 
 import styles from './footer.module.scss'
 
-type Props = {
-	// children: ReactNode;
-};
+// TODO: Props
+// type Props = {
+// 	// children: ReactNode;
+// };
 
 const Footer = () => {
 	const menuItems = [
 		{
-				name: "start",
-				path: "/"
+			name: "start",
+			path: "/"
 		},
 		{
-				name: "team",
-				path: "/team",
+			name: "team",
+			path: "/team",
 		},
 		{
-				name: "jobs",
-				path: "/jobs",
+			name: "jobs",
+			path: "/jobs",
 		},
 		{
-				name: "kontakt",
-				path: "/contact",
+			name: "kontakt",
+			path: "/contact",
 		}
 	]
 
 	const legalItems = [
-			{
-					name: "Datenschutzerklärung",
-					path: "/privacypolicy"
-			},
-			{
-					name: "Impressum",
-					path: "/imprint",
-			}
+		{
+			name: "Datenschutzerklärung",
+			path: "/privacypolicy"
+		},
+		{
+			name: "Impressum",
+			path: "/imprint",
+		}
 	]
 
 	const scrollToTop = () => {
@@ -49,7 +50,6 @@ const Footer = () => {
 	const router = useRouter()
 	const currentPath = router.pathname
 
-	// const classNames = `${styles.Footer} ${styles[type]}`
 	const classNames = `${styles.Footer}`
 	const currentYear = new Date().getFullYear()
 
