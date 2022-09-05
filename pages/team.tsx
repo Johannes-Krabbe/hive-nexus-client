@@ -1,68 +1,59 @@
 import type { NextPage } from 'next'
 
-import Hero from '../components/core/hero/hero';
-// import ManagersSection from '../components/team/manager-section/manager-section'
-// import EmployeeSection from "../components/team/employee-section/employee-section";
-// import ButtonSection from "../components/button-section/button-section";
-// import {getClient, overlayDrafts} from "../lib/sanity.server";
-// import {usePreview} from "../lib/hooks/usePreview";
+import { Hero } from '../components/core/hero/hero';
+import { ManagerSection } from '../components/team/manager-section/manager-section'
+import { EmployeeSection } from "../components/team/employee-section/employee-section";
+
 import styles from '../components/core/layout/index.module.scss';
 
-// export async function getStaticProps({preview = false}) {
-//     const query = `*[_type == "team"]{
-//     ...,
-//     "sections": sections[]{
-//       ...,
-//       "buttons": buttons[]{
-//         ...,
-//         link->
-//       }
-//     }
-//   }`
-//     const data = overlayDrafts(await getClient(preview).fetch(query))
-//     return {
-//         props: {
-//             preview: preview,
-//             data,
-//             revalidate: 10
-//         }
-//     }
-// }
-
 const Team: NextPage = () => {
-
-	// const {preview, data} = props
-  // const {
-  //   headline,
-  //   subheadline,
-  //   sections
-  // } = data[0]
-
-  // usePreview(preview)
-
 	const headline = 'Teamheadline'
 	const subheadline = 'Teamsubheadline'
 
+	const managers = [{
+		'name': 'Maria',
+		'position': 'Boss',
+		'department': 'Pflege',
+		'imageUrl': '/assets/images/employees/placeholder.png',
+	},
+	{
+		'name': 'Sinan',
+		'position': 'Chef Stv.',
+		'department': 'Aussendienst',
+		'imageUrl': '/assets/images/employees/placeholder.png',
+	}]
 
-  return (
+	const employeeNames = [
+		'Alex',
+		'Clara',
+		'Helene',
+		'Peter',
+		'Fritz',
+		'Sandra'
+	]
+
+	const jobTitles = [
+		'Chämifeger',
+		'Pfleger',
+		'Assistent',
+		'Webentwickler',
+		'Putzequipe'
+	]
+
+	return (
 		<>
 			<Hero
 				headline={headline}
 				subheadline={subheadline}/>
 			<div className={styles.container}>
-				Team Page Coming Here
+				<ManagerSection
+					managers={managers}
+					/>
+				<EmployeeSection
+					employeeNames={employeeNames}
+					jobTitles={jobTitles}
+					/>
 			</div>
-			{/* {sections.map(section => {
-					switch (section._type) {
-							case 'ceoSection':
-									return <div className={styles.Container}><ManagersSection key={section._key} managers={section.ceos}/></div>
-							case 'employeeSection':
-									return <div className={styles.Container}><EmployeeSection key={section._key} employees={section.employees}
-																																						jobDescriptions={section.jobDescriptions}/></div>
-							case 'buttonSection':
-									return <ButtonSection key={section._key} buttons={section.buttons}/>
-					}
-			})} */}
 	</>
   )
 }

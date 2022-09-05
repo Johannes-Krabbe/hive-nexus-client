@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from '../../button/button'
 import TextInput from "./text-input/text-input";
 import TextAreaInput from './text-area-input/text-area-input';
-// import CheckboxInput from "../checkbox-input/checkbox-input";
+import { CheckboxInput } from "./checkbox-input/checkbox-input";
 
 import styles from './contact-form.module.scss'
 
@@ -13,9 +13,8 @@ interface FormPost {
 	text?: string;
 }
 
-const ContactForm = () => {
+export const ContactForm = () => {
 	// TODO: URL endpoint to send formdata
-
 	const encode = (data: any) => {
     return Object.keys(data)
         .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -47,24 +46,63 @@ const ContactForm = () => {
           <div className={styles.FormWrapper}>
               {/* TODO: action */}
               {	(!submitted) &&
-								<form id="ContactForm" name="Contact" className={styles.Form} onSubmit={submitFormData} method="post">
-                  <TextInput id="firstname" inputType="text" name="firstname" placeholder="First Name" pattern="^(\D+)$" errorMessage={textInputErrorMessage} title={textInputErrorMessage}/>
-                  <TextInput id="lastname" inputType="text" name="lastname" placeholder="Last Name" pattern="^(\D+)$" errorMessage={textInputErrorMessage} title={textInputErrorMessage}/>
-                  <TextInput id="email" inputType="email" name="email" placeholder="Email" pattern="\S+@\S+\.\S+" errorMessage={mailInputErrorMessage} title={mailInputErrorMessage}/>
-                  <TextAreaInput id="message" formName="ContactForm" name="message" placeholder="Ihre Nachricht" errorMessage={messageInputErrorMessage} title={messageInputErrorMessage}/>
-                  {/* <CheckboxInput id="privacy" name="privacy" value="privacyAccepted" label="Ich habe die Datenschutzerklärung zur Kenntnis genommen"/> */}
-
+								<form
+									id="ContactForm"
+									name="Contact"
+									className={styles.Form}
+									onSubmit={submitFormData}
+									method="post"
+									>
+                  <TextInput
+										id="firstname"
+										inputType="text"
+										name="firstname"
+										placeholder="First Name"
+										pattern="^(\D+)$"
+										errorMessage={textInputErrorMessage}
+										title={textInputErrorMessage}
+										/>
+                  <TextInput
+										id="lastname"
+										inputType="text"
+										name="lastname"
+										placeholder="Last Name"
+										pattern="^(\D+)$"
+										errorMessage={textInputErrorMessage}
+										title={textInputErrorMessage}
+										/>
+                  <TextInput
+										id="email"
+										inputType="email"
+										name="email"
+										placeholder="Email"
+										pattern="\S+@\S+\.\S+"
+										errorMessage={mailInputErrorMessage}
+										title={mailInputErrorMessage}
+										/>
+                  <TextAreaInput
+										id="message"
+										formName="ContactForm"
+										name="message"
+										placeholder="Ihre Nachricht"
+										errorMessage={messageInputErrorMessage}
+										title={messageInputErrorMessage}
+										/>
+                  <CheckboxInput
+										id="privacy"
+										name="privacy"
+										value="privacyAccepted"
+										label="Ich habe die Datenschutzerklärung zur Kenntnis genommen"
+										/>
                   {/* TODO: onclick */}
                   <Button
 										action='submit'
 										variant='primary'
                     text='Senden'
-                  />
+										/>
                 </form>}
 								{ submitted && <h5>Thanks for submitting!</h5>}
             </div>
         </div>
     )
 }
-
-export default ContactForm;

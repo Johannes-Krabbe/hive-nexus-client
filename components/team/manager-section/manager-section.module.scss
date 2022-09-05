@@ -1,14 +1,16 @@
 @use 'styles/abstracts/_brpoint.scss';
 
-.TeamSection {
+.teamSection {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   margin: 32px auto 0;
+
   @include brpoint.size(sm) {
     margin: 40px auto 0;
   }
+  
   @include brpoint.size(md) {
     margin: 48px auto 0;
   }

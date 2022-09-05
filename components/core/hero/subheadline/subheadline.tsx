@@ -1,10 +1,10 @@
 import styles from './subheadline.module.scss'
 
-const Subheadline = props => {
-	const {
-    subheadline = ''
-  } = props
+interface Props {
+	subheadline: string
+};
 
+export const Subheadline = ({subheadline}: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
@@ -17,6 +17,4 @@ const Subheadline = props => {
       </div>
     </div>
   )
-}
-
-export default Subheadline	
+};

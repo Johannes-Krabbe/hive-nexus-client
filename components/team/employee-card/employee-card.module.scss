@@ -1,20 +1,23 @@
 @use 'styles/abstracts/_brpoint.scss';
 
-.Card {
+.card {
   width: calc(50% - 8px);
   margin-right: 16px;
   margin-bottom: 16px;
+
   &:nth-child(even) {
     margin-right: 0;
     @include brpoint.size(sm) {
       margin-right: 24px;
     }
   }
+
   &:last-child {
     @include brpoint.size(sm) {
       margin-right: 0;
     }
   }
+
   @include brpoint.size(sm) {
     width: calc(25% - 18px);
     margin-right: 24px;
@@ -36,14 +39,14 @@
     }
   }
 
-  .LabelContainer {
+  .labelContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 24px 0 0 0;
 
-    .Name {
+    .name {
       // TODO: replace font with variable
       margin: 0;
       padding: 0 0 8px 0;
@@ -59,7 +62,7 @@
       }
     }
 
-    .Details {
+    .details {
       // TODO: replace font with variable
       margin: 0;
       font-family: 'Goudy Old Style', serif;

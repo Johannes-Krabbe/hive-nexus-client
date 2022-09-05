@@ -1,20 +1,16 @@
 import React from 'react';
 
+import { Headline } from './headline/headline'
+import { Subheadline } from './subheadline/subheadline'
+
 import styles from './hero.module.scss'
 import indexStyles from '../layout/index.module.scss'
-
-import Headline from './headline/headline'
-import Subheadline from './subheadline/subheadline'
-
 interface Props {
-	headline: string;
-  subheadline: string;
+	headline: string
+  subheadline: string
 };
 
-const Hero: React.FC<Props> = ({
-  headline,
-  subheadline
-}) => {
+export const Hero = ({headline, subheadline}: Props) => {
   return (
     <div className={styles.Hero}>
       <div className={indexStyles.Container}>
@@ -24,5 +20,3 @@ const Hero: React.FC<Props> = ({
     </div>
   )
 };
-
-export default Hero;

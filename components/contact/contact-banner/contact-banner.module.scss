@@ -18,78 +18,80 @@
     flex-flow: row;
     margin: 100px auto 0;
   }
-}
 
-.ContactDetails {
-  width: 100%;
-  padding: 0;
-
-  @include brpoint.size(xl) {
-    width: 50%;
-  }
-
-  a {
-    @include typeface.h1;
-    font-size: 21px;
-    color: colors.$text-headline;
-    margin: 0;
-    display: block;
-
-    @include brpoint.size(sm) {
-      @include typeface.h1
+  .contactDetails {
+    width: 100%;
+    padding: 0;
+  
+    @include brpoint.size(xl) {
+      width: 50%;
     }
-
-    &:not(:last-child) {
-      margin-bottom: 16px;
-
+  
+    a {
+      @include typeface.h1;
+      font-size: 21px;
+      color: colors.$text-headline;
+      margin: 0;
+      display: block;
+  
       @include brpoint.size(sm) {
-        margin-bottom: 24px;
+        @include typeface.h1
       }
-
-      @include brpoint.size(md) {
-        margin-bottom: 32px;
+  
+      &:not(:last-child) {
+        margin-bottom: 16px;
+  
+        @include brpoint.size(sm) {
+          margin-bottom: 24px;
+        }
+  
+        @include brpoint.size(md) {
+          margin-bottom: 32px;
+        }
       }
     }
   }
-}
 
-.Offices {
-  width: 100%;
-  display: flex;
-  margin-top: 32px;
-  column-gap: 8px;
-
-  @include brpoint.size(sm) {
-    margin-top: 40px;
-  }
-  @include brpoint.size(md) {
-    margin-top: 0;
-  }
-  @include brpoint.size(xl) {
-    width: 50%;
-  }
-}
-
-.Office {
-  width: 50%;
-  margin: 0;
-
-  @include brpoint.size(md) {
-    margin-top: 18px;
-  }
-
-  h4 {
-    @include typeface.h2;
-    color: colors.$text-headline;
-    margin: 0 0 16px 0;
-
+  .offices {
+    width: 100%;
+    display: flex;
+    margin-top: 32px;
+    column-gap: 8px;
+  
+    @include brpoint.size(sm) {
+      margin-top: 40px;
+    }
+  
     @include brpoint.size(md) {
-      margin: 0 0 29px 0;
+      margin-top: 0;
     }
-  }
-
-  p {
-    @include typeface.p1;
-    color: colors.$text-paragraph;
+  
+    @include brpoint.size(xl) {
+      width: 50%;
+    }
+  
+    .office {
+      width: 50%;
+      margin: 0;
+      
+      @include brpoint.size(md) {
+        margin-top: 18px;
+      }
+      
+      h4 {
+        @include typeface.h2;
+        color: colors.$text-headline;
+        margin: 0 0 16px 0;
+      
+        @include brpoint.size(md) {
+          margin: 0 0 29px 0;
+        }
+      }
+      
+      p {
+        @include typeface.p1;
+        color: colors.$text-paragraph;
+      }
+    }
   }
 }

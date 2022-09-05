@@ -1,14 +1,13 @@
 import styles from './checkbox-input.module.scss'
-import {useState} from "react";
 
-const CheckboxInput = (props) => {
-  const {
-    id,
-    name,
-    value,
-    label
-  } = props
+interface Props {
+	id: string
+	name: string
+	value: string
+  label: string
+};
 
+export const CheckboxInput = ({id, name, value, label}: Props) => {
   return (
     <label className={styles.container} htmlFor={name}>
       {label}
@@ -24,5 +23,3 @@ const CheckboxInput = (props) => {
     </label>
   )
 }
-
-export default CheckboxInput

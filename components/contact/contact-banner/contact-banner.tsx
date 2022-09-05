@@ -1,10 +1,10 @@
 import data from '../../../lib/data/data.json'
 import styles from './contact-banner.module.scss'
 
-const ContactBanner = () => {
+export const ContactBanner = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.ContactDetails}>
+      <div className={styles.contactDetails}>
         <a href={`tel:${data.offices[1].phone}`}>
           {data.offices[1].phone}
         </a>
@@ -12,9 +12,9 @@ const ContactBanner = () => {
           {data.emails.general}
         </a>
       </div>
-      <div className={styles.Offices}>
+      <div className={styles.offices}>
         {data.offices.map((office) => (
-          <div key={office.street} className={styles.Office}>
+          <div key={office.street} className={styles.office}>
             <h4>
               {office.city}
             </h4>
@@ -30,5 +30,3 @@ const ContactBanner = () => {
     </div>
   )
 }
-
-export default ContactBanner

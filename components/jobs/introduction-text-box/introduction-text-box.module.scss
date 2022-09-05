@@ -2,7 +2,7 @@
 @use 'styles/abstracts/_colors.scss';
 @use 'styles/abstracts/_typeface.scss';
 
-.Container {
+.container {
   margin: 48px auto;
   @include brpoint.size(sm) {
     margin: 56px auto 48px;
@@ -10,18 +10,20 @@
   @include brpoint.size(md) {
     margin: 90px auto 80px;
   }
-
 }
 
-.TextBox {
+.textBox {
   color: colors.$text-paragraph;
   @include typeface.intro;
+
   @include brpoint.size(md) {
     width: calc(100% - 72px);
   }
+
   @include brpoint.size(lg) {
     width: calc(100% - 112px);
   }
+
   @include brpoint.size(xl) {
     width: calc(100% - 360px);
   }
