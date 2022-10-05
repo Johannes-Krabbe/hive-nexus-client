@@ -2,13 +2,14 @@
 @use 'styles/abstracts/_typeface.scss';
 @use 'styles/abstracts/_colors.scss';
 @use 'styles/abstracts/_br.scss';
+@use 'styles/abstracts/_bg-img-transition.scss';
 
-.Container {
+.container {
   display: flex;
   flex-flow: column;
-  transition: all .1s ease-in-out;
-  border-radius: 4px;
   position: relative;
+  border-radius: 4px;
+
   @include br.size(md) {
     align-items: center;
     justify-content: space-between;
@@ -29,7 +30,7 @@
   }
 
   &.green {
-    background-color: colors.$pink;
+    background: linear-gradient(264.27deg, #D3FF6F 0%, #9AFFDB 95.8%);
 
     h1 {
       color: colors.$text-headline;
@@ -37,6 +38,8 @@
 
     p {
       color: colors.$text-headline;
+      transition: color .3s ease-in-out;
+
       @include br.size(md) {
         color: colors.$text-paragraph;
       }
@@ -45,6 +48,8 @@
     svg {
       path {
         fill: colors.$text-headline;
+        transition: fill .3s ease-in-out;
+
         @include br.size(md) {
           fill: colors.$grey;
         }
@@ -52,10 +57,10 @@
     }
 
     @include br.size(md) {
-      background-color: transparent;
-      &:hover {
-        background-color: colors.$pink;
+      background: transparent;
+      @include bg-img-transition.from-to-duration(transparent, linear-gradient(264.27deg, #D3FF6F 0%, #9AFFDB 95.8%), .3s);
 
+      &:hover {
         h1 {
           color: colors.$text-headline;
         }
@@ -78,6 +83,8 @@
 
     h1 {
       color: white;
+      transition: color .3s ease-in-out;
+
       @include br.size(md) {
         color: colors.$text-headline;
       }
@@ -85,6 +92,8 @@
 
     p {
       color: white;
+      transition: color .3s ease-in-out;
+
       @include br.size(md) {
         color: colors.$text-paragraph;
       }
@@ -93,6 +102,8 @@
     svg {
       path {
         fill: white;
+        transition: fill .3s ease-in-out;
+
         @include br.size(md) {
           fill: colors.$grey;
         }
@@ -101,9 +112,9 @@
 
     @include br.size(md) {
       background: transparent;
-      &:hover {
-        background: linear-gradient(270deg, #FFD2BA 0%, rgba(39, 34, 251, 0.64) 100%);
+      @include bg-img-transition.from-to-duration(transparent, linear-gradient(270deg, #FFD2BA 0%, rgba(39, 34, 251, 0.64) 100%), .3s);
 
+      &:hover {
         h1 {
           color: white;
         }
@@ -146,10 +157,13 @@
     padding: 41px 64px;
   }
 
+  @include br.size(lg) {
+    padding: 41px 120px;
+  }
+
   @include br.size(xl) {
     padding: 41px 84px 41px 84px;
   }
-
 
   h1 {
     @include fonts.akkurat-black;
@@ -208,7 +222,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        transition: all ease-in-out 0.3s;
+        transition: all ease-in-out .3s;
       }
       width: 100%;
       height: 100%;

@@ -3,8 +3,9 @@
 @use 'styles/abstracts/_colors.scss';
 @use 'styles/abstracts/_br.scss';
 
-.Container {
+.container {
   padding-top: 40px;
+
   @include br.size(sm) {
     width: 100%;
     margin: 0 0 32px 0;
@@ -29,7 +30,7 @@
     padding-top: 0px;
   }
 
-  .Headline {
+  .headline {
     @include typeface.intro;
     color: colors.$text-paragraph;
     text-align: center;
@@ -45,16 +46,18 @@
     }
   }
 
-  .Tools {
+  .tools {
     & > a {
-
       margin-bottom: 16px;
+
       @include br.size(md) {
         border-bottom: 1px solid colors.$grey;
         margin-bottom: 0px;
+
         &:first-child {
           border-top: 1px solid colors.$grey;
         }
+
         &:hover {
           border-color: transparent;
         }

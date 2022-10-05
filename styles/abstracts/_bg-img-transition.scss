@@ -1,0 +1,32 @@
+@mixin from-to-duration( $bkg1, $bkg2, $transTime:.5s ){
+    position: relative;
+  
+    &:before,
+    &:after {
+      background-size: cover;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      transition: all $transTime ease-in-out;
+    }
+  
+    &:before {
+      z-index: -101;
+      background-image: $bkg1;
+    }
+  
+    &:after {
+      z-index: -100;
+      opacity: 0;
+      background-image: $bkg2;
+    }
+  
+    &:hover {
+      &:after{
+        opacity: 1;
+      }
+    }
+  }

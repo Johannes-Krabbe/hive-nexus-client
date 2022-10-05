@@ -1,18 +1,25 @@
-import styles from "./tool.module.scss";
-import c from "classnames";
 import Link from "next/link";
 
-const Tool = (props) => {
-  const { data } = props;
+import c from "classnames";
 
+import styles from "./tool.module.scss";
+
+interface Props {
+  name: string
+  description: string
+  href: string
+  hoverColor: 'green' | 'coral'
+}
+
+export const Tool = ({name, description, href, hoverColor}: Props) => {
   return (
-    <Link href={data.link}>
+    <Link href={href}>
       <a
-        className={c(styles.Container, styles[data.hoverColor.title])}
+        className={c(styles.container, styles[hoverColor])}
         target="_blank"
       >
-        <h1>{data.name}</h1>
-        <p>{data.description}</p>
+        <h1>{name}</h1>
+        <p>{description}</p>
         <div>
           <svg
             width="56"
@@ -31,5 +38,3 @@ const Tool = (props) => {
     </Link>
   );
 };
-
-export default Tool;
