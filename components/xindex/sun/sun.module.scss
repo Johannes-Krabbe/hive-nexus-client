@@ -1,0 +1,53 @@
+@use 'styles/abstracts/_br.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.container {
+	position: absolute;
+	width: 322.52px;
+	height: 322.52px;
+	right: -16.13px;
+	top: 120px;
+	border-radius: 50%;
+	opacity: 0.5;
+	filter: blur(40px);
+
+  @include br.size(sm) {
+    width: 500px;
+    height: 500px;
+    top: 130px;
+    filter: blur(50px);
+  }
+
+  @include br.size(md) {
+    width: 568px;
+    height: 568px;
+    right: -61px;
+    top: 138px;
+  }
+
+  @include br.size(lg) {
+    right: -32px;
+    top: 170px;
+    filter: blur(60px);
+  }
+
+  @include br.size(xl) {
+    width: 800px;
+    height: 800px;
+    left: calc(50% - 800px/2 + 550px);
+    top: 205px;
+    filter: blur(70px);
+  }
+
+  &.peach {
+    background: colors.$peach;
+  }
+
+  &.angular-pp {
+    background: colors.$angular-pp;
+  }
+
+  &.angular-purplepeach {
+    background: colors.$angular-purplepeach;
+  }
+}

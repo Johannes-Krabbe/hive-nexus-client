@@ -86,7 +86,7 @@ const Footer = () => {
 				</div>
 				<div className={styles.CopyrightContainer}>
 					<p>
-						&copy;{currentYear} Maria & Sinan GmbH
+						&copy;{currentYear} YOUNGCASE GmbH
 					</p>
 				</div>
 			</div>
