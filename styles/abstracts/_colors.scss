@@ -13,5 +13,8 @@ $input-blue: #7BB9FF;
 
 $linear-green: linear-gradient(264.27deg, #D3FF6F 0%, #9AFFDB 95.8%);
 $linear-purplepeach: linear-gradient(270deg, #FFD2BA 0%, rgba(39, 34, 251, 0.64) 100%);
-$angular-pp: conic-gradient(from 270deg at 50% 50%, #5BCEFF 0deg, rgba(54, 25, 230, 0.51) 360deg);
-$angular-purplepeach: conic-gradient(from 270deg at 50% 50%, #FFD2BA 0deg, rgba(54, 25, 230, 0.51) 360deg);
+
+
+$sun-peach: #FFD2BA;
+$sun-purplepeach: conic-gradient(from 270deg at 50% 50%, #FFD2BA 0deg, rgba(54, 25, 230, 0.51) 360deg);
+$sun-blue: conic-gradient(from 270deg at 50% 50%, #5BCEFF 0deg, rgba(54, 25, 230, 0.51) 360deg);

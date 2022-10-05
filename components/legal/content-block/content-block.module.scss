@@ -1,0 +1,19 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_fonts.scss';
+@use 'styles/abstracts/_colors.scss';
+@use 'styles/abstracts/_br.scss';
+
+.container {
+  margin: 32px 0 0 0;
+
+  .h2 {
+    @include typeface.h2;
+    color: colors.$text-headline;
+    margin: 0 auto 4px;
+  }
+  
+  .p2 {
+    @include typeface.p2;
+    color: colors.$text-paragraph;
+  }
+}

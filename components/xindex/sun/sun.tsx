@@ -1,7 +1,7 @@
 import styles from './sun.module.scss'
 
 interface Props {
-  color: 'peach' | 'angluar-pp' | 'angular-purplepeach'
+  color: 'sun-blue' | 'sun-peach' | 'sun-purplepeach'
 }
 
 export const Sun = ({color}: Props) => {

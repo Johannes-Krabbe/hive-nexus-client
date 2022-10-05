@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Sun
-        color={'angular-pp'}
+        color={'sun-blue'}
         />
       <Hero
         headline={headline}
