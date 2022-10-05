@@ -1,4 +1,4 @@
-@use './brpoint.scss';
+@use './br.scss';
 @use './fonts.scss';
 
 // Type scale - mobile
@@ -30,15 +30,15 @@ $button-size-desktop: 1rem; // 16px
   font-size: $hero-size;
   line-height: 110%;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     font-size: 6rem;
   }
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: 6.25rem;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     font-size: $hero-size-desktop;
     line-height: 105%;
   }
@@ -54,11 +54,11 @@ $button-size-desktop: 1rem; // 16px
     display: none;
   }
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     font-size: 6rem;
   }
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: 6.25rem;
     display: inline;
 
@@ -67,7 +67,7 @@ $button-size-desktop: 1rem; // 16px
     }
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     font-size: $hero-span-size-desktop;
     line-height: 105%;
   }
@@ -78,7 +78,7 @@ $button-size-desktop: 1rem; // 16px
   font-size: $intro-size;
   line-height: 130%;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: $intro-size-desktop;
   }
 }
@@ -88,7 +88,7 @@ $button-size-desktop: 1rem; // 16px
   font-size: $subhead-size;
   line-height: 135%;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: $subhead-size-desktop;
   }
 }
@@ -98,7 +98,7 @@ $button-size-desktop: 1rem; // 16px
   font-size: $h1-size;
   line-height: 135%;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: $h1-size-desktop;
   }
 }
@@ -108,7 +108,7 @@ $button-size-desktop: 1rem; // 16px
   font-size: $h2-size;
   line-height: 135%;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: $h2-size-desktop;
   }
 }
@@ -118,7 +118,7 @@ $button-size-desktop: 1rem; // 16px
   font-size: $h3-size;
   line-height: 135%;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: $h3-size-desktop;
   }
 }
@@ -128,7 +128,7 @@ $button-size-desktop: 1rem; // 16px
   font-size: $p1-size;
   line-height: 150%;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: $p1-size-desktop;
   }
 }
@@ -138,7 +138,7 @@ $button-size-desktop: 1rem; // 16px
   font-size: $p2-size;
   line-height: 150%;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: $p2-size-desktop;
   }
 }
@@ -154,7 +154,7 @@ $button-size-desktop: 1rem; // 16px
   font-size: $button-size;
   line-height: 1.1875;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: $button-size-desktop;
   }
 }

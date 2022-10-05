@@ -1,12 +1,12 @@
 @use 'styles/abstracts/_fonts.scss';
 @use 'styles/abstracts/_typeface.scss';
 @use 'styles/abstracts/_colors.scss';
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .Container {
   margin: 0 -24px;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     margin: 0 auto;
   }
   
@@ -16,15 +16,15 @@
     text-align: center;
     margin: 0 auto 24px;
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       margin: 0 auto 32px;
       max-width: 673px;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       margin: 0 auto 64px;
     }
-    @include brpoint.size(xl) {
+    @include br.size(xl) {
       padding-top: 70px;
     }
   }

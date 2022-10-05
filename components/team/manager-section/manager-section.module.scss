@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .teamSection {
   width: 100%;
@@ -7,15 +7,15 @@
   justify-content: flex-start;
   margin: 32px auto 0;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     margin: 40px auto 0;
   }
   
-  @include brpoint.size(md) {
+  @include br.size(md) {
     margin: 48px auto 0;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     margin: 80px auto 0;
   }
 }

@@ -1,9 +1,9 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .Container {
   margin-top: -22px;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     row-gap: 64px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -11,7 +11,7 @@
     gap: 64px 24px;
     margin-top: 0;
   }
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     row-gap: 80px;
   }
 }

@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 @use 'styles/abstracts/_colors.scss';
 
 .container {
@@ -6,15 +6,15 @@
   text-align: center;
   margin: 40px auto 64px;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     margin: 40px auto 80px;
   }
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     margin: 48px auto 120px;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     margin: 80px auto 120px;
   }
 
@@ -26,11 +26,11 @@
     color: colors.$text-headline;
     margin: 24px 0;
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       margin: 40px auto 24px;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       font-size: 90px;
       margin-bottom: 40px;
     }
@@ -48,13 +48,13 @@
       display: none;
     }
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       br {
         display: block;
       }
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       font-size: 32px;
       line-height: 36px;
     }
@@ -68,29 +68,29 @@
     text-align: center;
     color: colors.$text-paragraph;
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       font-size: 24px;
     }
     
-    @include brpoint.size(md) {
+    @include br.size(md) {
       font-size: 34px;
       margin: 40px auto;
     }
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
       font-size: 38px;
       margin: 40px auto;
     }
   }
 
   .employees {
-    @include brpoint.size(md) {
+    @include br.size(md) {
       width: 80%;
     }
   }
 
   .jobDescriptions {
-    @include brpoint.size(md) {
+    @include br.size(md) {
       width: 90%;
     }
   }

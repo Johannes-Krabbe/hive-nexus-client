@@ -1,15 +1,15 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 @use 'styles/abstracts/_colors.scss';
 @use 'styles/abstracts/_typeface.scss';
 
 .container {
   margin: 48px auto;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     margin: 56px auto 48px;
   }
   
-  @include brpoint.size(md) {
+  @include br.size(md) {
     margin: 90px auto 80px;
   }
 }
@@ -19,15 +19,15 @@
 
   @include typeface.intro;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     width: calc(100% - 72px);
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     width: calc(100% - 112px);
   }
 
-  @include brpoint.size(xl) {
+  @include br.size(xl) {
     width: calc(100% - 360px);
   }
 }

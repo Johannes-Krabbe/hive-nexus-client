@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 @use 'styles/abstracts/_colors.scss';
 
 .Button {
@@ -14,7 +14,7 @@
   border: 1px solid transparent;
   transition: border .5ms ease-in-out;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     margin: 32px 0 0 0;
     font-size: 16px;
     line-height: 19px;

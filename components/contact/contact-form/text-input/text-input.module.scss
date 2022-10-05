@@ -1,6 +1,6 @@
 @use 'styles/abstracts/_typeface.scss';
 @use 'styles/abstracts/_colors.scss';
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .input {
   position: relative;
@@ -14,7 +14,7 @@
     inset: 15.5px 16px;
     transition: all .15s ease-in-out;
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       height: 18px;
       inset: 16px 24px;
     }
@@ -45,7 +45,7 @@
       transition: background-color 5000s ease-in-out 0s;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       padding: 16px 24px;
       line-height: 150%;
       height: 50px;
@@ -80,7 +80,7 @@
       bottom: initial;
       height: 18px;
 
-      @include brpoint.size(md) {
+      @include br.size(md) {
         top: 16px;
       }
     }
@@ -89,7 +89,7 @@
       padding-top: 23px;
       padding-bottom: 8px;
 
-      @include brpoint.size(md) {
+      @include br.size(md) {
         height: 85px;
         padding-top: 42px;
         padding-bottom: 16px;

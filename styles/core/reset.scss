@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 * {
   box-sizing: border-box;
@@ -20,7 +20,7 @@ html, body {
   &.lock-scroll {
     overflow-y: hidden;
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       overflow-y: visible;
     }
   }
@@ -37,7 +37,7 @@ body {
   position: relative;
   padding-top: 58.25px;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     padding-top: 90px;
   }
 }

@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .container {
   width: 100%;
@@ -7,22 +7,22 @@
   display: flex;
   justify-content: flex-end;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     margin-top: 48px;
     margin-bottom: 72px;
   }
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     margin-top: 83px;
     margin-bottom: 82px;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     margin-top: 115px;
     margin-bottom: 111px;
   }
 
-  @include brpoint.size(xl) {
+  @include br.size(xl) {
     margin-bottom: 104px;
   }
 }
@@ -30,15 +30,15 @@
 .FormWrapper {
   width: 100%;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     max-width: 513px;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     max-width: 597px;
   }
 
-  @include brpoint.size(xl) {
+  @include br.size(xl) {
     max-width: 830px;
   }
 }

@@ -1,22 +1,22 @@
-@use '../../../styles/abstracts/brpoint';
+@use '../../../styles/abstracts/br';
 
 .container {
   width: calc(100% - 48px);
   margin: 0 auto;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     width: calc(100% - 64px);
   }
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     width: calc(100% - 128px);
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     width: calc(100% - 240px);
   }
 
-  @include brpoint.size(xl) {
+  @include br.size(xl) {
     max-width: 1440px;
   }
 
@@ -27,7 +27,7 @@
       padding-top: 24px;
     }
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       padding-bottom: 32px;
 
       &:not(:first-child) {
@@ -35,7 +35,7 @@
       }
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       padding-bottom: 64px;
 
       &:not(:first-child) {
@@ -43,7 +43,7 @@
       }
     }
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
       padding-bottom: 80px;
 
       &:not(:first-child) {
@@ -55,19 +55,19 @@
   & > section {
     margin-bottom: 48px;
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       margin-bottom: 54px;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       margin-bottom: 48px;
     }
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
       margin-bottom: 80px;
     }
 
-    @include brpoint.size(xl) {
+    @include br.size(xl) {
       margin-bottom: 120px;
     }
   }

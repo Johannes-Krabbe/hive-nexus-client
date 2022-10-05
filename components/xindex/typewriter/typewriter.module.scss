@@ -1,6 +1,6 @@
 @use 'styles/abstracts/_typeface.scss';
 @use 'styles/abstracts/_colors.scss';
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .Container {
   width: 100%;
@@ -16,10 +16,10 @@
   text-align: center;
   padding: 16px 0;
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     padding: 24px 46px;
   }
-  @include brpoint.size(xl) {
+  @include br.size(xl) {
     padding-top: 0;
   }
 

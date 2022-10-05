@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 @use 'styles/abstracts/_colors.scss';
 @use 'styles/abstracts/_typeface.scss';
 
@@ -9,14 +9,14 @@
   margin-right: auto;
   margin-left: auto;
 
-  @include brpoint.size(xl) {
+  @include br.size(xl) {
     max-width: 1280px;
   }
 
   &:not(:last-child) {
     margin-bottom: 16px;
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
       margin-bottom: 24px;
     }
   }
@@ -30,11 +30,11 @@
     border-bottom: 1px solid transparent;
     transition: border-bottom .2s ease-in-out;
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       padding: 24px 48px;
     }
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
       padding: 26px 37px 26px 48px;
     }
 
@@ -51,7 +51,7 @@
         @include typeface.h2;
         margin: 4px 0 0;
 
-        @include brpoint.size(md) {
+        @include br.size(md) {
           margin: 8px 0 0;
         }
       }
@@ -79,11 +79,11 @@
     .description {
       padding: 32px 16px 0;
 
-      @include brpoint.size(md) {
+      @include br.size(md) {
         padding: 64px 64px 0;
       }
 
-      @include brpoint.size(lg) {
+      @include br.size(lg) {
         padding: 64px 96px 0;
       }
 
@@ -98,7 +98,7 @@
         color: colors.$text-paragraph;
         margin-bottom: 24px;
 
-        @include brpoint.size(md) {
+        @include br.size(md) {
           margin-bottom: 48px;
         }
       }
@@ -109,7 +109,7 @@
         color: colors.$text-paragraph;
         margin-bottom: 24px;
 
-        @include brpoint.size(md) {
+        @include br.size(md) {
           margin-bottom: 48px;
         }
       }
@@ -127,11 +127,11 @@
     .actions {
       padding: 0px 16px 32px;
 
-      @include brpoint.size(md) {
+      @include br.size(md) {
         padding: 0px 64px 64px;
       }
 
-      @include brpoint.size(lg) {
+      @include br.size(lg) {
         padding: 0px 96px 64px;
       }
     }

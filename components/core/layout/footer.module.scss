@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 @use 'styles/abstracts/_colors.scss';
 
 // TODO: fix colors, fix fonts
@@ -22,37 +22,37 @@
       top: 190px;
       right: 55px;
 
-      @include brpoint.size(sm) {
+      @include br.size(sm) {
         right: 113px;
         top: 240px;
       }
 
-      @include brpoint.size(md) {
+      @include br.size(md) {
         right: 130px;
         top: 340px;
       }
 
-      @include brpoint.size(lg) {
+      @include br.size(lg) {
         right: 380px;
         top: 340px;
       }
     }
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       width: calc(100% - 64px);
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       width: calc(100% - 128px);
       padding-top: 80px;
       padding-bottom: 80px;
     }
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
       width: calc(100% - 240px);
     }
 
-    @include brpoint.size(xl) {
+    @include br.size(xl) {
       max-width: 1440px;
       padding-bottom: 168px;
     }
@@ -67,17 +67,17 @@
   line-height: 27px;
   color: #152E4A;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     font-size: 23px;
     line-height: 32px;
   }
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: 34px;
     line-height: 45px;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     font-size: 38px;
     line-height: 51px;
   }
@@ -119,7 +119,7 @@
   line-height: 21px;
   color: #152E4A;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
 
   }
 
@@ -160,7 +160,7 @@
   line-height: 16px;
   color: #152E4A;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
 
   }
 }

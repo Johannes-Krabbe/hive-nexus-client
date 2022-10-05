@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 @use 'styles/abstracts/_colors.scss';
 @use 'styles/abstracts/_typeface.scss';
 
@@ -9,14 +9,14 @@
     font-size: 60px;
     line-height: 1;
     color: colors.$text-headline;
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
         margin-left: 50px;
     }
-    @include brpoint.size(md) {
+    @include br.size(md) {
         font-size: 80px;
     }
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
         font-size: 94px;
         line-height: 100px;
     }

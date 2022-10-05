@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .card {
   width: calc(50% - 8px);
@@ -8,18 +8,18 @@
   &:nth-child(even) {
     margin-right: 0;
     
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       margin-right: 24px;
     }
   }
 
   &:last-child {
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       margin-right: 0;
     }
   }
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     width: calc(25% - 18px);
     margin-right: 24px;
     margin-bottom: 0px;
@@ -57,7 +57,7 @@
       text-align: center;
       color: #152E4A;
 
-      @include brpoint.size(md) {
+      @include br.size(md) {
         font-size: 21px;
         line-height: 25px;
       }
@@ -73,7 +73,7 @@
       text-align: center;
       color: #152E4A;
       
-      @include brpoint.size(md) {
+      @include br.size(md) {
         font-size: 18px;
         line-height: 24px;
       }

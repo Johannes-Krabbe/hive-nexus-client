@@ -1,17 +1,17 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .Hero {
   width: 100%;
   padding: 0;
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     padding: 0;
   }
-  @include brpoint.size(md) {
+  @include br.size(md) {
     padding: 48px 0 0 0;
     font-size: 48px;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     padding: 80px 0 0 0;
     font-size: 80px;
   }

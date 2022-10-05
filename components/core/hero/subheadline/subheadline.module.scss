@@ -1,4 +1,4 @@
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 @use 'styles/abstracts/colors.scss';
 
 .container {
@@ -7,13 +7,13 @@
   margin-top: 10px;
   max-width: 100vw;
   overflow: hidden;
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
   }
-  @include brpoint.size(md) {
+  @include br.size(md) {
     height: 100px;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     height: 114px;
   }
 }
@@ -30,14 +30,14 @@
   animation: move 25s infinite linear;
   padding-left: 50%; /*Initial offset*/
   color: colors.$text-subline;
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     font-size: 80px;
   }
-  @include brpoint.size(md) {
+  @include br.size(md) {
     font-size: 100px;
   }
 
-  @include brpoint.size(lg) {
+  @include br.size(lg) {
     font-size: 114px;
   }
 }

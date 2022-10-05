@@ -1,13 +1,13 @@
 @use 'styles/abstracts/_fonts.scss';
 @use 'styles/abstracts/_typeface.scss';
 @use 'styles/abstracts/_colors.scss';
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .container {
   margin-bottom: 73px;
   margin-top: -40px;
 
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     margin-top: 0;
   }
 
@@ -32,12 +32,12 @@
       border: 4px solid white;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       display: flex;
       overflow: visible;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -49,11 +49,11 @@
       margin:10px;
       flex-shrink: 0;
   
-      @include brpoint.size(sm) {
+      @include br.size(sm) {
         flex: 1 0 100px;
       }
   
-      @include brpoint.size(md) {
+      @include br.size(md) {
         flex: 1 0 16.6%;
         margin: 0 auto 60px;
         display: flex;
@@ -66,15 +66,15 @@
         align-items: center;
         justify-content: center;
   
-        @include brpoint.size(sm) {
+        @include br.size(sm) {
           max-width: 100px;
         }
   
-        @include brpoint.size(md) {
+        @include br.size(md) {
           max-width: 130px;
         }
   
-        @include brpoint.size(xl) {
+        @include br.size(xl) {
           max-width: 160px;
         }
       }

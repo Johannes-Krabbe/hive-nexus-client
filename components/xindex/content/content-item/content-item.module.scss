@@ -1,6 +1,6 @@
 @use 'styles/abstracts/_typeface.scss';
 @use 'styles/abstracts/_colors.scss';
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .Container {
   h1 {
@@ -8,7 +8,7 @@
     color: colors.$text-headline;
     margin-bottom: 8px;
     margin-top: 64px;
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       margin-bottom: 24px;
       margin-top: 0px;
     }
@@ -24,19 +24,19 @@
     grid-row-start: 1;
     margin-top: 90px;
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       margin-top: 40px;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       grid-column-end: span 6;
       margin-top: 64px;
     }
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
       margin-top: 40px;
     }
-    @include brpoint.size(xl) {
+    @include br.size(xl) {
       margin-top: 60px;
     }
 
@@ -46,7 +46,7 @@
     grid-column: 5 / span 7;
     grid-row-start: 2;
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       grid-column-end: span 6;
     }
   }
@@ -55,16 +55,16 @@
     grid-column: 3 / span 8;
     grid-row-start: 3;
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       margin-bottom: 32px;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       grid-column: 4 / span 6;
       margin-bottom: 32px;
     }
 
-    @include brpoint.size(lg) {
+    @include br.size(lg) {
       margin-bottom: 80px;
     }
   }

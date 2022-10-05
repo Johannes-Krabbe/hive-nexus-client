@@ -1,7 +1,7 @@
 @use 'styles/abstracts/_fonts.scss';
 @use 'styles/abstracts/_typeface.scss';
 @use 'styles/abstracts/_colors.scss';
-@use 'styles/abstracts/_brpoint.scss';
+@use 'styles/abstracts/_br.scss';
 
 .Container {
   display: flex;
@@ -9,7 +9,7 @@
   transition: all .1s ease-in-out;
   border-radius: 4px;
   position: relative;
-  @include brpoint.size(md) {
+  @include br.size(md) {
     align-items: center;
     justify-content: space-between;
     flex-flow: wrap;
@@ -17,7 +17,7 @@
   }
 
   &:hover {
-    @include brpoint.size(md) {
+    @include br.size(md) {
       p {
         color: colors.$text-headline;
       }
@@ -37,7 +37,7 @@
 
     p {
       color: colors.$text-headline;
-      @include brpoint.size(md) {
+      @include br.size(md) {
         color: colors.$text-paragraph;
       }
     }
@@ -45,13 +45,13 @@
     svg {
       path {
         fill: colors.$text-headline;
-        @include brpoint.size(md) {
+        @include br.size(md) {
           fill: colors.$grey;
         }
       }
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       background-color: transparent;
       &:hover {
         background-color: colors.$pink;
@@ -78,14 +78,14 @@
 
     h1 {
       color: white;
-      @include brpoint.size(md) {
+      @include br.size(md) {
         color: colors.$text-headline;
       }
     }
 
     p {
       color: white;
-      @include brpoint.size(md) {
+      @include br.size(md) {
         color: colors.$text-paragraph;
       }
     }
@@ -93,13 +93,13 @@
     svg {
       path {
         fill: white;
-        @include brpoint.size(md) {
+        @include br.size(md) {
           fill: colors.$grey;
         }
       }
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       background: transparent;
       &:hover {
         background: linear-gradient(270deg, #FFD2BA 0%, rgba(39, 34, 251, 0.64) 100%);
@@ -134,19 +134,19 @@
   }
 
   padding: 24px;
-  @include brpoint.size(sm) {
+  @include br.size(sm) {
     padding: 32px;
   }
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     padding: 41px 64px;
   }
 
-  @include brpoint.size(md) {
+  @include br.size(md) {
     padding: 41px 64px;
   }
 
-  @include brpoint.size(xl) {
+  @include br.size(xl) {
     padding: 41px 84px 41px 84px;
   }
 
@@ -157,11 +157,11 @@
     line-height: 135%;
     color: colors.$text-headline;
 
-    @include brpoint.size(sm) {
+    @include br.size(sm) {
       min-width: 195px;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       font-size: 62px;
       min-width: 305px;
     }
@@ -171,16 +171,16 @@
     @include typeface.p2;
     color: colors.$text-paragraph;
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       margin: 0 16px 0 24px;
       width: 43%;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       margin-left: 40px;
     }
 
-    @include brpoint.size(xl) {
+    @include br.size(xl) {
       width: 50%;
     }
   }
@@ -191,7 +191,7 @@
     right: 24px;
     top: 37px;
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       width: 56px;
       height: 56px;
       position: relative;
@@ -199,12 +199,12 @@
       right: auto;
     }
 
-    @include brpoint.size(md) {
+    @include br.size(md) {
       width: 56px;
     }
 
     svg {
-      @include brpoint.size(md) {
+      @include br.size(md) {
         position: absolute;
         top: 0;
         right: 0;
