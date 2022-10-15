@@ -14,6 +14,18 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+  height: 24px;
+  width: 24px;
+  
+  @include br.size(sm) {
+    height: 32px;
+    width: 32px;
+  }
+
+  @include br.size(md) {
+    height: 48px;
+    width: 48px;
+  }
 }
 
 .wrapper {
@@ -44,6 +56,7 @@
 
 .navigation {
   display: flex;
+
   @include br.size(md) {
     margin-top: -1px;
   }
@@ -52,6 +65,7 @@
 .burger {
   width: 24px;
   height: 16px;
+
   @include br.size(md) {
     display: none;
   }
@@ -64,6 +78,7 @@
   align-items: center;
   flex-flow: column;
   display: none;
+
   @include br.size(md) {
     display: flex;
     position: relative;
@@ -79,6 +94,7 @@
   top: 56px;
   width: 100vw;
   display: flex;
+
   @include br.size(md) {
     display: flex;
     position: relative;
@@ -98,6 +114,7 @@
   color: colors.$text-headline;
   font-weight: 700;
   margin-top: 32px;
+
   @include br.size(md) {
     font-weight: 700;
     font-size: 14px;
@@ -106,6 +123,7 @@
     cursor: pointer;
     border-bottom: 2px solid transparent;
   }
+
   a {
     display: inline-block;
   }

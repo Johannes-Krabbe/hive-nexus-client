@@ -4,8 +4,9 @@ import { useState } from "react";
 import Link from 'next/link'
 import Image from 'next/image'
 
-import Close from '/public/assets/images/core/close.svg'
-import Burger from '/public/assets/images/core/burger.svg'
+import Logo from '/public/assets/images/core/logo.svg'
+import BurgerClosed from '/public/assets/images/core/burger-closed.svg'
+import BurgerOpened from '/public/assets/images/core/burger-opened.svg'
 
 const NavBar = () => {
   const [active, setActive] = useState(false)
@@ -35,14 +36,18 @@ const NavBar = () => {
       <div className={styles.wrapper}>
         <div className={styles.brand}>
           <Link href="/">
-            {/* TODO: Logo */}
-            {/* <Image alt="pp-logo" src={Logo} /> */}
-            Logo Coming Here
+            <Image
+              src={Logo}
+              alt="Company Logo"
+              />
           </Link>
         </div>
         <nav className={styles.navigation}>
           <div className={styles.burger} onClick={toggle}>
-            <Image alt="Burger" src={active ? Close : Burger}/>
+            <Image
+              src={active ? BurgerClosed : BurgerOpened}
+              alt="Menu Icon"
+              />
           </div>
           <ul className={`${active ? styles.navigationMobile:""} ${styles.navigationList}`}>
             {navLinks.map((link, idx) => (
