@@ -1,5 +1,5 @@
 {
-  "name": "maria-website",
+  "name": "hive-nexus",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
   "dependencies": {
     "@portabletext/react": "^1.0.6",
     "classnames": "^2.3.1",
-    "next": "12.2.3",
+    "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -22,7 +22,7 @@
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint": "^8.20.0",
-    "eslint-config-next": "12.2.3",
+    "eslint-config-next": "13.1.6",
     "sass": "^1.54.0",
     "typescript": "4.7.4"
   }

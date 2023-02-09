@@ -57,32 +57,9 @@ const Footer = () => {
 		<footer className={classNames}>
 			<div className={styles.Outer}>
 				<div className={styles.MenuContainer}>
-					<ul>
-						{menuItems.map((item, idx) => (
-							<li key={idx}>
-								{item.path ===  currentPath ?
-									<div onClick={scrollToTop}>
-										<a>{item.name}</a>
-									</div>
-									:
-									<Link href={item.path}>
-										<a>{item.name}</a>
-									</Link>
-								}
-							</li>
-						))}
-					</ul>
+
 				</div>
 				<div className={styles.LegalContainer}>
-					<ul>
-						{legalItems.map((item, idx) => (
-							<li key={idx}>
-								<Link href={item.path}>
-									<a>{item.name}</a>
-								</Link>
-							</li>
-						))}
-					</ul>
 				</div>
 				<div className={styles.CopyrightContainer}>
 					<p>
