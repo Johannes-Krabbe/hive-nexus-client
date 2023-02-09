@@ -4,7 +4,9 @@
 // TODO: fix colors, fix fonts
 
 .Footer {
-  background-color: #fff;
+  border: red 1px solid;
+  height: 400px;
+  background-color: transparent;
   text-transform: capitalize;
 
   & > .Outer {
@@ -13,7 +15,7 @@
     position: relative;
     padding-top: 64px;
     padding-bottom: 64px;
-    
+
     &:after {
       content: '';
       width: 52px;
@@ -88,7 +90,7 @@
     a {
       cursor: pointer;
       position: relative;
-      
+
       &:after {
         content: '';
         position: absolute;
@@ -101,7 +103,7 @@
         transform-origin: bottom right;
         transition: transform 0.25s ease-out;
       }
-      
+
       &:hover:after {
         transform: scaleX(1);
         transform-origin: bottom left;
@@ -129,7 +131,7 @@
     a {
       cursor: pointer;
       position: relative;
-      
+
       &:after {
         content: '';
         position: absolute;
@@ -142,7 +144,7 @@
         transform-origin: bottom right;
         transition: transform 0.25s ease-out;
       }
-      
+
       &:hover:after {
         transform: scaleX(1);
         transform-origin: bottom left;

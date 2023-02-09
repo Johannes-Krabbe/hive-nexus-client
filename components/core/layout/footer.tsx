@@ -28,17 +28,6 @@ const Footer = () => {
 		}
 	]
 
-	const legalItems = [
-		{
-			name: "Datenschutzerklärung",
-			path: "/privacypolicy"
-		},
-		{
-			name: "Impressum",
-			path: "/imprint",
-		}
-	]
-
 	const scrollToTop = () => {
 			window.scroll({
 					top: 0,
@@ -48,13 +37,11 @@ const Footer = () => {
 	}
 
 	const router = useRouter()
-	const currentPath = router.pathname
 
-	const classNames = `${styles.Footer}`
 	const currentYear = new Date().getFullYear()
 
 	return (
-		<footer className={classNames}>
+		<footer className={styles.Footer}>
 			<div className={styles.Outer}>
 				<div className={styles.MenuContainer}>
 
@@ -63,7 +50,7 @@ const Footer = () => {
 				</div>
 				<div className={styles.CopyrightContainer}>
 					<p>
-						&copy;{currentYear} YOUNGCASE GmbH
+						&copy;{currentYear} hivenexus
 					</p>
 				</div>
 			</div>
