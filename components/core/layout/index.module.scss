@@ -1,8 +1,11 @@
 @use '../../../styles/abstracts/br';
 
-.container {
+.Container {
   width: calc(100% - 48px);
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @include br.size(sm) {
     width: calc(100% - 64px);
@@ -18,57 +21,5 @@
 
   @include br.size(xl) {
     max-width: 1440px;
-  }
-
-  & > section:not([class*="typewriter"]) {
-    padding-bottom: 24px;
-
-    &:not(:first-child) {
-      padding-top: 24px;
-    }
-
-    @include br.size(sm) {
-      padding-bottom: 32px;
-
-      &:not(:first-child) {
-        padding-top: 32px;
-      }
-    }
-
-    @include br.size(md) {
-      padding-bottom: 64px;
-
-      &:not(:first-child) {
-        padding-top: 64px;
-      }
-    }
-
-    @include br.size(lg) {
-      padding-bottom: 80px;
-
-      &:not(:first-child) {
-        padding-top: 80px;
-      }
-    }
-  }
-
-  & > section {
-    margin-bottom: 48px;
-
-    @include br.size(sm) {
-      margin-bottom: 54px;
-    }
-
-    @include br.size(md) {
-      margin-bottom: 48px;
-    }
-
-    @include br.size(lg) {
-      margin-bottom: 80px;
-    }
-
-    @include br.size(xl) {
-      margin-bottom: 120px;
-    }
   }
 }

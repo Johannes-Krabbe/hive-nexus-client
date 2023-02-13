@@ -14,3 +14,10 @@ export interface IPost {
   title: string;
   content: string;
 }
+
+export interface IButton {
+  action: string;
+  variant: "primary" | "secondary" | "dark";
+  text: string;
+  onClick?: () => void;
+}

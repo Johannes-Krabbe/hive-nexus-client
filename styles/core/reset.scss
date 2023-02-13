@@ -5,6 +5,7 @@
 }
 
 html, body {
+  height: 100vw;;
   padding: 0;
   margin: 0;
   border: 0;
@@ -16,14 +17,6 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   font-family: "AkkuratLL", Helvetica, sans-serif;
-
-  &.lock-scroll {
-    overflow-y: hidden;
-
-    @include br.size(md) {
-      overflow-y: visible;
-    }
-  }
 }
 
 h1,

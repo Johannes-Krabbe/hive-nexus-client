@@ -4,41 +4,14 @@
 // TODO: fix colors, fix fonts
 
 .Footer {
-  border: red 1px solid;
-  height: 400px;
+  height: 80px;
   background-color: transparent;
   text-transform: capitalize;
 
-  & > .Outer {
+  .Outer {
     width: calc(100% - 48px);
     margin: 0 auto;
     position: relative;
-    padding-top: 64px;
-    padding-bottom: 64px;
-
-    &:after {
-      content: '';
-      width: 52px;
-      height:31px;
-      position: absolute;
-      top: 190px;
-      right: 55px;
-
-      @include br.size(sm) {
-        right: 113px;
-        top: 240px;
-      }
-
-      @include br.size(md) {
-        right: 130px;
-        top: 340px;
-      }
-
-      @include br.size(lg) {
-        right: 380px;
-        top: 340px;
-      }
-    }
 
     @include br.size(sm) {
       width: calc(100% - 64px);
@@ -46,8 +19,6 @@
 
     @include br.size(md) {
       width: calc(100% - 128px);
-      padding-top: 80px;
-      padding-bottom: 80px;
     }
 
     @include br.size(lg) {
@@ -56,7 +27,6 @@
 
     @include br.size(xl) {
       max-width: 1440px;
-      padding-bottom: 168px;
     }
   }
 }
@@ -83,74 +53,6 @@
     font-size: 38px;
     line-height: 51px;
   }
-
-  li {
-    margin: 0 0 24px 0;
-
-    a {
-      cursor: pointer;
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #152E4A;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-      }
-
-      &:hover:after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-    }
-  }
-}
-
-.LegalContainer {
-  margin: 48px 0 0 0;
-  // TODO: replace font
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 21px;
-  color: #152E4A;
-
-  @include br.size(sm) {
-
-  }
-
-  li {
-    margin: 0 0 24px 0;
-
-    a {
-      cursor: pointer;
-      position: relative;
-
-      &:after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        transform: scaleX(0);
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #152E4A;
-        transform-origin: bottom right;
-        transition: transform 0.25s ease-out;
-      }
-
-      &:hover:after {
-        transform: scaleX(1);
-        transform-origin: bottom left;
-      }
-    }
-  }
 }
 
 .CopyrightContainer {
@@ -161,8 +63,4 @@
   font-size: 12px;
   line-height: 16px;
   color: #152E4A;
-
-  @include br.size(sm) {
-
-  }
 }

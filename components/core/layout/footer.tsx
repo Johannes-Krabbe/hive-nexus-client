@@ -9,44 +9,13 @@ import styles from './footer.module.scss'
 // };
 
 const Footer = () => {
-	const menuItems = [
-		{
-			name: "start",
-			path: "/"
-		},
-		{
-			name: "team",
-			path: "/team",
-		},
-		{
-			name: "jobs",
-			path: "/jobs",
-		},
-		{
-			name: "kontakt",
-			path: "/contact",
-		}
-	]
-
-	const scrollToTop = () => {
-			window.scroll({
-					top: 0,
-					left: 0,
-					behavior: 'smooth'
-			})
-	}
-
-	const router = useRouter()
-
 	const currentYear = new Date().getFullYear()
 
 	return (
 		<footer className={styles.Footer}>
 			<div className={styles.Outer}>
 				<div className={styles.MenuContainer}>
-
-				</div>
-				<div className={styles.LegalContainer}>
+					Footer
 				</div>
 				<div className={styles.CopyrightContainer}>
 					<p>
