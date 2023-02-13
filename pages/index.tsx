@@ -24,6 +24,7 @@ const Home: NextPage = () => {
         action={'button'}
         variant={'primary'}
         text={'Create post'}
+        onClick={() => {console.log('Creating Post')}}
         />
       <PostList posts={postData} />
     </div>

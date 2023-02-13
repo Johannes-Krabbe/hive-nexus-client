@@ -23,6 +23,7 @@ export const Post = ({id, createdAt, author, title, content}: IPost) => {
         action={'button'}
         variant={'secondary'}
         text={'Like'}
+        onClick={() => {console.log(`Post ID: ${id} liked`)}}
       />
     </div>
   )
