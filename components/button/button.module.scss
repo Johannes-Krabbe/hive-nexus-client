@@ -28,7 +28,8 @@
     color: colors.$text-headline;
 
     &:hover {
-      border: 1px solid colors.$green;
+      transform: scale(1.01);
+      opacity: 0.8;
     }
   }
 
@@ -36,7 +37,8 @@
     background-color: #86C1FF;
 
     &:hover {
-      border-color: #86C1FF;
+      transform: scale(1.01);
+      opacity: 0.8;
     }
   }
 
@@ -45,7 +47,8 @@
     color: #FFFFFF;
 
     &:hover {
-      border: 1px solid colors.$text-headline;
+      transform: scale(1.01);
+      opacity: 0.8;
     }
   }
 
