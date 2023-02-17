@@ -1,0 +1,85 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+@use 'styles/abstracts/_br.scss';
+
+.Input {
+  position: relative;
+
+  .Label {
+    @include typeface.p2;
+    color: colors.$text-headline;
+    position: absolute;
+    top: 15.5px;
+    left: 16px;
+    transition: all 0.15s ease-in-out;
+
+    @include br.size(md) {
+      height: 18px;
+      top: 16px;
+      left: 24px;
+    }
+  }
+
+  .Field {
+    @include typeface.p1;
+    color: colors.$text-headline;
+    background-color: colors.$background;
+    width: 100%;
+    min-height: 178px;
+    padding: 15.5px 16px 16px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    resize: none;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    @include br.size(md) {
+      padding: 42px 24px 24px;
+      line-height: 150%;
+    }
+  }
+
+  .ErrorField {
+    @include typeface.footnote;
+    color: colors.$error;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 0;
+    overflow-y: hidden;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &.invalid {
+    .Field {
+      border-color: colors.$error;
+    }
+
+    .ErrorField {
+      height: initial;
+      margin-top: 4px;
+    }
+  }
+
+  &.active {
+    .Label {
+      color: colors.$text-paragraph;
+      top: 8px;
+
+      @include br.size(md) {
+        top: 16px;
+      }
+    }
+
+    .Field {
+      padding-top: 26px;
+
+      @include br.size(md) {
+        padding-top: 42px;
+      }
+    }
+  }
+}

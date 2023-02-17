@@ -1,9 +1,6 @@
-import React from 'react';
-
 import { Headline } from './headline/headline'
 
 import styles from './hero.module.scss'
-import indexStyles from '../layout/index.module.scss'
 
 interface Props {
 	headline: string
@@ -12,9 +9,7 @@ interface Props {
 export const Hero = ({headline}: Props) => {
   return (
     <div className={styles.Hero}>
-      <div className={indexStyles.Container}>
-        <Headline headline={headline} />
-      </div>
+      <Headline headline={headline} />
     </div>
   )
 };

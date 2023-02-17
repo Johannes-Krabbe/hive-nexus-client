@@ -1,150 +1,220 @@
 @use 'styles/abstracts/_br.scss';
+@use 'styles/abstracts/_typeface.scss';
 @use 'styles/abstracts/_colors.scss';
 
-.container {
+.Container {
+  height: 60px;
   width: 100%;
   position: fixed;
   background-color: #fff;
   top: 0;
   left: 0;
   z-index: 2;
-}
-
-.brand {
   display: flex;
-  align-items: center;
-  cursor: pointer;
-  height: 24px;
-  width: 24px;
-  
-  @include br.size(sm) {
-    height: 32px;
-    width: 32px;
-  }
+  justify-content: center;
+  transition: top 0.3s ease-out;
 
   @include br.size(md) {
-    height: 48px;
-    width: 48px;
+    height: 80px;
+  }
+
+  &.invisible {
+    top: -60px;
+
+    @include br.size(md) {
+      top: -80px;
+    }
+  }
+
+  .Wrapper {
+    height: 100%;
+    width: calc(100% - 32px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include br.size(sm) {
+      width: calc(100% - 64px);
+    }
+
+    @include br.size(md) {
+      width: calc(100% - 128px);
+      border-bottom: 1px solid #f3f5f6;
+    }
+
+    @include br.size(lg) {
+      width: calc(100% - 240px);
+    }
+
+    @include br.size(xl) {
+      max-width: 1440px;
+    }
+  }
+
+  .Brand {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+
+    @include br.size(sm) {
+      height: 32px;
+      width: 32px;
+    }
+
+    @include br.size(md) {
+      height: 48px;
+      width: 48px;
+    }
+  }
+
+  .Nav {
+    display: flex;
+
+    .Burger {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      @include br.size(md) {
+        display: none;
+      }
+    }
+
+    .List {
+      position: fixed;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      flex-flow: column;
+      display: none;
+
+      @include br.size(md) {
+        display: flex;
+        position: relative;
+        flex-flow: wrap;
+      }
+
+      .Item {
+        margin: 0 16px;
+        color: colors.$text-headline;
+        display: inline-block;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 135%;
+
+        .Anchor {
+          height: 24px;
+          display: block;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0.1em;
+            background-color: colors.$text-headline;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+          }
+
+          &:hover::after,
+          &:focus::after {
+            opacity: 1;
+            transform: translate3d(0, 0.2em, 0);
+          }
+        }
+      }
+    }
+  }
+
+  .UserActions {
+    max-height: 60px;
+    display: none;
+
+    @include br.size(md) {
+      display: unset;
+    }
   }
 }
 
-.wrapper {
-  width: calc(100% - 48px);
-  margin: 16px auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  @include br.size(sm) {
-    width: calc(100% - 64px);
-  }
-
-  @include br.size(md) {
-    margin: 0 auto;
-    width: calc(100% - 128px);
-    border-bottom: 1px solid #F3F5F6;
-  }
-
-  @include br.size(lg) {
-    width: calc(100% - 240px);
-  }
-
-  @include br.size(xl) {
-    max-width: 1440px;
-  }
-}
-
-.navigation {
-  display: flex;
-
-  @include br.size(md) {
-    margin-top: -1px;
-  }
-}
-
-.burger {
-  width: 24px;
-  height: 16px;
+.Shadow {
+  position: fixed;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
 
   @include br.size(md) {
     display: none;
   }
 }
-.navigationList {
+
+.Overlay {
   position: fixed;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-  flex-flow: column;
-  display: none;
-
-  @include br.size(md) {
-    display: flex;
-    position: relative;
-    flex-flow: wrap;
-  }
-}
-
-.navigationMobile {
-  background-color: rgba(white, 0.07);
-  backdrop-filter: blur(24px);
-  height: calc(100vh - 56px);
-  left: 0;
-  top: 56px;
-  width: 100vw;
-  display: flex;
-
-  @include br.size(md) {
-    display: flex;
-    position: relative;
-    flex-flow: wrap;
-    height: auto;
-    width: auto;
-    backdrop-filter: none;
-    background-color: transparent;
-    top: auto;
-    left: auto;
-  }
-}
-
-.navigationItem {
-  font-size: 20px;
-  line-height: 135%;
+  height: 100%;
+  width: 0;
+  top: 0;
+  right: 0;
   color: colors.$text-headline;
-  font-weight: 700;
-  margin-top: 32px;
+  background-color: white;
+  box-shadow: -1px 0px 3px colors.$grey;
+  transition: width 0.4s ease;
 
   @include br.size(md) {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 86px;
-    margin: 0 16px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
+    display: none;
   }
 
-  a {
-    display: inline-block;
+  .Nav {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px 0 32px;
+    height: 100%;
+
+    .TopBar {
+      height: 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .CloseIcon {
+        font-size: 30px;
+        height: 32px;
+      }
+    }
+
+    .List {
+      margin: 48px 0;
+      position: unset;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
+      .Item {
+        margin: 0 0 8px 0;
+        padding: 4px 4px 4px 0;
+      }
+    }
   }
 
-  &:hover {
-    border-color: #2C435C;
-  }
+  .BottomBar {
+    position: absolute;
+    width: 100%;
+    bottom: 8px;
+    @include typeface.footnote;
+    justify-content: center;
 
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:last-child {
-    @include br.size(md) {
-      margin-right: 0;
-      padding: 12px 28px;
-      background-color: #AAFFC4;
-      border-radius: 80px;
-      line-height: 14px;
-      max-height: 38px;
-      border: none;
+    .Item {
+      padding: 8px;
     }
   }
 }

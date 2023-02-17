@@ -1,0 +1,74 @@
+@use 'styles/abstracts/_br.scss';
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.Wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .Container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .TitleBar {
+      @include typeface.h1;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1;
+      color: colors.$text-headline;
+    }
+
+    .DetailsBar {
+      width: 100%;
+      right: 0px;
+      margin: 32px 0 16px 0;
+      display: flex;
+      justify-content: flex-end;
+
+      .Username {
+        margin: 0 32px 0 0;
+      }
+    }
+
+    .FormWrapper {
+      width: 100%;
+
+      .Form {
+        display: flex;
+        flex-direction: column;
+
+        & > div:not(:last-child) {
+          margin-bottom: 16px;
+        }
+
+        .ButtonContainer {
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  .Confirmation {
+    width: 80%;
+    border-radius: 1rem;
+    padding: 0.2rem 4rem;
+    border: 4px solid colors.$text-headline;
+
+    @include br.size(md) {
+      width: 60%;
+    }
+
+    @include br.size(lg) {
+      width: 40%;
+    }
+
+    .Wording {
+      @include typeface.h1;
+      color: colors.$text-headline;
+    }
+  }
+}

@@ -1,9 +1,12 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+
 .Post {
   width: 60%;
   height:  auto;
   margin: 48px auto;
-  padding: 16px;
-  border: 1px solid black;
+  padding: 32px;
+  border: 1px solid colors.$text-headline;
   border-radius: 16px;;
 
   .TitleBar {
@@ -12,6 +15,8 @@
     margin: 8px 0 16px 0;
 
     .Title {
+      @include typeface.h2;
+      color: colors.$text-headline;
     }
 
     .Details {
@@ -26,5 +31,17 @@
 
   .Content {
     margin: 0 auto 16px auto;
+  }
+
+  .BottomBar {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    @include typeface.h3;
+    margin: 0 0 32px 0px;
+
+    .Likes {
+      margin: 0 16px 0 0;
+    }
   }
 }

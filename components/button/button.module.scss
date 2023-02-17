@@ -2,9 +2,8 @@
 @use 'styles/abstracts/_colors.scss';
 
 .Button {
-  padding: 16px 40px;
-  margin: 24px 0 0 0;
-  border-radius: 60px;
+  padding: 1em 2em;
+  border-radius: 5em;
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
@@ -14,7 +13,6 @@
   transition: border .5ms ease-in-out;
 
   @include br.size(md) {
-    margin: 32px 0 0 0;
     font-size: 16px;
     line-height: 19px;
   }

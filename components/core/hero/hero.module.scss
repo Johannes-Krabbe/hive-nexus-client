@@ -2,17 +2,18 @@
 
 .Hero {
   width: 100%;
-  padding: 0;
+  margin: 0 auto 32px auto;
+  text-align: center;
+
   @include br.size(sm) {
     padding: 0;
   }
+
   @include br.size(md) {
     padding: 48px 0 0 0;
-    font-size: 48px;
   }
 
   @include br.size(lg) {
     padding: 80px 0 0 0;
-    font-size: 80px;
   }
 }

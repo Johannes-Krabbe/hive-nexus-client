@@ -13,6 +13,8 @@ export interface IPost {
   author: string;
   title: string;
   content: string;
+  likesCount: number;
+  commentsCount: number;
 }
 
 export interface IButton {
@@ -20,4 +22,9 @@ export interface IButton {
   variant: "primary" | "secondary" | "dark";
   text: string;
   onClick?: () => void;
+}
+
+export interface INavLink {
+  name: string;
+  path: string;
 }

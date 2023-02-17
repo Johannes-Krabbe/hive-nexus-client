@@ -2,7 +2,7 @@ import { IPost } from '../../../types/interfaces'
 import Button from 'components/button/button'
 import styles from './post.module.scss'
 
-export const Post = ({id, createdAt, author, title, content}: IPost) => {
+export const Post = ({id, createdAt, author, title, content, likesCount, commentsCount}: IPost) => {
   return (
     <div className={styles.Post}>
       <div className={styles.TitleBar}>
@@ -19,6 +19,10 @@ export const Post = ({id, createdAt, author, title, content}: IPost) => {
       <p className={styles.Content}>
         {content}
       </p>
+      <div className={styles.BottomBar}>
+        <p className={styles.Likes}>{likesCount} 🔥</p>
+        <p>{commentsCount} 💬</p>
+      </div>
       <Button
         action={'button'}
         variant={'secondary'}

@@ -1,0 +1,98 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+@use 'styles/abstracts/_br.scss';
+
+.Input {
+  position: relative;
+
+  .Label {
+    @include typeface.p2;
+    height: 21px;
+    color: colors.$text-headline;
+    position: absolute;
+    inset: 15.5px 16px;
+    transition: all 0.15s ease-in-out;
+
+    @include br.size(md) {
+      height: 18px;
+      inset: 16px 24px;
+    }
+  }
+
+  .Field {
+    width: 100%;
+    padding: 15.5px 16px;
+    background-color: colors.$background;
+    border-radius: 8px;
+    @include typeface.p1;
+    line-height: 21px;
+    color: colors.$text-headline;
+    border: 1px solid transparent;
+    transition: all 0.2s ease-in-out;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      appearance: none;
+      border: 1px solid colors.$background;
+      -webkit-box-shadow: 0 0 0 1000px colors.$background inset;
+      -webkit-text-fill-color: colors.$text-headline;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    @include br.size(md) {
+      padding: 16px 24px;
+      line-height: 150%;
+      height: 50px;
+    }
+  }
+
+  .ErrorField {
+    @include typeface.footnote;
+    color: colors.$error;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 0;
+    overflow-y: hidden;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &.invalid {
+    .Field {
+      border-color: colors.$error;
+    }
+
+    .ErrorField {
+      height: initial;
+      margin-top: 4px;
+    }
+  }
+
+  &.active {
+    .Label {
+      color: colors.$text-paragraph;
+      top: 7px;
+      bottom: initial;
+      height: 18px;
+
+      @include br.size(md) {
+        top: 16px;
+      }
+    }
+
+    .Field {
+      padding-top: 23px;
+      padding-bottom: 8px;
+
+      @include br.size(md) {
+        height: 85px;
+        padding-top: 42px;
+        padding-bottom: 16px;
+      }
+    }
+  }
+}
