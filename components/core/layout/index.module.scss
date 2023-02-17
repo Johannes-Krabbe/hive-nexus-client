@@ -22,4 +22,72 @@
   @include br.size(xl) {
     max-width: 1440px;
   }
+
+  .OverlaySection {
+    width: 100%;
+    height: 100%;
+
+    .OverlayBackground {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.75);
+      z-index: 99;
+
+      .Close {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        opacity: 1;
+        position: absolute;
+        right: calc(50% - 410px);
+        top: 8px;
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.7;
+        }
+
+        .CloseButton {
+          width: 32px;
+          height: 32px;
+
+          &:before {
+            transform: rotate(45deg);
+          }
+
+          &:after {
+            transform: rotate(-45deg);
+          }
+        }
+
+        .CloseButton:before,
+        .CloseButton:after {
+          position: absolute;
+          content: ' ';
+          height: 32px;
+          width: 2px;
+          background-color: #fff;
+        }
+      }
+
+      .OverlayContent {
+        position: absolute;
+        padding: 16px;
+        background-color: #fff;
+        width: 820px;
+        height: calc(90vh);
+        z-index: 100;
+        top: 56px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        overflow: scroll;
+      }
+    }
+  }
 }

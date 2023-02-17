@@ -1,0 +1,30 @@
+.Post {
+  width: 60%;
+  height:  auto;
+  margin: 48px auto;
+  padding: 16px;
+  border: 1px solid black;
+  border-radius: 16px;;
+
+  .TitleBar {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0 16px 0;
+
+    .Title {
+    }
+
+    .Details {
+      display: flex;
+      align-items: center;
+
+      .Creation {
+        margin: auto auto auto 8px;
+      }
+    }
+  }
+
+  .Content {
+    margin: 0 auto 16px auto;
+  }
+}
