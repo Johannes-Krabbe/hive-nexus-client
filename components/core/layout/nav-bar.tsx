@@ -66,7 +66,7 @@ export const NavBar = () => {
       <div className={styles.Wrapper}>
         <div className={styles.Brand}>
           <Link legacyBehavior href="/">
-            <div>Logo</div>
+            Logo
           </Link>
         </div>
         <nav id={'nav'} className={styles.Nav}>

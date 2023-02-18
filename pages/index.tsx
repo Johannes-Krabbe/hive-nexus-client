@@ -2,11 +2,11 @@ import { useState } from 'react'
 import type { NextPage } from 'next'
 
 import Button from 'components/button/button'
-import { Sun } from 'components/index/sun/sun'
+import { Sun } from 'components/core/layout/sun/sun'
 import { Hero } from 'components/core/hero/hero';
 import { PostList } from 'components/index/feed/post-list'
 import { CreatePost } from 'components/index/feed/create-post/create-post'
-import { SignUp } from 'components/index/sign-up/sign-up'
+import { SignIn } from 'components/auth/sign-in'
 
 import { useScrollLock } from 'utils/hooks'
 
@@ -16,6 +16,7 @@ import { postData } from 'lib/data/data'
 
 const Home: NextPage = () => {
   const [authSucceeded, setAuthSucceeded] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const [overlayIsShowing, setOverlayIsShowing] = useState(false)
   const { lockScroll, unlockScroll } = useScrollLock()
 
@@ -39,9 +40,16 @@ const Home: NextPage = () => {
       <Sun
         color={'sun-blue'}
         />
+      <div onClick={toggleAuth} className={styles.AuthSimulator}>
+        Toggle Auth
+      </div>
+      <div onClick={() => setIsLoading(!isLoading)} className={styles.LoadingSimulator}>
+        Toggle isLoading
+      </div>
       <Hero
         headline={headline}
         />
+      {isLoading && <div>Loading Spinner Coming Here</div>}
       {authSucceeded ?
         (
           <>
@@ -78,10 +86,7 @@ const Home: NextPage = () => {
               )}
           </>
         ) : (
-          <SignUp
-            authSucceeded={authSucceeded}
-            toggleAuth={toggleAuth}
-          />
+          <SignIn />
         )
       }
     </div>

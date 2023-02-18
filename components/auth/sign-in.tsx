@@ -3,9 +3,9 @@ import { AuthError } from 'types/types'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
 import Button from 'components/button/button'
-import styles from './sign-up.module.scss'
+import styles from './sign-in.module.scss'
 
-export const SignUp = () => {
+export const SignIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -75,11 +75,12 @@ export const SignUp = () => {
           action={'button'}
           variant={'secondary'}
           text={'Sign In'}
-          onClick={() => {console.log(`Signing In`)}}
+          onClick={() => {console.log(`Logging In`)}}
           />
         <p>Not registered yet?</p>
         <Button
-          action={'button'}
+          action={'link'}
+          href={'sign-up'}
           variant={'primary'}
           text={'Create Account'}
           onClick={() => {console.log(`Creating Account`)}}

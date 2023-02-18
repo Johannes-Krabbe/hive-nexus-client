@@ -7,4 +7,5 @@ export enum AuthError {
   Email = "fail",
   Password = "fail",
   PasswordMatch = "fail",
+  Username = "fail",
 }

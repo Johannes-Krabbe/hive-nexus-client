@@ -20,6 +20,7 @@ export interface IPost {
 export interface IButton {
   action: string;
   variant: "primary" | "secondary" | "dark";
+  href?: string;
   text: string;
   onClick?: () => void;
 }
