@@ -1,14 +1,13 @@
 import styles from './sun.module.scss'
 
-interface Props {
+interface SunProps {
   color: 'sun-blue' | 'sun-peach' | 'sun-purplepeach'
 }
 
-export const Sun = ({color}: Props) => {
-	const classNames = `${styles.container} ${styles[color]}`
-	
+export const Sun = ({color}: SunProps) => {
+	const classNames = `${styles.Wrapper} ${styles[color]}`
+
 	return (
-		<div className={classNames}>
-		</div>
+		<div className={classNames} />
 	)
 }

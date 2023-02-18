@@ -1,8 +1,8 @@
 @use 'styles/abstracts/_br.scss';
 @use 'styles/abstracts/_colors.scss';
 
-.container {
-	position: absolute;
+.Wrapper {
+  position: fixed;
 	width: 322.52px;
 	height: 322.52px;
 	right: -16.13px;
