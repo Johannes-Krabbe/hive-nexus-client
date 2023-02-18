@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FormError } from 'types/types'
 
-import Button from 'components/button/button'
+import { Button } from 'components/button/button'
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
 import { TextAreaInput } from 'components/index/feed/create-post/text-area-input/text-area-input'
 import styles from './create-post.module.scss'
@@ -73,7 +73,6 @@ export const CreatePost = () => {
               title={'title'}
               value={title}
               // @ts-ignore
-
               onChange={(e) => {
                 setTitle(e.target.value)
               }}

@@ -1,4 +1,6 @@
 @use 'styles/abstracts/_br.scss';
+@use 'styles/abstracts/_colors.scss';
+@use 'styles/abstracts/_typeface.scss';
 
 .Hero {
   width: 100%;
@@ -15,5 +17,20 @@
 
   @include br.size(lg) {
     padding: 80px 0 0 0;
+  }
+
+  .H1 {
+    width: 100%;
+    @include typeface.hero;
+    color: colors.$text-headline;
+
+    @include br.size(md) {
+      font-size: 80px;
+    }
+
+    @include br.size(lg) {
+      font-size: 94px;
+      line-height: 100px;
+    }
   }
 }

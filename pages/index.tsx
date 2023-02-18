@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { NextPage } from 'next'
 
-import Button from 'components/button/button'
+import { Button } from 'components/button/button'
 import { Sun } from 'components/core/layout/sun/sun'
 import { Hero } from 'components/core/hero/hero';
 import { PostList } from 'components/index/feed/post-list'
@@ -47,7 +47,7 @@ const Home: NextPage = () => {
         Toggle isLoading
       </div>
       <Hero
-        headline={headline}
+        text={headline}
         />
       {isLoading && <div>Loading Spinner Coming Here</div>}
       {authSucceeded ?

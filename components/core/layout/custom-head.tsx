@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
-type Props = {
+interface CustomHeadProps {
   title: string;
 };
 
-const CustomHead = ({title}: Props) => {
+export const CustomHead = ({title}: CustomHeadProps) => {
   return (
     <Head>
       <title key='title'>hivenexus | {title}</title>
@@ -12,5 +12,3 @@ const CustomHead = ({title}: Props) => {
     </Head>
   )
 }
-
-export default CustomHead;

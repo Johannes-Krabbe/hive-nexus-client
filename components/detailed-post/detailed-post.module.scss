@@ -1,0 +1,42 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.DetailedPost {
+  width: 80%;
+  height:  auto;
+  margin: 48px auto;
+  padding: 32px;
+
+  .Title {
+    width: 100%;
+    @include typeface.hero;
+    color: colors.$text-headline;
+  }
+
+  .Author {
+    margin-top: 48px;
+  }
+
+  .Author, .Date {
+    width: 100%;
+    @include typeface.h2;
+    color: colors.$text-headline;
+  }
+
+  .Content {
+    margin: 32px auto;
+    @include typeface.p1;
+  }
+
+  .BottomBar {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    @include typeface.h3;
+    margin: 0 0 32px 0px;
+
+    .Likes {
+      margin: 0 16px 0 0;
+    }
+  }
+}

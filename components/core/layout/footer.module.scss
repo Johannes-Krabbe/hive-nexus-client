@@ -8,7 +8,7 @@
   background-color: transparent;
   text-transform: capitalize;
 
-  .Outer {
+  .Wrapper {
     width: calc(100% - 48px);
     margin: 0 auto;
     position: relative;
@@ -28,39 +28,39 @@
     @include br.size(xl) {
       max-width: 1440px;
     }
+
+    .Menu {
+      // TODO: replace font
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 27px;
+      color: #152E4A;
+
+      @include br.size(sm) {
+        font-size: 23px;
+        line-height: 32px;
+      }
+
+      @include br.size(md) {
+        font-size: 34px;
+        line-height: 45px;
+      }
+
+      @include br.size(lg) {
+        font-size: 38px;
+        line-height: 51px;
+      }
+    }
+
+    .Copyright {
+      margin: 70px 0 0 0;
+      // TODO: replace font
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+      color: #152E4A;
+    }
   }
-}
-
-.MenuContainer {
-  // TODO: replace font
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 27px;
-  color: #152E4A;
-
-  @include br.size(sm) {
-    font-size: 23px;
-    line-height: 32px;
-  }
-
-  @include br.size(md) {
-    font-size: 34px;
-    line-height: 45px;
-  }
-
-  @include br.size(lg) {
-    font-size: 38px;
-    line-height: 51px;
-  }
-}
-
-.CopyrightContainer {
-  margin: 70px 0 0 0;
-  // TODO: replace font
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: #152E4A;
 }

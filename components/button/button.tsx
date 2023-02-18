@@ -1,5 +1,5 @@
+import { IButton } from 'types/interfaces'
 import styles from './button.module.scss'
-import { IButton } from '../../types/interfaces'
 
 export const Button = ({action, variant, text, href, onClick}: IButton) => {
   const buttonStyles = `${styles.Button} ${styles[variant]}`
@@ -31,5 +31,3 @@ export const Button = ({action, variant, text, href, onClick}: IButton) => {
     }
   }
 }
-
-export default Button;

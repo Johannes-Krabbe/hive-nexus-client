@@ -7,10 +7,8 @@ import { Register } from 'components/auth/register'
 
 import styles from 'components/core/layout/index.module.scss'
 
-
 const SignUp: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false)
-
   const headline = 'Create Account'
 
   return (
@@ -21,9 +19,7 @@ const SignUp: NextPage = () => {
       <div onClick={() => setIsLoading(!isLoading)} className={styles.LoadingSimulator}>
         Toggle isLoading
       </div>
-      <Hero
-        headline={headline}
-        />
+      <Hero text={headline} />
       {isLoading && <div>Loading Spinner Coming Here</div>}
       <Register />
     </div>

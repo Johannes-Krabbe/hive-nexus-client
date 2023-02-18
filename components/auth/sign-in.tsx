@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AuthError } from 'types/types'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
-import Button from 'components/button/button'
+import { Button } from 'components/button/button'
 import styles from './sign-in.module.scss'
 
 export const SignIn = () => {

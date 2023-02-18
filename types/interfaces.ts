@@ -17,6 +17,18 @@ export interface IPost {
   commentsCount: number;
 }
 
+export interface IComment {
+  id: string;
+  createdAt: string;
+  author: string;
+  content: string;
+}
+
+export interface ILike {
+  id: string;
+  user: string;
+}
+
 export interface IButton {
   action: string;
   variant: "primary" | "secondary" | "dark";

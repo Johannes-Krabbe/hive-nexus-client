@@ -1,0 +1,22 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.Comment {
+  height:  auto;
+  margin: 32px auto;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 2em;
+
+  p {
+    margin: 8px;
+  }
+
+  .Author {
+    @include typeface.p2;
+  }
+
+  .Content {
+    @include typeface.p1;
+  }
+}

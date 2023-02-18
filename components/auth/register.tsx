@@ -2,14 +2,13 @@ import { useState } from 'react'
 import { AuthError } from 'types/types'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
-import Button from 'components/button/button'
+import { Button } from 'components/button/button'
 import styles from './register.module.scss'
 
 export const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordRepeat, setPasswordRepeat] = useState('')
-  const [registered, setRegistered] = useState(false)
 
   const [username, setUsername] = useState('')
   const [registrationSuccessful, setRegistrationSuccessful] = useState(false)

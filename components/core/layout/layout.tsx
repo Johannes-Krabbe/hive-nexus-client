@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 import { useRouter } from "next/router";
 
 import { NavBar } from './nav-bar';
-import CustomHead from './custom-head';
-import Footer from './footer';
+import { CustomHead } from './custom-head';
+import { Footer } from './footer';
 
-type Props = {
+interface LayoutProps {
 	children: ReactNode;
 };
 
@@ -13,7 +13,7 @@ function capitalizeFirstLetter(string: string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-const Layout = ({children}: Props) => {
+export const Layout = ({children}: LayoutProps) => {
 	const router = useRouter()
 
 	let headTitle = router.pathname
@@ -27,8 +27,8 @@ const Layout = ({children}: Props) => {
 
 	return (
 		<>
-		<NavBar />
-		<CustomHead title={headTitle}/>
+			<NavBar />
+			<CustomHead title={headTitle}/>
 			<main className="container">
 				{children}
 			</main>
@@ -36,5 +36,3 @@ const Layout = ({children}: Props) => {
 		</>
 	);
 }
-
-export default Layout;

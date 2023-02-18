@@ -1,5 +1,5 @@
-import { IPost } from '../../../types/interfaces'
-import Button from 'components/button/button'
+import { IPost } from 'types/interfaces'
+import { Button } from 'components/button/button'
 import styles from './post.module.scss'
 
 export const Post = ({id, createdAt, author, title, content, likesCount, commentsCount}: IPost) => {
@@ -23,12 +23,17 @@ export const Post = ({id, createdAt, author, title, content, likesCount, comment
         <p className={styles.Likes}>{likesCount} 🔥</p>
         <p>{commentsCount} 💬</p>
       </div>
-      <Button
-        action={'button'}
-        variant={'secondary'}
-        text={'Like'}
-        onClick={() => {console.log(`Post ID: ${id} liked`)}}
-      />
+      <div className={styles.ButtonWrapper}>
+        <Button
+          action={'button'}
+          variant={'secondary'}
+          text={'Like'}
+          onClick={() => {console.log(`Post ID: ${id} liked`)}}
+        />
+        <a className={styles.Details} href={'/singlepostview'}>
+          See details
+        </a>
+      </div>
     </div>
   )
 }

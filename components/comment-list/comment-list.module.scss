@@ -1,0 +1,11 @@
+@use 'styles/abstracts/_typeface.scss';
+
+.Wrapper {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+
+  .Title {
+    @include typeface.h1;
+  }
+}

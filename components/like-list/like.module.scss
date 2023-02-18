@@ -1,0 +1,31 @@
+@use 'styles/abstracts/_typeface.scss';
+@use 'styles/abstracts/_colors.scss';
+
+.Like {
+  height:  auto;
+  margin: 8px auto;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  border: 1px solid pink;
+
+  .Avatar {
+    border-radius: 50%;
+    border: 2px solid black;
+    height: 64px;
+    width: 64px;
+    margin: 0 8px 0 0;
+  }
+
+  p {
+    margin: 8px;
+  }
+
+  .User {
+    @include typeface.p2;
+  }
+
+  .Content {
+    @include typeface.p1;
+  }
+}
