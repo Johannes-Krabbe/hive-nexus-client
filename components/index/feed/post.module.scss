@@ -1,9 +1,9 @@
-@use 'styles/abstracts/_typeface.scss';
-@use 'styles/abstracts/_colors.scss';
+@use "styles/abstracts/_typeface.scss";
+@use "styles/abstracts/_colors.scss";
 
 .Post {
   width: 60%;
-  height:  auto;
+  height: auto;
   margin: 48px auto;
   padding: 32px;
   border: 1px solid colors.$text-headline;

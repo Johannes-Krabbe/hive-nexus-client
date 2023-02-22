@@ -1,11 +1,11 @@
-import { IPost } from 'types/interfaces'
-import { Post } from './post'
+import { IPost } from "types/interfaces";
+import { Post } from "./post";
 
 interface IPostList {
-  posts: IPost[]
+  posts: IPost[];
 }
 
-export const PostList = ({posts}: IPostList) => {
+export const PostList = ({ posts }: IPostList) => {
   return (
     <>
       {posts.map((p: IPost) => {
@@ -19,9 +19,9 @@ export const PostList = ({posts}: IPostList) => {
             content={p.content}
             likesCount={p.likesCount}
             commentsCount={p.commentsCount}
-            />
-        )
+          />
+        );
       })}
     </>
-  )
-}
+  );
+};

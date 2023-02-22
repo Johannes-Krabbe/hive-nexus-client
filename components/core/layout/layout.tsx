@@ -18,19 +18,19 @@ function capitalizeFirstLetter(string: string) {
 export const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
 
-  let headTitle = router.pathname;
+  let title = router.pathname;
 
-  if (headTitle === "/") {
-    headTitle = "Home";
+  if (title === "/") {
+    title = "Home";
   }
 
-  headTitle = headTitle.replace("/", "");
-  headTitle = capitalizeFirstLetter(headTitle);
+  title = title.replace("/", "");
+  title = capitalizeFirstLetter(title);
 
   return (
     <div className={styles.Layout}>
       <NavBar />
-      <CustomHead title={headTitle} />
+      <CustomHead title={title} />
       <main className="container">{children}</main>
       <Footer />
     </div>

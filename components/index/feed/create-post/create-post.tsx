@@ -1,59 +1,52 @@
-import { useState } from 'react'
-import { FormError } from 'types/types'
+import { useState } from "react";
+import { FormError } from "types/types";
 
-import { Button } from 'components/button/button'
-import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
-import { TextAreaInput } from 'components/index/feed/create-post/text-area-input/text-area-input'
-import styles from './create-post.module.scss'
+import { Button } from "components/button/button";
+import { TextInput } from "components/index/feed/create-post/text-input/text-input";
+import { TextAreaInput } from "components/index/feed/create-post/text-area-input/text-area-input";
+import styles from "./create-post.module.scss";
 
 export const CreatePost = () => {
-
-  const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
 
   // TODO: getting data from auth/db
-  const username = 'spacjalex'
-  const createdAt = '17.02.2023'
-  const postId = '123123123'
+  const username = "spacjalex";
+  const createdAt = "17.02.2023";
+  const postId = "123123123";
 
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
-  const [showFailureMessage, setShowFailureMessage] = useState(false)
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showFailureMessage, setShowFailureMessage] = useState(false);
 
   const resetForm = () => {
-    setTitle('')
-    setContent('')
-  }
+    setTitle("");
+    setContent("");
+  };
 
   // @ts-ignore
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     // setShowSuccessMessage(true)
 
     // console.log('showSuccessMessage:')
     // console.log(showSuccessMessage)
-    console.log('CreatePost Content, submitting:')
-    console.log(`postId: ${postId}`)
-    console.log(`createdAt: ${createdAt}`)
-    console.log(`username: ${username}`)
-    console.log(`title: ${title}`)
-    console.log(`content: ${content}`)
-  }
+    console.log("CreatePost Content, submitting:");
+    console.log(`postId: ${postId}`);
+    console.log(`createdAt: ${createdAt}`);
+    console.log(`username: ${username}`);
+    console.log(`title: ${title}`);
+    console.log(`content: ${content}`);
+  };
 
   return (
     <div className={styles.Wrapper}>
       <div className={styles.Container}>
         <div className={styles.TitleBar}>
-          <p>
-            Write your Post! 📃
-          </p>
+          <p>Write your Post! 📃</p>
         </div>
         <div className={styles.DetailsBar}>
-          <p className={styles.Username}>
-            {username}
-          </p>
-          <p>
-            {createdAt}
-          </p>
+          <p className={styles.Username}>{username}</p>
+          <p>{createdAt}</p>
         </div>
         <div className={styles.FormWrapper}>
           <form
@@ -70,11 +63,11 @@ export const CreatePost = () => {
               placeholder="Title"
               pattern="^(\D+)$"
               errorMessage={FormError.Title}
-              title={'title'}
+              title={"title"}
               value={title}
               // @ts-ignore
               onChange={(e) => {
-                setTitle(e.target.value)
+                setTitle(e.target.value);
               }}
             />
             <TextAreaInput
@@ -83,11 +76,11 @@ export const CreatePost = () => {
               name="content"
               placeholder="Content"
               errorMessage={FormError.Content}
-              title={'content'}
+              title={"content"}
               value={content}
               // @ts-ignore
               onChange={(e) => {
-                setContent(e.target.value)
+                setContent(e.target.value);
               }}
             />
             <div className={styles.ButtonContainer}>
@@ -97,10 +90,8 @@ export const CreatePost = () => {
               (showFailureMessage && (
                 <div className={styles.Confirmation}>
                   <h5 className={styles.Wording}>
-                    {showSuccessMessage &&
-                      'Many thanks for sharing!'}
-                    {showFailureMessage &&
-                      'Oops, something went wrong.'}
+                    {showSuccessMessage && "Many thanks for sharing!"}
+                    {showFailureMessage && "Oops, something went wrong."}
                   </h5>
                 </div>
               ))}
@@ -108,5 +99,5 @@ export const CreatePost = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

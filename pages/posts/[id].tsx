@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 
 import { Sun } from "components/core/layout/sun/sun";
 import { detailedPost } from "backend/data";
+import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import { DetailedPost } from "components/detailed-post/detailed-post";
 import { CommentList } from "components/comment-list/comment-list";
 import { LikeList } from "components/like-list/like-list";
@@ -15,7 +16,8 @@ const SinglePostView: NextPage = () => {
   const [isLoading, setLoading] = useState(false);
 
   const router = useRouter();
-  const { id } = router.query;
+  const { asPath } = router;
+  const id = asPath.substring(asPath.lastIndexOf("/") + 1);
 
   useEffect(() => {
     setLoading(true);
@@ -27,14 +29,14 @@ const SinglePostView: NextPage = () => {
       });
   }, []);
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <LoadingSpinner />;
   if (!data) return <p>No post data</p>;
 
   return (
     <div className={styles.Container}>
       <Sun color={"sun-peach"} />
       <DetailedPost
-        id={data.id}
+        id={id}
         createdAt={data.birthDate}
         author={data.username}
         title={data.eyeColor}
