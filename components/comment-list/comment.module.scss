@@ -1,19 +1,31 @@
-@use 'styles/abstracts/_typeface.scss';
-@use 'styles/abstracts/_colors.scss';
+@use "styles/abstracts/_typeface.scss";
+@use "styles/abstracts/_colors.scss";
 
 .Comment {
-  height:  auto;
+  height: auto;
   margin: 32px auto;
   padding: 1em;
-  border: 1px solid black;
+  background-color: #ecf2ff;
   border-radius: 2em;
+
+  .DetailsBar {
+    display: flex;
+    align-items: center;
+
+    .Avatar {
+      border-radius: 50%;
+      border: 2px solid colors.$text-headline;
+      margin: 0 8px 0 0;
+    }
+
+    .Author {
+      @include typeface.h2;
+      margin: 0 48px 0 0;
+    }
+  }
 
   p {
     margin: 8px;
-  }
-
-  .Author {
-    @include typeface.p2;
   }
 
   .Content {

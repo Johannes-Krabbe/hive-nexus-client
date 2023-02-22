@@ -1,6 +1,6 @@
-@use 'styles/abstracts/_br.scss';
-@use 'styles/abstracts/_typeface.scss';
-@use 'styles/abstracts/_colors.scss';
+@use "styles/abstracts/_br.scss";
+@use "styles/abstracts/_typeface.scss";
+@use "styles/abstracts/_colors.scss";
 
 .Container {
   height: 60px;
@@ -52,6 +52,7 @@
   }
 
   .Brand {
+    @include typeface.h1;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -114,7 +115,7 @@
           position: relative;
 
           &::after {
-            content: '';
+            content: "";
             position: absolute;
             bottom: 0;
             left: 0;

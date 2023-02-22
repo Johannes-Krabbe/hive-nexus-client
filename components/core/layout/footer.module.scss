@@ -1,16 +1,16 @@
-@use 'styles/abstracts/_br.scss';
-@use 'styles/abstracts/_colors.scss';
+@use "styles/abstracts/_br.scss";
+@use "styles/abstracts/_colors.scss";
 
 // TODO: fix colors, fix fonts
 
 .Footer {
-  height: 80px;
+  margin-top: auto;
   background-color: transparent;
   text-transform: capitalize;
+  border-top: 1px solid black;
 
   .Wrapper {
     width: calc(100% - 48px);
-    margin: 0 auto;
     position: relative;
 
     @include br.size(sm) {
@@ -35,7 +35,7 @@
       font-weight: 700;
       font-size: 20px;
       line-height: 27px;
-      color: #152E4A;
+      color: #152e4a;
 
       @include br.size(sm) {
         font-size: 23px;
@@ -60,7 +60,7 @@
       font-weight: 400;
       font-size: 12px;
       line-height: 16px;
-      color: #152E4A;
+      color: #152e4a;
     }
   }
 }

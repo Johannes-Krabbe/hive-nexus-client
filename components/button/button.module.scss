@@ -1,5 +1,5 @@
-@use 'styles/abstracts/_br.scss';
-@use 'styles/abstracts/_colors.scss';
+@use "styles/abstracts/_br.scss";
+@use "styles/abstracts/_colors.scss";
 
 .Button {
   padding: 1em 2em;
@@ -10,7 +10,7 @@
   text-align: center;
   display: inline-block;
   border: 1px solid transparent;
-  transition: border .5ms ease-in-out;
+  transition: border 0.5ms ease-in-out;
 
   @include br.size(md) {
     font-size: 16px;
@@ -22,8 +22,8 @@
   }
 
   &.primary {
-    background-color: colors.$green;
-    color: colors.$text-headline;
+    background-color: #9f73ab;
+    color: #fff;
 
     &:hover {
       transform: scale(1.01);
@@ -32,7 +32,7 @@
   }
 
   &.secondary {
-    background-color: #86C1FF;
+    background-color: #a3c7d6;
 
     &:hover {
       transform: scale(1.01);
@@ -42,7 +42,7 @@
 
   &.dark {
     background-color: colors.$text-headline;
-    color: #FFFFFF;
+    color: #ffffff;
 
     &:hover {
       transform: scale(1.01);
@@ -51,6 +51,6 @@
   }
 
   &:active {
-    transform: scale(.95);
+    transform: scale(0.95);
   }
 }

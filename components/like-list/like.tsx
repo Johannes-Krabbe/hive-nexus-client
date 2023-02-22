@@ -1,17 +1,20 @@
-import { ILike } from 'types/interfaces'
-import styles from './like.module.scss'
+import Image from "next/image";
+import { ILike } from "types/interfaces";
+import smiley from "/public/assets/images/core/smiley.png";
+import styles from "./like.module.scss";
 
-export const Like = ({
-    id,
-    user
-  }: ILike) => {
+export const Like = ({ username }: ILike) => {
   return (
     <div className={styles.Like}>
-      <div className={styles.Avatar} />
-      <div className={styles.Details}>
-        <p>id: {id}</p>
-        <p className={styles.User}>{user}</p>
-      </div>
+      <Image
+        className={styles.Avatar}
+        // TODO: replace
+        src={smiley}
+        height={24}
+        width={24}
+        alt={`Avatar of user ${username}`}
+      />
+      <p className={styles.Username}>{username}</p>
     </div>
-  )
-}
+  );
+};

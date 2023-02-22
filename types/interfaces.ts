@@ -26,7 +26,7 @@ export interface IComment {
 
 export interface ILike {
   id: string;
-  user: string;
+  username: string;
 }
 
 export interface IButton {

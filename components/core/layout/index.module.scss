@@ -1,8 +1,9 @@
-@use 'styles/abstracts/_br.scss';
-@use 'styles/abstracts/_colors.scss';
+@use "styles/abstracts/_br.scss";
+@use "styles/abstracts/_colors.scss";
 
 // TODO: Delete
-.AuthSimulator, .LoadingSimulator {
+.AuthSimulator,
+.LoadingSimulator {
   padding: 1em;
   border-radius: 3rem;
   color: red;
@@ -12,6 +13,13 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.Layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .Container {
@@ -87,8 +95,8 @@
   }
 
   .SinglePostWrapper {
+    width: calc(80% - 32px);
     display: flex;
-    justify-content: space-between;
-    width: 75%;
+    flex-direction: column;
   }
 }
