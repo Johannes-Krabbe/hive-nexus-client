@@ -20,6 +20,7 @@ const SinglePostView: NextPage = () => {
   const id = asPath.substring(asPath.lastIndexOf("/") + 1);
 
   useEffect(() => {
+    if (!router.isReady) return;
     setLoading(true);
     fetch(`https://dummyjson.com/users/${id}`)
       .then((res) => res.json())
@@ -27,7 +28,7 @@ const SinglePostView: NextPage = () => {
         setData(data);
         setLoading(false);
       });
-  }, []);
+  }, [router]);
 
   if (isLoading) return <LoadingSpinner />;
   if (!data) return <p>No post data</p>;
