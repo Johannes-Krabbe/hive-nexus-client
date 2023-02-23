@@ -48,9 +48,67 @@
   .ButtonWrapper {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
-    .Details {
-      @include typeface.h3;
+    .Anchor {
+      height: 22px;
+      width: 22px;
+
+      &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+
+        // TODO: fix animation
+        // .Arrow {
+        //     animation: right 0.8s ease 1;
+        //   }
+        }
+
+        .Arrow {
+          transform: rotate(90deg);
+          box-sizing: border-box;
+          position: relative;
+          display: block;
+          width: 22px;
+          height: 22px;
+          border: 2px solid;
+          border-radius: 20px;
+
+        &::before {
+          content: '';
+          display: block;
+          box-sizing: border-box;
+          position: absolute;
+          top: 4px;
+          width: 2px;
+          height: 10px;
+          left: 8px;
+          background: #000;
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          box-sizing: border-box;
+          position: absolute;
+          top: 4px;
+          width: 6px;
+          height: 6px;
+          border-top: 2px solid;
+          border-left: 2px solid;
+          transform: rotate(45deg);
+          left: 6px;
+        }
+      }
     }
+  }
+}
+
+@keyframes right {
+  25% {
+    transform: translateX(4px);
+  }
+  75% {
+    transform: translateX(0px);
   }
 }

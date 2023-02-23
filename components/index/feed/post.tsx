@@ -43,9 +43,15 @@ export const Post = ({
             console.log(`Post ID: ${id} liked`);
           }}
         />
-        <a className={styles.Details} href={"/singlepostview"}>
-          See details
-        </a>
+        <Link
+          className={styles.Anchor}
+          href={{
+            pathname: "/posts/[id]",
+            query: { id: id },
+          }}
+        >
+          <div className={styles.Arrow} />
+        </Link>
       </div>
     </div>
   );
