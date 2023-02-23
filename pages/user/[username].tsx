@@ -19,6 +19,7 @@ const UserPage: NextPage = () => {
     if (!router.isReady) return;
 
     fetch(`https://dummyjson.com/users/${username}`)
+    // fetch(`localhost:3001/user?username=${username}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(`userData received: ${JSON.stringify(data)}`)
