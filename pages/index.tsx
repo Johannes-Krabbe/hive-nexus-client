@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { NextPage } from "next";
+import { useRouter } from "next/router";
 
 import { Button } from "components/button/button";
 import { Sun } from "components/core/layout/sun/sun";
@@ -10,15 +11,39 @@ import { SignIn } from "components/auth/sign-in";
 
 import { useScrollLock } from "utils/hooks";
 
+import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
+
 import styles from "components/core/layout/index.module.scss";
 
 import { postData } from "backend/data";
 
 const Home: NextPage = () => {
+  const [data, setData] = useState(null);
+  const [isLoading, setLoading] = useState(false);
   const [authSucceeded, setAuthSucceeded] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const { lockScroll, unlockScroll } = useScrollLock();
+
+  const router = useRouter();
+  const { asPath } = router;
+  const id = asPath.substring(asPath.lastIndexOf("/") + 1);
+
+  useEffect(() => {
+    if (!router.isReady) return;
+    setLoading(true);
+    fetch(`https://dummyjson.com/posts?limit=10&skip=10`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+
+      console.log(data)
+  }, [router]);
+
+  if (isLoading) return <LoadingSpinner />;
+  if (!data) return <p>No post data</p>;
+
 
   const toggleAuth = () => {
     setAuthSucceeded(!authSucceeded);
@@ -41,12 +66,6 @@ const Home: NextPage = () => {
       <div onClick={toggleAuth} className={styles.AuthSimulator}>
         Toggle Auth
       </div>
-      <div
-        onClick={() => setIsLoading(!isLoading)}
-        className={styles.LoadingSimulator}
-      >
-        Toggle isLoading
-      </div>
       <Hero text={headline} />
       {isLoading && <div>Loading Spinner Coming Here</div>}
       {authSucceeded ? (
@@ -57,7 +76,7 @@ const Home: NextPage = () => {
             text={"Create post"}
             onClick={toggleOverlay}
           />
-          <PostList posts={postData} />
+          <PostList posts={data.posts} />
           {overlayIsShowing && (
             <div className={styles.Overlay}>
               <div className={styles.OverlayBackground} onClick={toggleOverlay}>

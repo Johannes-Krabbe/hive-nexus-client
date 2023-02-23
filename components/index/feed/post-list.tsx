@@ -1,24 +1,24 @@
 import { IPost } from "types/interfaces";
 import { Post } from "./post";
 
-interface IPostList {
-  posts: IPost[];
-}
+// interface IPostList {
+//   posts: IPost[];
+// }
 
-export const PostList = ({ posts }: IPostList) => {
+export const PostList = ({ posts }) => {
   return (
     <>
-      {posts.map((p: IPost) => {
+      {posts.map(p => {
         return (
           <Post
             key={p.id}
             id={p.id}
-            createdAt={p.createdAt}
-            author={p.author}
+            createdAt={'01.01.2000'}
+            author={`userId: ${p.userId}`}
             title={p.title}
-            content={p.content}
-            likesCount={p.likesCount}
-            commentsCount={p.commentsCount}
+            content={p.body}
+            likesCount={p.reactions}
+            commentsCount={88}
           />
         );
       })}

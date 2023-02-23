@@ -22,7 +22,7 @@ const SinglePostView: NextPage = () => {
   useEffect(() => {
     if (!router.isReady) return;
     setLoading(true);
-    fetch(`https://dummyjson.com/users/${id}`)
+    fetch(`https://dummyjson.com/posts/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -38,12 +38,10 @@ const SinglePostView: NextPage = () => {
       <Sun color={"sun-peach"} />
       <DetailedPost
         id={id}
-        createdAt={data.birthDate}
-        author={data.username}
-        title={data.eyeColor}
-        content={
-          "SDFG DSFG DSFGOINM WERGUN SADIOVN WEIOUN 4523IO6TN 345KLJN 345OI6HUBN OP8Y34B56 OHUWBNR TOIHJN25 6OPIUYN WERTIN P2IO3HN6 POI43HP6I JDSFGOINM WERGUN SADIOVN WEIOUN 4523IO6TN 345KLJN 345OI6HUBN OP8Y34B56 OHUWBNR TOIHJN25 6OPIUYN WERTIN P2IO3HN6 POI43HP6I JDSFGOINM WERGUN SADIOVN WEIOUN 4523IO6TN 345KLJN 345OI6HUBN OP8Y34B56 OHUWBNR TOIHJN25 6OPIUYN WERTIN P2IO3HN6 POI43HP6I JDSFGOINM WERGUN SADIOVN WEIOUN 4523IO6TN 345KLJN 345OI6HUBN OP8Y34B56 OHUWBNR TOIHJN25 6OPIUYN WERTIN P2IO3HN6 POI43HP6I JDSFGOINM WERGUN SADIOVN WEIOUN 4523IO6TN 345KLJN 345OI6HUBN OP8Y34B56 OHUWBNR TOIHJN25 6OPIUYN WERTIN P2IO3HN6 POI43HP6I JDSFGOINM WERGUN SADIOVN WEIOUN 4523IO6TN 345KLJN 345OI6HUBN OP8Y34B56 OHUWBNR TOIHJN25 6OPIUYN WERTIN P2IO3HN6 POI43HP6I J"
-        }
+        createdAt={'01.01.2001'}
+        author={`userId: ${data.userId}`}
+        title={data.title}
+        content={data.body}
       />
       <div className={styles.SinglePostWrapper}>
         <LikeList likes={detailedPost.likes} />
