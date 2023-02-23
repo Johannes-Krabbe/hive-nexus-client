@@ -22,7 +22,7 @@ export const Post = ({
             query: { id: id },
           }}
         >
-          {title}
+          {id} {title}
         </Link>
         <div className={styles.Details}>
           <p>{author}</p>

@@ -12,8 +12,9 @@ import { LikeList } from "components/like-list/like-list";
 import styles from "components/core/layout/index.module.scss";
 
 const SinglePostView: NextPage = () => {
-  const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(false);
+  const [postData, setPostData] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
   const router = useRouter();
   const { asPath } = router;
@@ -21,28 +22,39 @@ const SinglePostView: NextPage = () => {
 
   useEffect(() => {
     if (!router.isReady) return;
-    setLoading(true);
+
     fetch(`https://dummyjson.com/posts/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setData(data);
+        setPostData(data);
+        console.log(`postData received: ${JSON.stringify(data)}`)
+        return fetch(`https://dummyjson.com/users/${data.userId}`);
+      })
+      .then(res => res.json())
+      .then((data) => {
+        console.log(`userData received: ${JSON.stringify(data)}`)
+        setUserData(data);
         setLoading(false);
-      });
+      })
+      .catch(err => {
+        console.log('request failed', err)
+      })
   }, [router]);
 
   if (isLoading) return <LoadingSpinner />;
-  if (!data) return <p>No post data</p>;
+  if (!postData || !userData) return <p>No post data</p>;
 
   return (
     <div className={styles.Container}>
       <Sun color={"sun-peach"} />
       <DetailedPost
         id={id}
-        createdAt={'01.01.2001'}
-        author={`userId: ${data.userId}`}
-        title={data.title}
-        content={data.body}
+        createdAt={userData.birthDate}
+        author={`${userData.firstName} ${userData.lastName}`}
+        title={postData.title}
+        content={postData.body}
       />
+      {/* TODO: feed with fetched data */}
       <div className={styles.SinglePostWrapper}>
         <LikeList likes={detailedPost.likes} />
         <CommentList comments={detailedPost.comments} />

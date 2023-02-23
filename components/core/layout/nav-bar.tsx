@@ -114,7 +114,7 @@ const OverlayNav = ({
       <nav id={"nav"} className={styles.Nav}>
         <div className={styles.TopBar}>
           <a
-            href={"javascript:void(0)"}
+            role="button"
             className={styles.CloseIcon}
             onClick={toggleOverlay}
           >

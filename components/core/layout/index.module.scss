@@ -86,6 +86,7 @@
             color: colors.$text-paragraph;
 
             &:hover {
+              cursor: pointer;
               color: colors.$text-headline;
             }
           }

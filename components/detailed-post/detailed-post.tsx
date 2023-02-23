@@ -18,7 +18,7 @@ export const DetailedPost = ({
 }: DetailedPostProps) => {
   return (
     <div className={styles.DetailedPost}>
-      <h2 className={styles.Title}>{title}</h2>
+      <h2 className={styles.Title}>{id} {title}</h2>
       <p className={styles.Author}>{author}</p>
       <p className={styles.Date}>{createdAt}</p>
       <p className={styles.Content}>{content}</p>
