@@ -18,7 +18,7 @@ export const Post = ({
         <Link
           className={styles.Title}
           href={{
-            pathname: "/posts/[id]",
+            pathname: "/post/[id]",
             query: { id: id },
           }}
         >
@@ -27,8 +27,8 @@ export const Post = ({
         <div className={styles.Details}>
           <Link
             href={{
-              pathname: "users/[id]",
-              query: { id: id}
+              pathname: "user/[id]",
+              query: { id: author}
             }}
             >
             <p>{author}</p>
@@ -53,7 +53,7 @@ export const Post = ({
         <Link
           className={styles.Anchor}
           href={{
-            pathname: "/posts/[id]",
+            pathname: "/post/[id]",
             query: { id: id },
           }}
         >
