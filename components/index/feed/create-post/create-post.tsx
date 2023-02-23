@@ -1,5 +1,7 @@
 import { useState } from "react";
+import Image from 'next/image'
 import { FormError } from "types/types";
+import smiley from "/public/assets/images/core/smiley.png";
 
 import { Button } from "components/button/button";
 import { TextInput } from "components/index/feed/create-post/text-input/text-input";
@@ -12,7 +14,6 @@ export const CreatePost = () => {
 
   // TODO: getting data from auth/db
   const username = "spacjalex";
-  const createdAt = "17.02.2023";
   const postId = "123123123";
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -32,7 +33,6 @@ export const CreatePost = () => {
     // console.log(showSuccessMessage)
     console.log("CreatePost Content, submitting:");
     console.log(`postId: ${postId}`);
-    console.log(`createdAt: ${createdAt}`);
     console.log(`username: ${username}`);
     console.log(`title: ${title}`);
     console.log(`content: ${content}`);
@@ -42,11 +42,18 @@ export const CreatePost = () => {
     <div className={styles.Wrapper}>
       <div className={styles.Container}>
         <div className={styles.TitleBar}>
-          <p>Write your Post! 📃</p>
+          <p>Write a Post! 📃</p>
         </div>
-        <div className={styles.DetailsBar}>
+        <div className={styles.User}>
+          <Image
+            className={styles.Avatar}
+            // TODO: replace
+            src={smiley}
+            height={32}
+            width={32}
+            alt={`Your avatar`}
+          />
           <p className={styles.Username}>{username}</p>
-          <p>{createdAt}</p>
         </div>
         <div className={styles.FormWrapper}>
           <form

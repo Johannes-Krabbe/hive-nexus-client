@@ -11,7 +11,7 @@ import { LikeList } from "components/like-list/like-list";
 
 import styles from "components/core/layout/index.module.scss";
 
-const SinglePostView: NextPage = () => {
+const PostPage: NextPage = () => {
   const [postData, setPostData] = useState(null);
   const [userData, setUserData] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -55,7 +55,7 @@ const SinglePostView: NextPage = () => {
         content={postData.body}
       />
       {/* TODO: feed with fetched data */}
-      <div className={styles.SinglePostWrapper}>
+      <div className={styles.PostPageWrapper}>
         <LikeList likes={detailedPost.likes} />
         <CommentList comments={detailedPost.comments} />
       </div>
@@ -63,4 +63,4 @@ const SinglePostView: NextPage = () => {
   );
 };
 
-export default SinglePostView;
+export default PostPage;

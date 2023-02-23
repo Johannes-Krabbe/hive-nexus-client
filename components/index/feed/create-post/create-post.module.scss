@@ -22,15 +22,19 @@
       color: colors.$text-headline;
     }
 
-    .DetailsBar {
-      width: 100%;
-      right: 0px;
-      margin: 32px 0 16px 0;
+    .User {
       display: flex;
-      justify-content: flex-end;
+      align-items: center;
+      margin: 16px 0;
+
+      .Avatar {
+        border-radius: 50%;
+        border: 2px solid colors.$text-headline;
+        margin: 0 4px 0 0;
+      }
 
       .Username {
-        margin: 0 32px 0 0;
+        @include typeface.h2;
       }
     }
 

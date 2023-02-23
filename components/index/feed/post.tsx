@@ -25,7 +25,14 @@ export const Post = ({
           {id} {title}
         </Link>
         <div className={styles.Details}>
-          <p>{author}</p>
+          <Link
+            href={{
+              pathname: "users/[id]",
+              query: { id: id}
+            }}
+            >
+            <p>{author}</p>
+          </Link>
           <p className={styles.Creation}>{createdAt}</p>
         </div>
       </div>
