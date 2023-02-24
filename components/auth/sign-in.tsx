@@ -21,9 +21,9 @@ export const SignIn = () => {
 
     // console.log('showSuccessMessage:')
     // console.log(showSuccessMessage)
-    console.log('Sign In, submitting:')
-    console.log(`email: ${email}`)
-    console.log(`password: ${password}`)
+    // console.log('Sign In, submitting:')
+    // console.log(`email: ${email}`)
+    // console.log(`password: ${password}`)
   }
 
   return (
