@@ -4,6 +4,7 @@ export const useUser = () => {
     user: {
       username: "alex",
       userId: "2345362",
+      // TODO: change false/true for toggling auth
       isLoggedIn: false,
     },
   };

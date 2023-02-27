@@ -16,16 +16,18 @@ const UserPage: NextPage = () => {
   const { asPath } = router;
   const username = asPath.substring(asPath.lastIndexOf("/") + 1);
 
+  async function fetchData() {
+    const res = await request.get(`/user/one?username=${username}`);
+
+    console.log("API response:", res);
+    console.log(`userData received: ${JSON.stringify(res.data.data)}`);
+    setUserData(res.data.data);
+    setLoading(false);
+  }
+
   useEffect(() => {
     if (!router.isReady) return;
-    async function fetchData() {
-      const res = await request.get(`/user/one?username=${username}`);
 
-      console.log("qqwfpqw", res);
-      console.log(`userData received: ${JSON.stringify(res)}`);
-      setUserData(res.data.data);
-      setLoading(false);
-    }
 
     fetchData();
   }, [router, username]);

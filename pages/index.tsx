@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import type { NextPage } from "next";
 
 import { Button } from "components/button/button";
@@ -7,7 +8,6 @@ import { Hero } from "components/core/hero/hero";
 import { useUser } from 'lib/useUser'
 import { PostList } from "components/index/feed/post-list";
 import { CreatePost } from "components/index/feed/create-post/create-post";
-import { SignIn } from "components/auth/sign-in";
 
 import { useScrollLock } from "utils/hooks";
 
@@ -20,10 +20,6 @@ const Home: NextPage = () => {
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const { lockScroll, unlockScroll } = useScrollLock();
 
-  const toggleAuth = () => {
-    setAuthSucceeded(!authSucceeded);
-  };
-
   const toggleOverlay = () => {
     if (overlayIsShowing) {
       unlockScroll();
@@ -33,7 +29,7 @@ const Home: NextPage = () => {
     setOverlayIsShowing(!overlayIsShowing);
   };
 
-  const headline = authSucceeded ? "hivenexus" : "Welcome to hivenexus";
+  const headline = "hivenexus";
 
   const { user } = useUser()
 
@@ -48,11 +44,7 @@ const Home: NextPage = () => {
   return (
     <div className={styles.Container}>
       <Sun color={"sun-blue"} />
-      <div onClick={toggleAuth} className={styles.AuthSimulator}>
-        Toggle Auth
-      </div>
       <Hero text={headline} />
-      {authSucceeded ? (
         <>
           <Button
             action={"button"}
@@ -83,9 +75,6 @@ const Home: NextPage = () => {
             </div>
           )}
         </>
-      ) : (
-        <SignIn />
-      )}
     </div>
   );
 };

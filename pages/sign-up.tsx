@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 import { Sun } from 'components/core/layout/sun/sun'
 import { Hero } from 'components/core/hero/hero';
 import { Register } from 'components/auth/register'
+import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 
 import styles from 'components/core/layout/index.module.scss'
 
@@ -16,11 +17,8 @@ const SignUp: NextPage = () => {
       <Sun
         color={'sun-blue'}
         />
-      <div onClick={() => setIsLoading(!isLoading)} className={styles.LoadingSimulator}>
-        Toggle isLoading
-      </div>
       <Hero text={headline} />
-      {isLoading && <div>Loading Spinner Coming Here</div>}
+      {isLoading && <LoadingSpinner />}
       <Register />
     </div>
   )

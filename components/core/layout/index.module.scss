@@ -1,20 +1,6 @@
 @use "styles/abstracts/_br.scss";
 @use "styles/abstracts/_colors.scss";
 
-// TODO: Delete
-.AuthSimulator,
-.LoadingSimulator {
-  padding: 1em;
-  border-radius: 3rem;
-  color: red;
-  border: red 1px solid;
-  margin: 0 auto 8px;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .Layout {
   display: flex;
   min-height: 100vh;

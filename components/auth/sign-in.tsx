@@ -2,28 +2,43 @@ import { useState } from 'react'
 import { AuthError } from 'types/types'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
+import { useSession } from "next-auth/react"
 import { Button } from 'components/button/button'
+import { request } from 'utils/context';
 import styles from './sign-in.module.scss'
 
 export const SignIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const resetForm = () => {
-    setEmail('')
-    setPassword('')
+  // const resetForm = () => {
+  //   setEmail('')
+  //   setPassword('')
+  // }
+
+  async function signIn(email: string, password: string) {
+    const res = await request.post(`/auth/sign-in`, { 'email': email, 'password': password });
+    console.log('token: ', res.data.token)
+
+    // useSession({
+    //   options: [
+    //     jwt: {
+
+    //     }
+    //   ]
+    // })
   }
 
   // @ts-ignore
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = () => {
     // setShowSuccessMessage(true)
-
     // console.log('showSuccessMessage:')
     // console.log(showSuccessMessage)
-    // console.log('Sign In, submitting:')
-    // console.log(`email: ${email}`)
-    // console.log(`password: ${password}`)
+    console.log('Sign In, submitting:')
+    console.log(`email: ${email}`)
+    console.log(`password: ${password}`)
+
+    signIn(email, password)
   }
 
   return (
@@ -47,8 +62,7 @@ export const SignIn = () => {
                 errorMessage={AuthError.Email}
                 title={'email'}
                 value={email}
-                // @ts-ignore
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setEmail(e.target.value)
                 }}
               />
@@ -61,8 +75,7 @@ export const SignIn = () => {
                 errorMessage={AuthError.Email}
                 title={'password'}
                 value={password}
-                // @ts-ignore
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setPassword(e.target.value)
                 }}
               />
@@ -75,16 +88,16 @@ export const SignIn = () => {
           action={'button'}
           variant={'secondary'}
           text={'Sign In'}
-          onClick={() => {console.log(`Logging In`)}}
+          onClick={() => {handleSubmit()}}
           />
-        <p>Not registered yet?</p>
+        {/* <p>Not registered yet?</p>
         <Button
           action={'link'}
           href={'sign-up'}
           variant={'primary'}
           text={'Create Account'}
           onClick={() => {console.log(`Creating Account`)}}
-          />
+          /> */}
       </div>
     </div>
   )
