@@ -31,11 +31,11 @@ export const CreatePost = () => {
 
     // console.log('showSuccessMessage:')
     // console.log(showSuccessMessage)
-    console.log("CreatePost Content, submitting:");
-    console.log(`postId: ${postId}`);
-    console.log(`username: ${username}`);
-    console.log(`title: ${title}`);
-    console.log(`content: ${content}`);
+    // console.log("CreatePost Content, submitting:");
+    // console.log(`postId: ${postId}`);
+    // console.log(`username: ${username}`);
+    // console.log(`title: ${title}`);
+    // console.log(`content: ${content}`);
   };
 
   return (

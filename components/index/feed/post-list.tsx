@@ -14,11 +14,15 @@ export const PostList = () => {
 
   const router = useRouter();
 
+  const queryUrl = `https://dummyjson.com/posts?limit=10&skip=10`
+        // TODO: prepare api query here
+  // const queryUrl = `https://dummyjson.com/posts?limit=10&skip=10`
+
   useEffect(() => {
     if (!router.isReady) return;
 
     setLoading(true);
-    fetch(`https://dummyjson.com/posts?limit=10&skip=10`)
+    fetch(queryUrl)
       .then((res) => res.json())
       .then((data) => {
         setData(data);

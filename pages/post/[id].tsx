@@ -17,22 +17,31 @@ const PostPage: NextPage = () => {
   const [isLoading, setLoading] = useState(true);
 
   const router = useRouter();
-  const { asPath } = router;
-  const id = asPath.substring(asPath.lastIndexOf("/") + 1);
+  const id = router.query.id;
 
   useEffect(() => {
     if (!router.isReady) return;
 
-    fetch(`https://dummyjson.com/posts/${id}`)
+    const postQueryUrl = `https://dummyjson.com/posts/${id}`
+    // TODO: prepare api query here
+    // const postQueryUrl = `https://dummyjson.com/posts/${id}`
+
+    fetch(postQueryUrl)
       .then((res) => res.json())
       .then((data) => {
         setPostData(data);
-        console.log(`postData received: ${JSON.stringify(data)}`)
-        return fetch(`https://dummyjson.com/users/${data.userId}`);
+
+        // console.log(`postData received: ${JSON.stringify(data)}`)
+
+        const userQueryUrl = `https://dummyjson.com/users/${data.userId}`
+        // TODO: prepare api query here
+        // const userQueryUrl = `https://dummyjson.com/users/${data.userId}`
+
+        return fetch(userQueryUrl);
       })
       .then(res => res.json())
       .then((data) => {
-        console.log(`userData received: ${JSON.stringify(data)}`)
+        // console.log(`userData received: ${JSON.stringify(data)}`)
         setUserData(data);
         setLoading(false);
       })
@@ -54,7 +63,7 @@ const PostPage: NextPage = () => {
         title={postData.title}
         content={postData.body}
       />
-      {/* TODO: feed with fetched data */}
+      {/* TODO: provide fetched data */}
       <div className={styles.PostPageWrapper}>
         <LikeList likes={detailedPost.likes} />
         <CommentList comments={detailedPost.comments} />

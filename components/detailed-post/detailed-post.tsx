@@ -19,6 +19,7 @@ export const DetailedPost = ({
   return (
     <div className={styles.DetailedPost}>
       <h2 className={styles.Title}>{id} {title}</h2>
+      {/* TODO: Link to userpage */}
       <p className={styles.Author}>{author}</p>
       <p className={styles.Date}>{createdAt}</p>
       <p className={styles.Content}>{content}</p>

@@ -20,9 +20,9 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    console.log('Creating Account, submitting:')
-    console.log(`email: ${email}`)
-    console.log(`password: ${password}`)
+    // console.log('Creating Account, submitting:')
+    // console.log(`email: ${email}`)
+    // console.log(`password: ${password}`)
   }
 
   return (
