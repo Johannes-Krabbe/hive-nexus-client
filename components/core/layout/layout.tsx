@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import { useRouter } from "next/router";
+import { useUser } from 'lib/useUser'
 
 import { NavBar } from "./nav-bar";
 import { CustomHead } from "./custom-head";
@@ -30,12 +31,14 @@ export const Layout = ({ children }: LayoutProps) => {
   title = title.replace("/", "");
   title = capitalizeFirstLetter(title);
 
+  const { user } = useUser()
+
   return (
     <div className={styles.Layout}>
       <NavBar />
       <CustomHead title={title} />
       <main className="container">
-      { status === 'authenticated' ? children : (
+      { user.isLoggedIn === true ? children : (
         <div className={styles.Container}>
         <Sun color={"sun-blue"} />
         <Hero text={'Welcome to Hivenexus'} />
