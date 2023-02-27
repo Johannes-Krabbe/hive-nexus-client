@@ -13,30 +13,22 @@ const UserPage: NextPage = () => {
   const [isLoading, setLoading] = useState(true);
 
   const router = useRouter();
-  const username = router.query.username;
+  const { asPath } = router;
+  const username = asPath.substring(asPath.lastIndexOf("/") + 1);
 
   useEffect(() => {
     if (!router.isReady) return;
     async function fetchData() {
       const res = await request.get(`/user/one?username=${username}`);
 
-    // const queryUrl = `https://dummyjson.com/users/${username}`
-    const queryUrl = `http://localhost:3001/user?username=${username}`
+      console.log("qqwfpqw", res);
+      console.log(`userData received: ${JSON.stringify(res)}`);
+      setUserData(res.data.data);
+      setLoading(false);
+    }
 
-    console.log(`fetching username: ${username}`)
-    console.log(`query: ${queryUrl}`)
-
-    fetch(queryUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(`userData received: ${JSON.stringify(data)}`)
-        setUserData(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.log('request failed', err)
-      })
-  }, [router]);
+    fetchData();
+  }, [router, username]);
 
   if (isLoading) return <LoadingSpinner />;
   if (!userData) {
