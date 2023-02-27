@@ -17,11 +17,11 @@ const UserPage: NextPage = () => {
   useEffect(() => {
     if (!router.isReady) return;
 
-    const queryUrl = `https://dummyjson.com/users/${username}`
-    // const queryUrl = `http://localhost:3001/user?username=${username}`
+    // const queryUrl = `https://dummyjson.com/users/${username}`
+    const queryUrl = `http://localhost:3001/user?username=${username}`
 
-    // console.log(`fetching username: ${username}`)
-    // console.log(`query: ${queryUrl}`)
+    console.log(`fetching username: ${username}`)
+    console.log(`query: ${queryUrl}`)
 
     fetch(queryUrl)
       .then((res) => res.json())
