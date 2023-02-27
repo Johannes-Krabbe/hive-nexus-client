@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import { useRouter } from "next/router";
-import { useSession } from "next-auth/react"
 
 import { NavBar } from "./nav-bar";
 import { CustomHead } from "./custom-head";
@@ -30,14 +29,6 @@ export const Layout = ({ children }: LayoutProps) => {
 
   title = title.replace("/", "");
   title = capitalizeFirstLetter(title);
-
-  const { data: session, status } = useSession()
-
-  console.log('session:')
-  console.log(session)
-
-  console.log('status:')
-  console.log(status)
 
   return (
     <div className={styles.Layout}>

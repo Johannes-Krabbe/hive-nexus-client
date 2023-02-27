@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { AuthError } from 'types/types'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
-import { useSession } from "next-auth/react"
 import { Button } from 'components/button/button'
 import { request } from 'utils/context';
 import styles from './sign-in.module.scss'
@@ -19,14 +18,6 @@ export const SignIn = () => {
   async function signIn(email: string, password: string) {
     const res = await request.post(`/auth/sign-in`, { 'email': email, 'password': password });
     console.log('token: ', res.data.token)
-
-    // useSession({
-    //   options: [
-    //     jwt: {
-
-    //     }
-    //   ]
-    // })
   }
 
   // @ts-ignore
