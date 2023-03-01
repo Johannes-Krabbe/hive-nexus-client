@@ -20,7 +20,6 @@ export const useScrollLock = () => {
 export const useToken = () => {
   const getToken = () => {
     if (typeof window !== 'undefined') {
-      // Perform localStorage action
       const tokenString = localStorage.getItem('token');
       const userToken = JSON.parse(tokenString);
 
