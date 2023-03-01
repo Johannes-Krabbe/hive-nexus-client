@@ -6,30 +6,20 @@ import { Button } from 'components/button/button'
 import { request } from 'utils/context';
 import styles from './sign-in.module.scss'
 
-export const SignIn = () => {
+export const SignIn = ({ setToken }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  // const resetForm = () => {
-  //   setEmail('')
-  //   setPassword('')
-  // }
 
   async function signIn(email: string, password: string) {
     const res = await request.post(`/auth/sign-in`, { 'email': email, 'password': password });
     console.log('token: ', res.data.token)
+    return res.data.token
   }
 
   // @ts-ignore
-  const handleSubmit = () => {
-    // setShowSuccessMessage(true)
-    // console.log('showSuccessMessage:')
-    // console.log(showSuccessMessage)
-    console.log('Sign In, submitting:')
-    console.log(`email: ${email}`)
-    console.log(`password: ${password}`)
-
-    signIn(email, password)
+  const handleSubmit = async () => {
+    const token = await signIn(email, password);
+    setToken(token);
   }
 
   return (

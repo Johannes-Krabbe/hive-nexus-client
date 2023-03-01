@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Button } from "components/button/button";
 
 import { debounce } from "utils/helpers";
-import { useScrollLock } from "utils/hooks";
+import { useScrollLock } from "lib/hooks";
 
 import { INavLink } from "types/interfaces";
 
@@ -23,6 +23,7 @@ interface OverlayNavProps {
   navLinks: INavLink[];
   overlayIsShowing: boolean;
   toggleOverlay: () => void;
+  signOut: () => void;
 }
 
 interface NavLinkListProps {
@@ -30,7 +31,7 @@ interface NavLinkListProps {
   toggleOverlay?: () => void;
 }
 
-export const NavBar = () => {
+export const NavBar = ({ setToken }) => {
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -55,6 +56,10 @@ export const NavBar = () => {
     );
     setPrevScrollPos(currentScrollPos);
   }, 100);
+
+  const signOut = () => {
+    setToken('');
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -86,7 +91,7 @@ export const NavBar = () => {
             variant={"dark"}
             text={"Log Out"}
             onClick={() => {
-              console.log(`User Logged Out`);
+              signOut();
             }}
           />
         </div>
@@ -96,6 +101,7 @@ export const NavBar = () => {
         navLinks={navLinks}
         overlayIsShowing={overlayIsShowing}
         toggleOverlay={toggleOverlay}
+        signOut={signOut}
       />
     </header>
   );
@@ -105,6 +111,7 @@ const OverlayNav = ({
   navLinks,
   overlayIsShowing,
   toggleOverlay,
+  signOut
 }: OverlayNavProps) => {
   return (
     <div
@@ -128,7 +135,7 @@ const OverlayNav = ({
             variant={"dark"}
             text={"Log Out"}
             onClick={() => {
-              console.log(`User Logged Out`);
+              signOut();
             }}
           />
         </div>

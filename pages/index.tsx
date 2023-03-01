@@ -1,22 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import type { NextPage } from "next";
 
 import { Button } from "components/button/button";
 import { Sun } from "components/core/layout/sun/sun";
 import { Hero } from "components/core/hero/hero";
-import { useUser } from 'lib/useUser'
 import { PostList } from "components/index/feed/post-list";
 import { CreatePost } from "components/index/feed/create-post/create-post";
 
-import { useScrollLock } from "utils/hooks";
-
-import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
+import { useScrollLock } from "lib/hooks";
 
 import styles from "components/core/layout/index.module.scss";
 
 const Home: NextPage = () => {
-  const [authSucceeded, setAuthSucceeded] = useState(false);
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const { lockScroll, unlockScroll } = useScrollLock();
 
@@ -30,16 +26,6 @@ const Home: NextPage = () => {
   };
 
   const headline = "hivenexus";
-
-  const { user } = useUser()
-
-  useEffect(() => {
-    if (!user || user.isLoggedIn === false) {
-      setAuthSucceeded(false)
-    } else {
-      setAuthSucceeded(true)
-    }
-  }, [user]);
 
   return (
     <div className={styles.Container}>

@@ -1,17 +1,14 @@
 import React, { ReactNode } from "react";
 import { useRouter } from "next/router";
-import { useUser } from 'lib/useUser'
 
 import { NavBar } from "./nav-bar";
 import { CustomHead } from "./custom-head";
 import { Footer } from "./footer";
-import { SignIn } from "components/auth/sign-in";
-import { Sun } from "components/core/layout/sun/sun";
-import { Hero } from "components/core/hero/hero";
 
 import styles from "components/core/layout/index.module.scss";
 
 interface LayoutProps {
+  setToken: any
   children: ReactNode;
 }
 
@@ -19,7 +16,7 @@ function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ setToken, children }: LayoutProps) => {
   const router = useRouter();
 
   let title = router.pathname;
@@ -31,20 +28,12 @@ export const Layout = ({ children }: LayoutProps) => {
   title = title.replace("/", "");
   title = capitalizeFirstLetter(title);
 
-  const { user } = useUser()
-
   return (
     <div className={styles.Layout}>
-      <NavBar />
+      <NavBar setToken={setToken} />
       <CustomHead title={title} />
       <main className="container">
-      { user.isLoggedIn === true ? children : (
-        <div className={styles.Container}>
-        <Sun color={"sun-blue"} />
-        <Hero text={'Welcome to Hivenexus'} />
-        <SignIn />
-        </div>
-      )}
+        {children}
       </main>
       <Footer />
     </div>
