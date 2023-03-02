@@ -1,3 +1,4 @@
+import { useState, useEffect} from 'react'
 import { AppProps } from 'next/app'
 import { SignIn } from "components/auth/sign-in";
 import { Sun } from "components/core/layout/sun/sun";
@@ -12,6 +13,16 @@ import { useToken } from 'lib/hooks';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { token, setToken } = useToken();
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+		setHydrated(true);
+	}, []);
+
+	if (!hydrated) {
+		// Returns null on first render, so the client and server match
+		return null;
+	}
 
   if(!token) {
     return (

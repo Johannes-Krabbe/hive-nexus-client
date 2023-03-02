@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "components/button/button";
 
 import { debounce } from "utils/helpers";
+
 import { useScrollLock } from "lib/hooks";
 
 import { INavLink } from "types/interfaces";

@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { getCookie, getCookies, setCookie } from 'cookies-next';
 
 export const useScrollLock = () => {
   const lockScroll = useCallback(() => {
@@ -18,24 +19,35 @@ export const useScrollLock = () => {
 }
 
 export const useToken = () => {
-  const getToken = () => {
-    if (typeof window !== 'undefined') {
-      const tokenString = localStorage.getItem('token');
-      const userToken = JSON.parse(tokenString);
+  const cookieName = 'hn-token'
 
-      return userToken?.token
-    }
+  const getToken = () => {
+    const token = getCookie(cookieName)
+
+    return token
   };
 
   const [token, setToken] = useState(getToken());
 
-  const saveToken = userToken => {
-    localStorage.setItem('token', JSON.stringify(userToken));
-    setToken(userToken);
-  };
+  const saveToken = (token: string) => {
+    setCookie(cookieName, token, {
+      maxAge: 30 * 24 * 60 * 60,
+      path: '/',
+    })
+
+    setToken(token);
+};
+
+  printCookies()
 
   return {
     setToken: saveToken,
     token
   }
+}
+
+// just for debugging
+export const printCookies = () => {
+  const cookies = getCookies();
+  console.log('cookies: ', cookies)
 }

@@ -3,6 +3,7 @@ import { AuthError } from 'types/types'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
 import { Button } from 'components/button/button'
+
 import { request } from 'utils/context';
 import styles from './sign-in.module.scss'
 
@@ -12,7 +13,6 @@ export const SignIn = ({ setToken }) => {
 
   async function signIn(email: string, password: string) {
     const res = await request.post(`/auth/sign-in`, { 'email': email, 'password': password });
-    console.log('token: ', res.data.token)
     return res.data.token
   }
 
@@ -71,14 +71,14 @@ export const SignIn = ({ setToken }) => {
           text={'Sign In'}
           onClick={() => {handleSubmit()}}
           />
-        {/* <p>Not registered yet?</p>
+        <p>Not registered yet?</p>
         <Button
           action={'link'}
           href={'sign-up'}
           variant={'primary'}
           text={'Create Account'}
           onClick={() => {console.log(`Creating Account`)}}
-          /> */}
+          />
       </div>
     </div>
   )
