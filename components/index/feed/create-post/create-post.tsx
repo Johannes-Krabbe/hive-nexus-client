@@ -17,7 +17,6 @@ export const CreatePost = () => {
 
   // TODO: getting data from auth/db
   const username = "spacjalex";
-  const postId = "123123123";
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
@@ -25,7 +24,6 @@ export const CreatePost = () => {
   async function createPost(title: string, content: string) {
     try {
       const res = await request.post(`/post/create`, { 'title': title, 'content': content });
-      console.log('res: ', res)
       return res
     } catch(err) {
       console.log(err)
@@ -34,9 +32,7 @@ export const CreatePost = () => {
 
   // @ts-ignore
   const handleSubmit = async () => {
-    console.log(`submitting createPost: ${title} ${content}`)
     const res = await createPost(title, content);
-
   }
 
   return (

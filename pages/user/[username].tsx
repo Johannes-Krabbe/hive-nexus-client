@@ -20,7 +20,7 @@ const UserPage: NextPage = () => {
   const { asPath } = router;
   const username = asPath.substring(asPath.lastIndexOf("/") + 1);
 
-  async function fetchData() {
+  async function fetchUser() {
     const res = await request.get(`/user/one?username=${username}`);
 
     console.log("API response:", res);
@@ -38,7 +38,7 @@ const UserPage: NextPage = () => {
   useEffect(() => {
     if (!router.isReady) return;
 
-    fetchData();
+    fetchUser();
   }, [router, username]);
 
   if (isLoading) return <LoadingSpinner />;
