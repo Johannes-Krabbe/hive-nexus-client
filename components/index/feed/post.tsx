@@ -9,8 +9,8 @@ export const Post = ({
   author,
   title,
   content,
-  likesCount,
-  commentsCount,
+  // likesCount,
+  // commentsCount,
 }: IPost) => {
   return (
     <div className={styles.Post}>
@@ -22,7 +22,7 @@ export const Post = ({
             query: { id: id },
           }}
         >
-          {id} {title}
+          {title}
         </Link>
         <div className={styles.Details}>
           <Link
@@ -33,13 +33,14 @@ export const Post = ({
             >
             <p>{author}</p>
           </Link>
-          <p className={styles.Creation}>{createdAt}</p>
+          {/* <p className={styles.Creation}>{createdAt}</p> */}
+          {/* <p>{ id }</p> */}
         </div>
       </div>
       <p className={styles.Content}>{content}</p>
       <div className={styles.BottomBar}>
-        <p className={styles.Likes}>{likesCount} 🔥</p>
-        <p>{commentsCount} 💬</p>
+        {/* <p className={styles.Likes}>{likesCount} 🔥</p>
+        <p>{commentsCount} 💬</p> */}
       </div>
       <div className={styles.ButtonWrapper}>
         <Button
