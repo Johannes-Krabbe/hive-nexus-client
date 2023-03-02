@@ -19,7 +19,7 @@ const SignIn: NextPage = () => {
     if (token) {
       Router.push('/')
       }
-  }, []);
+  }, [token]);
 
   return (
     <div className={styles.Container}>

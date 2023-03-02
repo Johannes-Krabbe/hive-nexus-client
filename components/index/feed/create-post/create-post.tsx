@@ -25,6 +25,7 @@ export const CreatePost = () => {
   async function createPost(title: string, content: string) {
     try {
       const res = await request.post(`/post/create`, { 'title': title, 'content': content });
+      console.log('res: ', res)
       return res
     } catch(err) {
       console.log(err)
@@ -34,14 +35,8 @@ export const CreatePost = () => {
   // @ts-ignore
   const handleSubmit = async () => {
     console.log(`submitting createPost: ${title} ${content}`)
+    const res = await createPost(title, content);
 
-    try {
-      const res = await createPost(title, content);
-      console.log('res: ', res)
-
-    } catch(err) {
-      console.log(err)
-    }
   }
 
   return (
