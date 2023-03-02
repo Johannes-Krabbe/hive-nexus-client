@@ -10,6 +10,7 @@ import { useRouter } from 'next/router'
 import { useScrollLock } from "lib/hooks";
 
 import { INavLink } from "types/interfaces";
+import { useToken } from 'lib/hooks';
 
 import styles from "./nav-bar.module.scss";
 
@@ -27,6 +28,7 @@ interface OverlayNavProps {
   overlayIsShowing: boolean;
   toggleOverlay: () => void;
   signOut: () => void;
+  token: string
 }
 
 interface NavLinkListProps {
@@ -34,7 +36,9 @@ interface NavLinkListProps {
   toggleOverlay?: () => void;
 }
 
-export const NavBar = ({ setToken }) => {
+export const NavBar = () => {
+  const { token, setToken } = useToken();
+
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -92,14 +96,17 @@ export const NavBar = ({ setToken }) => {
           <NavLinksList navLinks={navLinks} />
         </nav>
         <div className={styles.UserActions}>
-          <Button
-            action={"button"}
-            variant={"dark"}
-            text={"Log Out"}
-            onClick={() => {
-              signOut();
-            }}
-          />
+          {/* TODO: Fix Logout Display (only when logged in..) */}
+          {token &&
+            <Button
+              action={"button"}
+              variant={"dark"}
+              text={"Log Out"}
+              onClick={() => {
+                signOut();
+              }}
+            />
+          }
         </div>
       </div>
       {overlayIsShowing && <div className={styles.Shadow} />}
@@ -108,6 +115,7 @@ export const NavBar = ({ setToken }) => {
         overlayIsShowing={overlayIsShowing}
         toggleOverlay={toggleOverlay}
         signOut={signOut}
+        token={token}
       />
     </header>
   );
@@ -117,7 +125,8 @@ const OverlayNav = ({
   navLinks,
   overlayIsShowing,
   toggleOverlay,
-  signOut
+  signOut,
+  token
 }: OverlayNavProps) => {
   return (
     <div
@@ -136,14 +145,16 @@ const OverlayNav = ({
         </div>
         <NavLinksList navLinks={navLinks} toggleOverlay={toggleOverlay} />
         <div>
-          <Button
-            action={"button"}
-            variant={"dark"}
-            text={"Log Out"}
-            onClick={() => {
-              signOut();
-            }}
-          />
+          {token &&
+            <Button
+              action={"button"}
+              variant={"dark"}
+              text={"Log Out"}
+              onClick={() => {
+                signOut();
+              }}
+            />
+          }
         </div>
       </nav>
       <div

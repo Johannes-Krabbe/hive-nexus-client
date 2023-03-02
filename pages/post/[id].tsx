@@ -12,6 +12,7 @@ import { LikeList } from "components/like-list/like-list";
 
 import styles from "components/core/layout/index.module.scss";
 import { useToken } from 'lib/hooks';
+import { request } from 'utils/context';
 
 const PostPage: NextPage = () => {
   const { token, setToken } = useToken();
@@ -23,6 +24,25 @@ const PostPage: NextPage = () => {
   const router = useRouter();
   const id = router.query.id;
 
+
+  async function fetchPost(id: string) {
+    try {
+      const res = await request.get(`/post/one?id=${id}`);
+      return res
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
+  async function fetchUser(username: string) {
+    const res = await request.get(`/user/one?username=${username}`);
+
+    console.log("API response:", res);
+    console.log(`userData received: ${JSON.stringify(res.data.data)}`);
+    setUserData(res.data.data);
+    setLoading(false);
+  }
+
   useEffect(() => {
     if (!token) {
       Router.push('/sign-in')
@@ -33,6 +53,22 @@ const PostPage: NextPage = () => {
     if (!router.isReady) return;
 
     const postQueryUrl = `https://dummyjson.com/posts/${id}`
+
+    // fetchPost(id)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setPostData(data)
+
+    //     return fetchUser(data.userId)
+    //   })
+    //   .then(res => res.json())
+    //   .then((data) => {
+    //     setUserData(data)
+    //     setLoading(false)
+    //   })
+    //   .catch(err => {
+    //     console.log('request failed', err)
+    //   })
 
     fetch(postQueryUrl)
       .then((res) => res.json())

@@ -138,7 +138,7 @@ export const Register = () => {
         <Button
           action={'button'}
           variant={'primary'}
-          text={'Create Account'}
+          text={'Sign Up'}
           onClick={() => {setFirstStepDone(true)}}
           />
         }
