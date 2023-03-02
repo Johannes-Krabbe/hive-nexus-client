@@ -4,6 +4,8 @@ import Image from "next/image";
 import { Button } from "components/button/button";
 
 import { debounce } from "utils/helpers";
+import { useRouter } from 'next/router'
+
 
 import { useScrollLock } from "lib/hooks";
 
@@ -58,8 +60,11 @@ export const NavBar = ({ setToken }) => {
     setPrevScrollPos(currentScrollPos);
   }, 100);
 
+  const router = useRouter()
+
   const signOut = () => {
     setToken('');
+    router.reload()
   }
 
   useEffect(() => {

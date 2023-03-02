@@ -1,8 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AuthError } from 'types/types'
+import { useRouter } from 'next/router'
+
+import { request } from 'utils/context';
+import Router from 'next/router'
+
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
 import { Button } from 'components/button/button'
+import { useToken } from 'lib/hooks';
+
 import styles from './register.module.scss'
 
 export const Register = () => {
@@ -11,26 +18,39 @@ export const Register = () => {
   const [passwordRepeat, setPasswordRepeat] = useState('')
 
   const [username, setUsername] = useState('')
-  const [registrationSuccessful, setRegistrationSuccessful] = useState(false)
+  const [firstStepDone, setFirstStepDone] = useState(false)
 
-  const resetForm = () => {
+  async function signUp(email: string, password: string, username: string) {
+    console.log(`signing up, username ${username}, password: ${password}, email: ${email}`)
+    const res = await request.post(`/auth/sign-up`, { 'email': email, 'password': password, 'username': username });
+    return res.data.token
   }
+
+  const router = useRouter()
 
   // @ts-ignore
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    // console.log('Creating Account, submitting:')
-    // console.log(`email: ${email}`)
-    // console.log(`password: ${password}`)
+  const handleSubmit = async () => {
+    const token = await signUp(email, password, username);
+    console.log(token)
+    setToken(token);
+    console.log(`set registration token to: ${token}`)
+    Router.push('/')
   }
+
+  const { token, setToken } = useToken();
+
+  useEffect(() => {
+    if (token) {
+      Router.push('/')
+      }
+  }, []);
 
   return (
     <div className={styles.Register}>
       <div className={styles.Wrapper}>
         <div className={styles.Container}>
           <div className={styles.FormWrapper}>
-            {!registrationSuccessful ? (
+            {!firstStepDone ? (
               <form
                 id="SignUp"
                 name="Post"
@@ -111,22 +131,19 @@ export const Register = () => {
         </div>
       </div>
       <div className={styles.ButtonContainer}>
-      <div onClick={() => setRegistrationSuccessful(!registrationSuccessful)} className={styles.RegistrationSimulator}>
-        Toggle Registration
-      </div>
-      {registrationSuccessful ?
+      {firstStepDone ?
         <Button
           action={'button'}
           variant={'primary'}
           text={'Set Username'}
-          onClick={() => {console.log(`Setting Username`)}}
+          onClick={() => {handleSubmit()}}
           />
         :
         <Button
           action={'button'}
           variant={'primary'}
           text={'Create Account'}
-          onClick={() => {console.log(`Creating Account`)}}
+          onClick={() => {setFirstStepDone(true)}}
           />
         }
       </div>

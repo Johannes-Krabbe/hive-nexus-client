@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import { useRouter } from "next/router";
 
-
 import { NavBar } from "./nav-bar";
 import { CustomHead } from "./custom-head";
 import { Footer } from "./footer";
