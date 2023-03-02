@@ -31,9 +31,7 @@ export const Register = () => {
   // @ts-ignore
   const handleSubmit = async () => {
     const token = await signUp(email, password, username);
-    console.log(token)
     setToken(token);
-    console.log(`set registration token to: ${token}`)
     Router.push('/')
   }
 

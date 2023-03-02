@@ -38,7 +38,7 @@ export const useToken = () => {
     setToken(token);
 };
 
-  printCookies()
+  // printCookies()
 
   return {
     setToken: saveToken,
