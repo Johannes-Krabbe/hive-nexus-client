@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Router from 'next/router'
 
 import type { NextPage } from "next";
 
@@ -12,7 +13,11 @@ import { useScrollLock } from "lib/hooks";
 
 import styles from "components/core/layout/index.module.scss";
 
-const Home: NextPage = () => {
+import { useToken } from 'lib/hooks';
+
+export const Home: NextPage = () => {
+  const { token, setToken } = useToken();
+
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const { lockScroll, unlockScroll } = useScrollLock();
 
@@ -26,6 +31,13 @@ const Home: NextPage = () => {
   };
 
   const headline = "hivenexus";
+
+  // TODO: get rid of flash before render
+  useEffect(() => {
+    if (!token) {
+      Router.push('/sign-in')
+      }
+  }, [token]);
 
   return (
     <div className={styles.Container}>

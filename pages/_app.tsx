@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react'
 import { AppProps } from 'next/app'
-import { SignIn } from "components/auth/sign-in";
+import { SignIn } from "components/auth/login";
 import { Sun } from "components/core/layout/sun/sun";
 import { Hero } from "components/core/hero/hero";
 
@@ -24,15 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 		return null;
 	}
 
-  if(!token) {
-    return (
-      <div className={styles.Container}>
-        <Sun color={"sun-blue"} />
-        <Hero text={'Welcome to Hivenexus'} />
-        <SignIn setToken={setToken} />
-      </div>
-      )
-  }
+  // if(!token) {
+  //   return <SignIn setToken={setToken} />
+  // }
 
   return (
       <Layout setToken={setToken}>

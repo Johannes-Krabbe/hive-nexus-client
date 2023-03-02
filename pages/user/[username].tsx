@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import type { NextPage } from "next";
+import Router from 'next/router'
 import { useRouter } from "next/router";
 
 import { Sun } from "components/core/layout/sun/sun";
@@ -7,8 +8,11 @@ import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 
 import styles from "components/core/layout/index.module.scss";
 import { request } from "utils/context";
+import { useToken } from 'lib/hooks';
 
 const UserPage: NextPage = () => {
+  const { token, setToken } = useToken();
+
   const [userData, setUserData] = useState<any>(null);
   const [isLoading, setLoading] = useState(true);
 
@@ -26,8 +30,13 @@ const UserPage: NextPage = () => {
   }
 
   useEffect(() => {
-    if (!router.isReady) return;
+    if (!token) {
+      Router.push('/sign-in')
+      }
+  }, [token]);
 
+  useEffect(() => {
+    if (!router.isReady) return;
 
     fetchData();
   }, [router, username]);
@@ -39,8 +48,8 @@ const UserPage: NextPage = () => {
     return (
       <div className={styles.Container}>
         <Sun color={"sun-peach"} />
-        <p>Username: {userData.username}</p>
-        <p>Email: {userData.email}</p>
+        <p>username: {userData.username}</p>
+        <p>createdAt: {userData.createdAt}</p>
       </div>
     );
   }
