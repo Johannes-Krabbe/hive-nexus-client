@@ -32,7 +32,6 @@ export const Home: NextPage = () => {
 
   const headline = "hivenexus";
 
-  // TODO: get rid of flash before render
   useEffect(() => {
     if (!token) {
       Router.push('/sign-in')

@@ -8,6 +8,9 @@ import { TextInput } from "components/index/feed/create-post/text-input/text-inp
 import { TextAreaInput } from "components/index/feed/create-post/text-area-input/text-area-input";
 import styles from "./create-post.module.scss";
 
+import { request } from 'utils/context';
+
+
 export const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -19,24 +22,22 @@ export const CreatePost = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
 
-  const resetForm = () => {
-    setTitle("");
-    setContent("");
-  };
+  async function createPost(title: string, content: string) {
+    try {
+      const res = await request.post(`/post/create`, { 'title': title, 'content': content });
+      console.log('res: ', res)
+      return res
+    } catch(err) {
+      console.log(err)
+    }
+  }
 
   // @ts-ignore
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // setShowSuccessMessage(true)
+  const handleSubmit = async () => {
+    console.log(`submitting createPost: ${title} ${content}`)
+    const res = await createPost(title, content);
 
-    // console.log('showSuccessMessage:')
-    // console.log(showSuccessMessage)
-    // console.log("CreatePost Content, submitting:");
-    // console.log(`postId: ${postId}`);
-    // console.log(`username: ${username}`);
-    // console.log(`title: ${title}`);
-    // console.log(`content: ${content}`);
-  };
+  }
 
   return (
     <div className={styles.Wrapper}>
@@ -91,7 +92,12 @@ export const CreatePost = () => {
               }}
             />
             <div className={styles.ButtonContainer}>
-              <Button action="submit" variant="primary" text="Publish" />
+              <Button
+                action={'button'}
+                variant={'primary'}
+                text={'Publish'}
+                onClick={() => { handleSubmit() }}
+              />
             </div>
             {showSuccessMessage ||
               (showFailureMessage && (
