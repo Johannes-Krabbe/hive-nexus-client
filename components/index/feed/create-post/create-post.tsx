@@ -10,12 +10,11 @@ import styles from "./create-post.module.scss";
 
 import { request } from 'utils/context';
 
-
 export const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  // TODO: getting data from auth/db
+  // TODO: getting data from logged in user
   const username = "spacjalex";
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
@@ -25,8 +24,8 @@ export const CreatePost = () => {
     try {
       const res = await request.post(`/post/create`, { 'title': title, 'content': content });
       return res
-    } catch(err) {
-      console.log(err)
+    } catch(e) {
+      console.log('request failed', e)
     }
   }
 
