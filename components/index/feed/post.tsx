@@ -14,10 +14,14 @@ export const Post = ({
   // likesCount,
   // commentsCount,
 }: IPost) => {
+  // TODO: replace with logic check
+  const isUserAuthor = true
 
   async function deletePost(postId: string) {
     try {
       const res = await request.post(`/post/delete`, { 'postID': postId });
+
+      // TODO: trigger rerender
       return res
     } catch(err) {
       console.log(err)
@@ -68,12 +72,14 @@ export const Post = ({
             console.log(`Post ID: ${id} liked`);
           }}
         />
-        <Button
-          action={"button"}
-          variant={"dark"}
-          text={"Delete Post"}
-          onClick={() => { handleDelete(id) }}
-        />
+        { isUserAuthor && (
+            <Button
+              action={"button"}
+              variant={"dark"}
+              text={"Delete Post"}
+              onClick={() => { handleDelete(id) }}
+            />
+        )}
         <Link
           className={styles.Anchor}
           href={{
