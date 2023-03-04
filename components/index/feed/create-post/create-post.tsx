@@ -30,7 +30,6 @@ export const CreatePost = () => {
     }
   }
 
-  // @ts-ignore
   const handleSubmit = async () => {
     const res = await createPost(title, content);
   }
