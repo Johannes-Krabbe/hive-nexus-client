@@ -23,14 +23,25 @@ export const DetailedPost = ({
       <p className={styles.Author}>{author}</p>
       <p className={styles.Date}>{createdAt}</p>
       <p className={styles.Content}>{content}</p>
-      <Button
-        action={"button"}
-        variant={"secondary"}
-        text={"Like"}
-        onClick={() => {
-          console.log(`Post ID: ${id} liked`);
-        }}
-      />
+      <div className={styles.Wrapper}>
+        <Button
+          action={"button"}
+          variant={"secondary"}
+          text={"Like"}
+          onClick={() => {
+            console.log(`Post ID: ${id} liked`);
+          }}
+        />
+        {/* TODO: handleDelete */}
+        <Button
+          action={"button"}
+          variant={"dark"}
+          text={"Delete Post"}
+          onClick={() => {
+            console.log(`Delete postId ${id}`);
+          }}
+        />
+      </div>
     </div>
   );
 };

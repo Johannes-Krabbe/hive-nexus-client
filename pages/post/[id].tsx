@@ -32,7 +32,7 @@ const PostPage: NextPage = () => {
   useEffect(() => {
     if (!router.isReady) return;
 
-    const postQueryUrl = `https://dummyjson.com/posts/${id}`
+    const postQueryUrl = `https://dummyjson.com/posts/5`
 
     fetch(postQueryUrl)
       .then((res) => res.json())
