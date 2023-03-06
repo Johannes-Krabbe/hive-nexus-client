@@ -28,7 +28,7 @@ export const DetailedPost = ({
         variant={"secondary"}
         text={"Like"}
         onClick={() => {
-          console.log(`Post ID: ${id} liked`);
+          console.log(`Liked postId ${id}`);
         }}
       />
     </div>

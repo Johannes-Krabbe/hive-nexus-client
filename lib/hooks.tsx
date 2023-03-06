@@ -49,5 +49,4 @@ export const useToken = () => {
 // just for debugging
 export const printCookies = () => {
   const cookies = getCookies();
-  console.log('cookies: ', cookies)
 }

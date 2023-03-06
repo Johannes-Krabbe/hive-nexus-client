@@ -1,6 +1,6 @@
 export interface IUser {
   id: string;
-  createdAt: string;
+  createdAt: Date;
   email: string;
   username: string;
   password: string;
@@ -8,7 +8,7 @@ export interface IUser {
 
 export interface IPost {
   id: string;
-  createdAt: string;
+  createdAt: Date;
   // TODO: assign IUser with username prop only to author
   author: string;
   title: string;
@@ -19,7 +19,7 @@ export interface IPost {
 
 export interface IComment {
   id: string;
-  createdAt: string;
+  createdAt: Date;
   author: string;
   content: string;
 }

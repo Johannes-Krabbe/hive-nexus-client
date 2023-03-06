@@ -9,6 +9,7 @@ import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import styles from "components/core/layout/index.module.scss";
 import { request } from "utils/context";
 import { useToken } from 'lib/hooks';
+import { getFormattedDate } from 'utils/dateHelpers'
 
 const UserPage: NextPage = () => {
   const { token, setToken } = useToken();
@@ -23,8 +24,6 @@ const UserPage: NextPage = () => {
   async function fetchUser() {
     const res = await request.get(`/user/one?username=${username}`);
 
-    console.log("API response:", res);
-    console.log(`userData received: ${JSON.stringify(res.data.data)}`);
     setUserData(res.data.data);
     setLoading(false);
   }
@@ -41,6 +40,7 @@ const UserPage: NextPage = () => {
     fetchUser();
   }, [router, username]);
 
+
   if (isLoading) return <LoadingSpinner />;
   if (!userData) {
     return <p>No User Data</p>;
@@ -49,7 +49,7 @@ const UserPage: NextPage = () => {
       <div className={styles.Container}>
         <Sun color={"sun-peach"} />
         <p>username: {userData.username}</p>
-        <p>createdAt: {userData.createdAt}</p>
+        <p>createdAt: {getFormattedDate(userData.createdAt)}</p>
       </div>
     );
   }
