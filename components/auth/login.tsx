@@ -6,20 +6,24 @@ import { Button } from 'components/button/button'
 
 import { signIn } from 'utils/restClient'
 
+import { useUserContext } from "context/userContext";
 import { useToken } from 'lib/hooks';
 
 import styles from './login.module.scss'
 
 export const Login = () => {
+  const { user, setUser } = useUserContext();
+
   const { token, setToken } = useToken();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   const handleSubmit = async () => {
-    const { token } = await signIn(email, password);
+    const { token, username, email, userId } = await signIn(email, password);
     console.log(`using token: ${token}`)
     setToken(token);
+    setUser({username: username, email: email, userId: userId})
   }
 
   return (
