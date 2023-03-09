@@ -5,12 +5,12 @@ import smiley from "/public/assets/images/core/smiley.png";
 
 import { useUserContext } from "context/userContext";
 
+import { createPost } from 'utils/restClient'
+
 import { Button } from "components/button/button";
 import { TextInput } from "components/index/feed/create-post/text-input/text-input";
 import { TextAreaInput } from "components/index/feed/create-post/text-area-input/text-area-input";
 import styles from "./create-post.module.scss";
-
-import { request } from 'utils/axios';
 
 export const CreatePost = () => {
   const { user, setUser } = useUserContext();
@@ -21,14 +21,6 @@ export const CreatePost = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
 
-  async function createPost(title: string, content: string) {
-    try {
-      const res = await request.post(`/post/create`, { 'title': title, 'content': content });
-      return res
-    } catch(e) {
-      console.log('request failed', e)
-    }
-  }
 
   const handleSubmit = async () => {
     const res = await createPost(title, content);
