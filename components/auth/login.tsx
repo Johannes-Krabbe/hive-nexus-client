@@ -4,9 +4,10 @@ import { AuthError } from 'types/types'
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
 import { Button } from 'components/button/button'
 
+import { signIn } from 'utils/restClient'
+
 import { useToken } from 'lib/hooks';
 
-import { request } from 'utils/axios';
 import styles from './login.module.scss'
 
 export const Login = () => {
@@ -15,13 +16,9 @@ export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  async function signIn(email: string, password: string) {
-    const res = await request.post(`/auth/sign-in`, { 'email': email, 'password': password });
-    return res.data.token
-  }
-
   const handleSubmit = async () => {
-    const token = await signIn(email, password);
+    const { token } = await signIn(email, password);
+    console.log(`using token: ${token}`)
     setToken(token);
   }
 

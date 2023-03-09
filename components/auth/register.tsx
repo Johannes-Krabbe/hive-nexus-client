@@ -3,7 +3,8 @@ import { AuthError } from 'types/types'
 
 import { useUserContext } from "context/userContext";
 
-import { request } from 'utils/axios';
+import { signUp } from 'utils/restClient'
+
 import Router from 'next/router'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
@@ -22,11 +23,6 @@ export const Register = () => {
 
   const [username, setUsername] = useState('')
   const [firstStepDone, setFirstStepDone] = useState(false)
-
-  async function signUp(email: string, password: string, username: string) {
-    const res = await request.post(`/auth/sign-up`, { 'email': email, 'password': password, 'username': username });
-    return res.data.token
-  }
 
   const handleSubmit = async () => {
     const token = await signUp(email, password, username);

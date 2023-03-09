@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import { Post } from "./post";
-import { request } from "utils/axios";
+import { fetchPosts } from 'utils/restClient'
 
 // interface IPostList {
 //   posts: IPost[];
@@ -14,18 +14,17 @@ export const PostList = () => {
 
   const router = useRouter();
 
-  async function fetchPosts() {
-    const res = await request.get(`/post/all`);
-    setPosts(res.data.data);
-    setLoading(false);
-  }
-
   useEffect(() => {
     if (!router.isReady) return;
 
     setLoading(true);
 
     fetchPosts()
+    .then((res) => setPosts(res.data.data))
+    .then(() => {
+      setLoading(false)
+    })
+
   }, []);
 
   if (isLoading) return <LoadingSpinner />;
