@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { AuthError } from 'types/types'
-import { useRouter } from 'next/router'
 
-import { request } from 'utils/context';
+import { useUserContext } from "context/userContext";
+
+import { request } from 'utils/axios';
 import Router from 'next/router'
-
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
 import { Button } from 'components/button/button'
@@ -13,6 +13,9 @@ import { useToken } from 'lib/hooks';
 import styles from './register.module.scss'
 
 export const Register = () => {
+  const { user, setUser } = useUserContext();
+  const { token, setToken } = useToken();
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordRepeat, setPasswordRepeat] = useState('')
@@ -25,14 +28,13 @@ export const Register = () => {
     return res.data.token
   }
 
-  // @ts-ignore
   const handleSubmit = async () => {
     const token = await signUp(email, password, username);
     setToken(token);
+    // TODO: grab ID here, ad it to setUser obj.
+    setUser({username: username, email: email})
     Router.push('/')
   }
-
-  const { token, setToken } = useToken();
 
   useEffect(() => {
     if (token) {
@@ -62,9 +64,8 @@ export const Register = () => {
                   errorMessage={AuthError.Email}
                   title={'email'}
                   value={email}
-                  // @ts-ignore
-                  onChange={(e) => {
-                    setEmail(e.target.value)
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    setEmail(e.currentTarget.value)
                   }}
                 />
                 <TextInput
@@ -76,9 +77,8 @@ export const Register = () => {
                   errorMessage={AuthError.Password}
                   title={'password'}
                   value={password}
-                  // @ts-ignore
-                  onChange={(e) => {
-                    setPassword(e.target.value)
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    setPassword(e.currentTarget.value)
                   }}
                 />
                 <TextInput
@@ -90,9 +90,8 @@ export const Register = () => {
                   errorMessage={AuthError.Password}
                   title={'passwordRepeat'}
                   value={passwordRepeat}
-                  // @ts-ignore
-                  onChange={(e) => {
-                    setPasswordRepeat(e.target.value)
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    setPasswordRepeat(e.currentTarget.value)
                   }}
                 />
               </form>
@@ -114,9 +113,8 @@ export const Register = () => {
                   errorMessage={AuthError.Username}
                   title={'username'}
                   value={username}
-                  // @ts-ignore
-                  onChange={(e) => {
-                    setUsername(e.target.value)
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    setUsername(e.currentTarget.value)
                   }}
                 />
               </form>

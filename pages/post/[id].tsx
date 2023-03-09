@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 
 import { Sun } from "components/core/layout/sun/sun";
-import { detailedPost } from "backend/data";
+import { detailedPost } from "dummyData/data";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import Router from 'next/router'
 import { DetailedPost } from "components/detailed-post/detailed-post";

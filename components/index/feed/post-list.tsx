@@ -2,21 +2,21 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import { Post } from "./post";
-import { request } from "utils/context";
+import { request } from "utils/axios";
 
 // interface IPostList {
 //   posts: IPost[];
 // }
 
 export const PostList = () => {
-  const [postsData, setPostsData] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
   const router = useRouter();
 
   async function fetchPosts() {
     const res = await request.get(`/post/all`);
-    setPostsData(res.data.data);
+    setPosts(res.data.data);
     setLoading(false);
   }
 
@@ -29,11 +29,11 @@ export const PostList = () => {
   }, []);
 
   if (isLoading) return <LoadingSpinner />;
-  if (!postsData) return <p>No posts data</p>;
+  if (!posts) return <p>No posts data</p>;
 
   return (
     <>
-      {postsData.map(p => {
+      {posts.map(p => {
         return (
           <Post
             key={p.postID}

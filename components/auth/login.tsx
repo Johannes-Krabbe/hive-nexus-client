@@ -4,10 +4,14 @@ import { AuthError } from 'types/types'
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
 import { Button } from 'components/button/button'
 
-import { request } from 'utils/context';
+import { useToken } from 'lib/hooks';
+
+import { request } from 'utils/axios';
 import styles from './login.module.scss'
 
-export const Login = ({ setToken }) => {
+export const Login = () => {
+  const { token, setToken } = useToken();
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -16,7 +20,6 @@ export const Login = ({ setToken }) => {
     return res.data.token
   }
 
-  // @ts-ignore
   const handleSubmit = async () => {
     const token = await signIn(email, password);
     setToken(token);
@@ -44,7 +47,7 @@ export const Login = ({ setToken }) => {
                   title={'email'}
                   value={email}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setEmail(e.target.value)
+                    setEmail(e.currentTarget.value)
                   }}
                 />
                 <TextInput
@@ -57,7 +60,7 @@ export const Login = ({ setToken }) => {
                   title={'password'}
                   value={password}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setPassword(e.target.value)
+                    setPassword(e.currentTarget.value)
                   }}
                 />
               </form>
