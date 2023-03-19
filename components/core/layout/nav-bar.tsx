@@ -9,7 +9,6 @@ import { useRouter } from 'next/router'
 import { useUserContext } from "context/userContext";
 
 import { useScrollLock } from "lib/hooks";
-import { useToken } from 'lib/hooks';
 
 import { INavLink } from "types/interfaces";
 import { useToken } from 'lib/hooks';
