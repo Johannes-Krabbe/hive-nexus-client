@@ -28,7 +28,6 @@ export const Register = () => {
     const { userId, createdAt, token } = await signUp(email, password, username);
     setToken(token);
     setUser({userId: userId, createdAt: createdAt, username: username, email: email})
-    // TODO: nevessary?
     Router.push('/')
   }
 

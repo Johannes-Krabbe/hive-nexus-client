@@ -130,7 +130,6 @@ const OverlayNav = ({
 }: OverlayNavProps) => {
   const { user, setUser } = useUserContext();
   const { token, setToken } = useToken();
-  console.log(JSON.stringify(user))
 
   return (
     <div
