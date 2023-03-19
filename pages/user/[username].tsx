@@ -7,7 +7,7 @@ import { Sun } from "components/core/layout/sun/sun";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 
 import styles from "components/core/layout/index.module.scss";
-import { request } from "utils/context";
+import { request } from "utils/axios";
 import { useToken } from 'lib/hooks';
 import { getFormattedDate } from 'utils/dateHelpers'
 

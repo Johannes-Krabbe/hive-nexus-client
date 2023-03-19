@@ -6,8 +6,10 @@ import { Button } from "components/button/button";
 import { debounce } from "utils/documentHelpers";
 import { useRouter } from 'next/router'
 
+import { useUserContext } from "context/userContext";
 
 import { useScrollLock } from "lib/hooks";
+import { useToken } from 'lib/hooks';
 
 import { INavLink } from "types/interfaces";
 import { useToken } from 'lib/hooks';
@@ -28,7 +30,6 @@ interface OverlayNavProps {
   overlayIsShowing: boolean;
   toggleOverlay: () => void;
   signOut: () => void;
-  token: string
 }
 
 interface NavLinkListProps {
@@ -37,6 +38,7 @@ interface NavLinkListProps {
 }
 
 export const NavBar = () => {
+  const { user, setUser } = useUserContext();
   const { token, setToken } = useToken();
 
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
@@ -93,20 +95,21 @@ export const NavBar = () => {
           <div className={styles.Burger} onClick={toggleOverlay}>
             <Image src={Burger} alt="Menu Icon" />
           </div>
-          <NavLinksList navLinks={navLinks} />
+          { token &&
+            <NavLinksList navLinks={navLinks} />
+          }
         </nav>
         <div className={styles.UserActions}>
-          {/* TODO: Fix Logout Display (only when logged in..) */}
-          {token &&
-            <Button
-              action={"button"}
-              variant={"dark"}
-              text={"Log Out"}
-              onClick={() => {
-                signOut();
-              }}
-            />
-          }
+          { token &&
+              <Button
+                action={"button"}
+                variant={"dark"}
+                text={"Log Out"}
+                onClick={() => {
+                  signOut();
+                }}
+              />
+            }
         </div>
       </div>
       {overlayIsShowing && <div className={styles.Shadow} />}
@@ -115,7 +118,6 @@ export const NavBar = () => {
         overlayIsShowing={overlayIsShowing}
         toggleOverlay={toggleOverlay}
         signOut={signOut}
-        token={token}
       />
     </header>
   );
@@ -126,8 +128,10 @@ const OverlayNav = ({
   overlayIsShowing,
   toggleOverlay,
   signOut,
-  token
 }: OverlayNavProps) => {
+  const { user, setUser } = useUserContext();
+  const { token, setToken } = useToken();
+
   return (
     <div
       className={styles.Overlay}
@@ -143,9 +147,11 @@ const OverlayNav = ({
             &times;
           </a>
         </div>
-        <NavLinksList navLinks={navLinks} toggleOverlay={toggleOverlay} />
+        { token &&
+          <NavLinksList navLinks={navLinks} toggleOverlay={toggleOverlay} />
+        }
         <div>
-          {token &&
+          { token &&
             <Button
               action={"button"}
               variant={"dark"}
@@ -156,6 +162,16 @@ const OverlayNav = ({
             />
           }
         </div>
+        <p>Logged In:</p>
+        <p>
+          {user.username}
+          <br />
+          {user.email}
+          <br />
+          {user.userId}
+          <br />
+          {user.createdAt}
+        </p>
       </nav>
       <div
         className={styles.BottomBar}

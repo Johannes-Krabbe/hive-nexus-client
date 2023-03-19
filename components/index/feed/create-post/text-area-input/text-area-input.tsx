@@ -36,7 +36,7 @@ export const TextAreaInput = ({
 
   const handleBlur = (e: FocusEvent<HTMLTextAreaElement>) => {
     setIsActive(false)
-    if (e.target.value.length > 0) {
+    if (e.currentTarget.value.length > 0) {
       setIsFilled(true)
     } else {
       setIsFilled(false)

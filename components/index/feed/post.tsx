@@ -5,9 +5,9 @@ import { getFormattedDate } from 'utils/dateHelpers'
 import styles from "./post.module.scss";
 
 export const Post = ({
-  id,
+  postID,
   createdAt,
-  author,
+  username,
   title,
   content,
   // likesCount,
@@ -19,8 +19,8 @@ export const Post = ({
         <Link
           className={styles.Title}
           href={{
-            pathname: "/post/[id]",
-            query: { id: id },
+            pathname: "/post/[postID]",
+            query: { postID: postID },
           }}
         >
           {title}
@@ -28,17 +28,17 @@ export const Post = ({
         <div className={styles.Details}>
           <Link
             href={{
-              pathname: "user/[id]",
-              query: { id: author}
+              pathname: "user/[username]",
+              query: { username: username}
             }}
             >
-            <p>{author}</p>
+            <p>{username}</p>
           </Link>
           <p className={styles.Creation}>{getFormattedDate(createdAt)}</p>
-          {/* <p>{ id }</p> */}
         </div>
       </div>
       <p className={styles.Content}>{content}</p>
+      <p>{ postID }</p>
       <div className={styles.BottomBar}>
         {/* <p className={styles.Likes}>{likesCount} 🔥</p>
         <p>{commentsCount} 💬</p> */}
@@ -49,14 +49,14 @@ export const Post = ({
           variant={"secondary"}
           text={"Like"}
           onClick={() => {
-            console.log(`Liked postId ${id}`);
+            console.log(`Liked postID ${postID}`);
           }}
         />
         <Link
           className={styles.Anchor}
           href={{
-            pathname: "/post/[id]",
-            query: { id: id },
+            pathname: "/post/[postID]",
+            query: { postID: postID },
           }}
         >
           <div className={styles.Arrow} />
