@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { useUserContext } from "context/userContext";
+import Router from 'next/router'
+import { deletePost } from 'utils/restClient'
 import { IPost } from "types/interfaces";
 import { Button } from "components/button/button";
 import { getFormattedDate } from 'utils/dateHelpers'
@@ -15,22 +18,15 @@ export const Post = ({
   // likesCount,
   // commentsCount,
 }: IPost) => {
+  const { user, setUser } = useUserContext();
+  console.log(JSON.stringify(user))
   // TODO: replace with logic check
   const isUserAuthor = true
 
-  async function deletePost(postId: string) {
-    try {
-      const res = await request.post(`/post/delete`, { 'postID': postId });
+  const handleDelete = async (postID: string) => {
+    deletePost(postID);
 
-      // TODO: trigger rerender
-      return res
-    } catch(err) {
-      console.log(err)
-    }
-  }
-
-  const handleDelete = async (id: string) => {
-    const res = await deletePost(id);
+    Router.push('/')
   }
 
   return (

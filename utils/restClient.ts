@@ -53,6 +53,16 @@ export async function createPost(title: string, content: string) {
   }
 }
 
+export async function deletePost(postID: string) {
+  try {
+    const res = await request.post(`/post/delete`, { postID: postID });
+
+    return res;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 export async function getPost(postID: string) {
   try {
     const res = await request.get(`/post/one?postID=${postID}`);
