@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IPost } from "types/interfaces";
 import { Button } from "components/button/button";
+import { getFormattedDate } from 'utils/dateHelpers'
 import styles from "./post.module.scss";
 
 export const Post = ({
@@ -33,7 +34,7 @@ export const Post = ({
             >
             <p>{author}</p>
           </Link>
-          {/* <p className={styles.Creation}>{createdAt}</p> */}
+          <p className={styles.Creation}>{getFormattedDate(createdAt)}</p>
           {/* <p>{ id }</p> */}
         </div>
       </div>
@@ -48,7 +49,7 @@ export const Post = ({
           variant={"secondary"}
           text={"Like"}
           onClick={() => {
-            console.log(`Post ID: ${id} liked`);
+            console.log(`Liked postId ${id}`);
           }}
         />
         <Link

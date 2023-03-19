@@ -4,7 +4,6 @@ import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import { Post } from "./post";
 import { request } from "utils/context";
 
-
 // interface IPostList {
 //   posts: IPost[];
 // }
@@ -17,7 +16,6 @@ export const PostList = () => {
 
   async function fetchPosts() {
     const res = await request.get(`/post/all`);
-    console.log(res.data.data);
     setPostsData(res.data.data);
     setLoading(false);
   }
@@ -44,8 +42,8 @@ export const PostList = () => {
             author={p.username}
             title={p.title}
             content={p.content}
-            // likesCount={p.reactions}
-            // commentsCount={88}
+            likesCount={p.reactions}
+            commentsCount={88}
           />
         );
       })}

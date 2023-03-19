@@ -21,7 +21,6 @@ export const Register = () => {
   const [firstStepDone, setFirstStepDone] = useState(false)
 
   async function signUp(email: string, password: string, username: string) {
-    console.log(`signing up, username ${username}, password: ${password}, email: ${email}`)
     const res = await request.post(`/auth/sign-up`, { 'email': email, 'password': password, 'username': username });
     return res.data.token
   }

@@ -85,8 +85,8 @@ const PostPage: NextPage = () => {
         setUserData(data);
         setLoading(false);
       })
-      .catch(err => {
-        console.log('request failed', err)
+      .catch(e => {
+        console.log('request failed', e)
       })
   }, [router]);
 

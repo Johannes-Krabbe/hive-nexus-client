@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "components/button/button";
 
-import { debounce } from "utils/helpers";
+import { debounce } from "utils/documentHelpers";
 import { useRouter } from 'next/router'
 
 
