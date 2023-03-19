@@ -130,6 +130,7 @@ const OverlayNav = ({
 }: OverlayNavProps) => {
   const { user, setUser } = useUserContext();
   const { token, setToken } = useToken();
+  console.log(JSON.stringify(user))
 
   return (
     <div
@@ -161,15 +162,15 @@ const OverlayNav = ({
             />
           }
         </div>
+        <p>Logged In:</p>
         <p>
-          Logged in username: {user.username}
-        </p>
-        <p>
-          Logged in email: {user.email}
-        </p>
-        <p>
-          Logged in userId: {'to be defined'}
-          {/* Logged in userId: {user.userId} */}
+          {user.username}
+          <br />
+          {user.email}
+          <br />
+          {user.userId}
+          <br />
+          {user.createdAt}
         </p>
       </nav>
       <div

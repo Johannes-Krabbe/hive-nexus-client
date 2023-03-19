@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Router from 'next/router'
 import { AuthError } from 'types/types'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
@@ -20,10 +21,11 @@ export const Login = () => {
   const [password, setPassword] = useState('')
 
   const handleSubmit = async () => {
-    const { token, username, email, userId } = await signIn(email, password);
-    console.log(`using token: ${token}`)
+    const { userId, createdAt, username, token } = await signIn(email, password);
     setToken(token);
-    setUser({username: username, email: email, userId: userId})
+    setUser({userId: userId, createdAt: createdAt, username: username, email: email})
+
+    Router.push('/')
   }
 
   return (
@@ -35,7 +37,6 @@ export const Login = () => {
                 id="SignIn"
                 name="Post"
                 className={styles.Form}
-                onSubmit={handleSubmit}
                 method="post"
               >
                 <TextInput

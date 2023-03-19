@@ -11,7 +11,7 @@ export async function signUp(
     username: username,
   });
 
-  return res.data.token;
+  return res.data.data;
 }
 
 export async function signIn(email: string, password: string) {
@@ -20,9 +20,7 @@ export async function signIn(email: string, password: string) {
     password: password,
   });
 
-  console.log(`returning: ${res.data}`);
-
-  return res.data;
+  return res.data.data;
 }
 
 export async function fetchPosts() {

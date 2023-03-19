@@ -25,10 +25,10 @@ export const Register = () => {
   const [firstStepDone, setFirstStepDone] = useState(false)
 
   const handleSubmit = async () => {
-    const { token, username, email, userId } = await signUp(email, password, username);
+    const { userId, createdAt, token } = await signUp(email, password, username);
     setToken(token);
-    // TODO: grab ID here, ad it to setUser obj.
-    setUser({username: username, email: email, userId: userId})
+    setUser({userId: userId, createdAt: createdAt, username: username, email: email})
+    // TODO: nevessary?
     Router.push('/')
   }
 
