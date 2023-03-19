@@ -14,7 +14,7 @@ export const LikeList = ({ likes }: LikeListProps) => {
       <h2 className={styles.Title}>{count} Likes</h2>
       <div className={styles.List}>
         {likes.map((l: ILike) => {
-          return <Like key={l.id} id={l.id} username={l.username} />;
+          return <Like key={l.likeID} likeID={l.likeID} username={l.username} />;
         })}
       </div>
     </div>

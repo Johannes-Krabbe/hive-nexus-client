@@ -3,7 +3,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 
 import { Sun } from "components/core/layout/sun/sun";
-import { detailedPost } from "dummyData/data";
+import { dummyPost, dummyLikes, dummyComments } from "dummyData/data";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import Router from 'next/router'
 import { DetailedPost } from "components/detailed-post/detailed-post";
@@ -61,16 +61,15 @@ const PostPage: NextPage = () => {
     <div className={styles.Container}>
       <Sun color={"sun-peach"} />
       <DetailedPost
-        id={id}
-        createdAt={userData.birthDate}
-        author={`${userData.firstName} ${userData.lastName}`}
-        title={postData.title}
-        content={postData.body}
+        postID={dummyPost.postID}
+        createdAt={dummyPost.createdAt}
+        username={dummyPost.username}
+        title={dummyPost.title}
+        content={dummyPost.content}
       />
-      {/* TODO: provide fetched data */}
       <div className={styles.PostPageWrapper}>
-        <LikeList likes={detailedPost.likes} />
-        <CommentList comments={detailedPost.comments} />
+        <LikeList likes={dummyLikes} />
+        <CommentList comments={dummyComments} />
       </div>
     </div>
   );

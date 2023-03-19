@@ -2,24 +2,24 @@ import { IComment } from 'types/interfaces'
 import { Comment } from './comment'
 import styles from './comment-list.module.scss'
 
-interface CommentList {
+interface CommentListProps {
   comments: IComment[]
 }
 
-export const CommentList = ({comments}: CommentList) => {
+export const CommentList = ({comments}: CommentListProps) => {
   const count = comments.length
 
   return (
     <div className={styles.Wrapper}>
       <h2 className={styles.Title}>{count} Commments</h2>
       <div className={styles.List}>
-        {comments.map((c: IComment) => {
+        {comments.map(c => {
           return (
             <Comment
-              key={c.id}
-              id={c.id}
+              key={c.commentID}
+              commentID={c.commentID}
               createdAt={c.createdAt}
-              author={c.author}
+              username={c.username}
               content={c.content}
               />
           )

@@ -2,19 +2,6 @@
 @use 'styles/abstracts/_colors.scss';
 @use 'styles/abstracts/_br.scss';
 
-// TODO: delete
-.RegistrationSimulator {
-  padding: 1em;
-  border-radius: 3rem;
-  color: red;
-  border: red 1px solid;
-  margin: 0 auto 8px;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
 .Register {
   width: 480px;
 
