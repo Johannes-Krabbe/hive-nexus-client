@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { IPost } from "types/interfaces";
 import { Button } from "components/button/button";
+import { getFormattedDate } from 'utils/dateHelpers'
 import styles from "./post.module.scss";
 
-import { request } from 'utils/context';
+import { request } from 'utils/axios';
 
 export const Post = ({
-  id,
+  postID,
   createdAt,
-  author,
+  username,
   title,
   content,
   // likesCount,
@@ -38,8 +39,8 @@ export const Post = ({
         <Link
           className={styles.Title}
           href={{
-            pathname: "/post/[id]",
-            query: { id: id },
+            pathname: "/post/[postID]",
+            query: { postID: postID },
           }}
         >
           {title}
@@ -47,18 +48,17 @@ export const Post = ({
         <div className={styles.Details}>
           <Link
             href={{
-              pathname: "user/[id]",
-              query: { id: author}
+              pathname: "/user/[username]",
+              query: { username: username}
             }}
             >
-            <p>{author}</p>
+            <p>{username}</p>
           </Link>
-          {/* <p className={styles.Creation}>{createdAt}</p> */}
+          <p className={styles.Creation}>{getFormattedDate(createdAt)}</p>
         </div>
       </div>
       <p className={styles.Content}>{content}</p>
-      {/* TODO: delete id, just for testing purpose */}
-      <p>{ id }</p>
+      <p>{ postID }</p>
       <div className={styles.BottomBar}>
         {/* <p className={styles.Likes}>{likesCount} 🔥</p>
         <p>{commentsCount} 💬</p> */}
@@ -69,7 +69,7 @@ export const Post = ({
           variant={"secondary"}
           text={"Like"}
           onClick={() => {
-            console.log(`Post ID: ${id} liked`);
+            console.log(`Liked postID ${postID}`);
           }}
         />
         { isUserAuthor && (
@@ -77,14 +77,14 @@ export const Post = ({
               action={"button"}
               variant={"dark"}
               text={"Delete Post"}
-              onClick={() => { handleDelete(id) }}
+              onClick={() => { handleDelete(postID) }}
             />
         )}
         <Link
           className={styles.Anchor}
           href={{
-            pathname: "/post/[id]",
-            query: { id: id },
+            pathname: "/post/[postID]",
+            query: { postID: postID },
           }}
         >
           <div className={styles.Arrow} />

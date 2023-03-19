@@ -3,13 +3,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "components/button/button";
 
-import { debounce } from "utils/helpers";
+import { debounce } from "utils/documentHelpers";
 import { useRouter } from 'next/router'
 
+import { useUserContext } from "context/userContext";
 
 import { useScrollLock } from "lib/hooks";
 
 import { INavLink } from "types/interfaces";
+import { useToken } from 'lib/hooks';
 
 import styles from "./nav-bar.module.scss";
 
@@ -34,7 +36,10 @@ interface NavLinkListProps {
   toggleOverlay?: () => void;
 }
 
-export const NavBar = ({ setToken }) => {
+export const NavBar = () => {
+  const { user, setUser } = useUserContext();
+  const { token, setToken } = useToken();
+
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -89,17 +94,21 @@ export const NavBar = ({ setToken }) => {
           <div className={styles.Burger} onClick={toggleOverlay}>
             <Image src={Burger} alt="Menu Icon" />
           </div>
-          <NavLinksList navLinks={navLinks} />
+          { token &&
+            <NavLinksList navLinks={navLinks} />
+          }
         </nav>
         <div className={styles.UserActions}>
-          <Button
-            action={"button"}
-            variant={"dark"}
-            text={"Log Out"}
-            onClick={() => {
-              signOut();
-            }}
-          />
+          { token &&
+              <Button
+                action={"button"}
+                variant={"dark"}
+                text={"Log Out"}
+                onClick={() => {
+                  signOut();
+                }}
+              />
+            }
         </div>
       </div>
       {overlayIsShowing && <div className={styles.Shadow} />}
@@ -117,8 +126,11 @@ const OverlayNav = ({
   navLinks,
   overlayIsShowing,
   toggleOverlay,
-  signOut
+  signOut,
 }: OverlayNavProps) => {
+  const { user, setUser } = useUserContext();
+  const { token, setToken } = useToken();
+
   return (
     <div
       className={styles.Overlay}
@@ -134,17 +146,31 @@ const OverlayNav = ({
             &times;
           </a>
         </div>
-        <NavLinksList navLinks={navLinks} toggleOverlay={toggleOverlay} />
+        { token &&
+          <NavLinksList navLinks={navLinks} toggleOverlay={toggleOverlay} />
+        }
         <div>
-          <Button
-            action={"button"}
-            variant={"dark"}
-            text={"Log Out"}
-            onClick={() => {
-              signOut();
-            }}
-          />
+          { token &&
+            <Button
+              action={"button"}
+              variant={"dark"}
+              text={"Log Out"}
+              onClick={() => {
+                signOut();
+              }}
+            />
+          }
         </div>
+        <p>Logged In:</p>
+        <p>
+          {user.username}
+          <br />
+          {user.email}
+          <br />
+          {user.userID}
+          <br />
+          {user.createdAt}
+        </p>
       </nav>
       <div
         className={styles.BottomBar}

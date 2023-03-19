@@ -1,51 +1,42 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { IPost } from "types/interfaces";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import { Post } from "./post";
-import { request } from "utils/context";
-
-
-// interface IPostList {
-//   posts: IPost[];
-// }
+import { getPosts } from 'utils/restClient'
 
 export const PostList = () => {
-  const [postsData, setPostsData] = useState([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
   const [isLoading, setLoading] = useState(false);
 
   const router = useRouter();
-
-  async function fetchPosts() {
-    const res = await request.get(`/post/all`);
-    console.log(res.data.data);
-    setPostsData(res.data.data);
-    setLoading(false);
-  }
 
   useEffect(() => {
     if (!router.isReady) return;
 
     setLoading(true);
 
-    fetchPosts()
-  }, []);
+    getPosts()
+      .then((res) => setPosts(res))
+      .then(() => {
+        setLoading(false)
+      })
+  }, [router]);
 
   if (isLoading) return <LoadingSpinner />;
-  if (!postsData) return <p>No posts data</p>;
+  if (!posts) return <p>No posts data</p>;
 
   return (
     <>
-      {postsData.map(p => {
+      {posts.map(p => {
         return (
           <Post
             key={p.postID}
-            id={p.postID}
+            postID={p.postID}
             createdAt={p.createdAt}
-            author={p.username}
+            username={p.username}
             title={p.title}
             content={p.content}
-            // likesCount={p.reactions}
-            // commentsCount={88}
           />
         );
       })}

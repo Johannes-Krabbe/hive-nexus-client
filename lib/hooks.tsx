@@ -38,8 +38,6 @@ export const useToken = () => {
     setToken(token);
 };
 
-  // printCookies()
-
   return {
     setToken: saveToken,
     token
@@ -49,5 +47,4 @@ export const useToken = () => {
 // just for debugging
 export const printCookies = () => {
   const cookies = getCookies();
-  console.log('cookies: ', cookies)
 }

@@ -3,32 +3,24 @@ import Image from 'next/image'
 import { FormError } from "types/types";
 import smiley from "/public/assets/images/core/smiley.png";
 
+import { useUserContext } from "context/userContext";
+
+import { createPost } from 'utils/restClient'
+
 import { Button } from "components/button/button";
 import { TextInput } from "components/index/feed/create-post/text-input/text-input";
 import { TextAreaInput } from "components/index/feed/create-post/text-area-input/text-area-input";
 import styles from "./create-post.module.scss";
 
-import { request } from 'utils/context';
-
-
 export const CreatePost = () => {
+  const { user, setUser } = useUserContext();
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
-  // TODO: getting data from auth/db
-  const username = "spacjalex";
 
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
 
-  async function createPost(title: string, content: string) {
-    try {
-      const res = await request.post(`/post/create`, { 'title': title, 'content': content });
-      return res
-    } catch(err) {
-      console.log(err)
-    }
-  }
 
   const handleSubmit = async () => {
     const res = await createPost(title, content);
@@ -49,7 +41,7 @@ export const CreatePost = () => {
             width={32}
             alt={`Your avatar`}
           />
-          <p className={styles.Username}>{username}</p>
+          <p className={styles.Username}>{user.username}</p>
         </div>
         <div className={styles.FormWrapper}>
           <form
@@ -68,9 +60,8 @@ export const CreatePost = () => {
               errorMessage={FormError.Title}
               title={"title"}
               value={title}
-              // @ts-ignore
-              onChange={(e) => {
-                setTitle(e.target.value);
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setTitle(e.currentTarget.value);
               }}
             />
             <TextAreaInput
@@ -81,9 +72,8 @@ export const CreatePost = () => {
               errorMessage={FormError.Content}
               title={"content"}
               value={content}
-              // @ts-ignore
-              onChange={(e) => {
-                setContent(e.target.value);
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setContent(e.currentTarget.value);
               }}
             />
             <div className={styles.ButtonContainer}>

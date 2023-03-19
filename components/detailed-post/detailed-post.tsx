@@ -1,27 +1,28 @@
 import { Button } from "components/button/button";
+import Link from "next/link";
+import { getFormattedDate } from 'utils/dateHelpers'
+import { IPost } from "types/interfaces";
 import styles from "./detailed-post.module.scss";
 
-interface DetailedPostProps {
-  id: string;
-  createdAt: string;
-  author: string;
-  title: string;
-  content: string;
-}
-
 export const DetailedPost = ({
-  id,
+  postID,
   createdAt,
-  author,
+  username,
   title,
   content,
-}: DetailedPostProps) => {
+}: IPost) => {
   return (
     <div className={styles.DetailedPost}>
-      <h2 className={styles.Title}>{id} {title}</h2>
-      {/* TODO: Link to userpage */}
-      <p className={styles.Author}>{author}</p>
-      <p className={styles.Date}>{createdAt}</p>
+      <h2 className={styles.Title}>{title}</h2>
+      <p className={styles.Date}>{getFormattedDate(createdAt)}</p>
+      <Link
+        href={{
+          pathname: "/user/[username]",
+          query: { username: username}
+        }}
+        >
+          <p className={styles.Author}>{username}</p>
+      </Link>
       <p className={styles.Content}>{content}</p>
       <div className={styles.Wrapper}>
         <Button
@@ -29,7 +30,7 @@ export const DetailedPost = ({
           variant={"secondary"}
           text={"Like"}
           onClick={() => {
-            console.log(`Post ID: ${id} liked`);
+            console.log(`Like postID ${postID}`);
           }}
         />
         {/* TODO: handleDelete */}
@@ -38,7 +39,7 @@ export const DetailedPost = ({
           variant={"dark"}
           text={"Delete Post"}
           onClick={() => {
-            console.log(`Delete postId ${id}`);
+            console.log(`Delete postID ${postID}`);
           }}
         />
       </div>

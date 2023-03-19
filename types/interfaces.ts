@@ -1,31 +1,30 @@
 export interface IUser {
-  id: string;
-  createdAt: string;
+  userID: string;
+  createdAt: Date;
   email: string;
   username: string;
-  password: string;
 }
 
 export interface IPost {
-  id: string;
-  createdAt: string;
-  // TODO: assign IUser with username prop only to author
-  author: string;
+  postID: string;
+  createdAt: Date;
+  // TODO: assign IUser with username prop only to username
+  username: string;
   title: string;
   content: string;
-  likesCount: number;
-  commentsCount: number;
+  // likesCount: number;
+  // commentsCount: number;
 }
 
 export interface IComment {
-  id: string;
-  createdAt: string;
-  author: string;
+  commentID: string;
+  createdAt: Date;
+  username: string;
   content: string;
 }
 
 export interface ILike {
-  id: string;
+  likeID: string;
   username: string;
 }
 
