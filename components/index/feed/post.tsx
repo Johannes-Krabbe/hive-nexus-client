@@ -28,7 +28,7 @@ export const Post = ({
         <div className={styles.Details}>
           <Link
             href={{
-              pathname: "user/[username]",
+              pathname: "/user/[username]",
               query: { username: username}
             }}
             >

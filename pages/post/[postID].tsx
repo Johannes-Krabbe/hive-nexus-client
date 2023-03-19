@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { IPost } from "types/interfaces";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 
+import { getPost } from 'utils/restClient'
 import { Sun } from "components/core/layout/sun/sun";
-import { dummyPost, dummyLikes, dummyComments } from "dummyData/data";
+import {  dummyLikes, dummyComments } from "dummyData/data";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import Router from 'next/router'
 import { DetailedPost } from "components/detailed-post/detailed-post";
@@ -16,12 +18,12 @@ import { useToken } from 'lib/hooks';
 const PostPage: NextPage = () => {
   const { token, setToken } = useToken();
 
-  const [postData, setPostData] = useState(null);
-  const [userData, setUserData] = useState(null);
-  const [isLoading, setLoading] = useState(true);
+  const [postData, setPostData] = useState<IPost | null>(null);
+  const [isLoading, setLoading] = useState(false);
 
   const router = useRouter();
-  const id = router.query.id;
+  const { asPath } = router;
+  const postID = asPath.substring(asPath.lastIndexOf("/") + 1);
 
   useEffect(() => {
     if (!token) {
@@ -32,47 +34,37 @@ const PostPage: NextPage = () => {
   useEffect(() => {
     if (!router.isReady) return;
 
-    const postQueryUrl = `https://dummyjson.com/posts/${id}`
+    setLoading(true)
 
-    fetch(postQueryUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        setPostData(data);
-
-        const userQueryUrl = `https://dummyjson.com/users/${data.userId}`
-
-        return fetch(userQueryUrl);
+    getPost(postID)
+      .then((res) => setPostData(res))
+      .then(() => {
+        setLoading(false)
       })
-      .then(res => res.json())
-      .then((data) => {
-
-        setUserData(data);
-        setLoading(false);
-      })
-      .catch(e => {
-        console.log('request failed', e)
-      })
-  }, [router]);
+  }, [router, postID]);
 
   if (isLoading) return <LoadingSpinner />;
-  if (!postData || !userData) return <p>No post data</p>;
 
-  return (
-    <div className={styles.Container}>
-      <Sun color={"sun-peach"} />
-      <DetailedPost
-        postID={dummyPost.postID}
-        createdAt={dummyPost.createdAt}
-        username={dummyPost.username}
-        title={dummyPost.title}
-        content={dummyPost.content}
-      />
-      <div className={styles.PostPageWrapper}>
-        <LikeList likes={dummyLikes} />
-        <CommentList comments={dummyComments} />
+  if (!postData) {
+    return <p>No post data</p>;
+  } else {
+    return (
+      <div className={styles.Container}>
+        <Sun color={"sun-peach"} />
+        <DetailedPost
+          postID={postData.postID}
+          createdAt={postData.createdAt}
+          username={postData.username}
+          title={postData.title}
+          content={postData.content}
+        />
+        <div className={styles.PostPageWrapper}>
+          <LikeList likes={dummyLikes} />
+          <CommentList comments={dummyComments} />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
+}
 
 export default PostPage;

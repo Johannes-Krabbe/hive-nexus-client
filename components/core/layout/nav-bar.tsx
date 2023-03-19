@@ -9,9 +9,9 @@ import { useRouter } from 'next/router'
 import { useUserContext } from "context/userContext";
 
 import { useScrollLock } from "lib/hooks";
-import { useToken } from 'lib/hooks';
 
 import { INavLink } from "types/interfaces";
+import { useToken } from 'lib/hooks';
 
 import styles from "./nav-bar.module.scss";
 
@@ -126,7 +126,7 @@ const OverlayNav = ({
   navLinks,
   overlayIsShowing,
   toggleOverlay,
-  signOut
+  signOut,
 }: OverlayNavProps) => {
   const { user, setUser } = useUserContext();
   const { token, setToken } = useToken();
@@ -167,7 +167,7 @@ const OverlayNav = ({
           <br />
           {user.email}
           <br />
-          {user.userId}
+          {user.userID}
           <br />
           {user.createdAt}
         </p>

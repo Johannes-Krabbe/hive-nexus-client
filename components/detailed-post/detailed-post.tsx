@@ -13,17 +13,18 @@ export const DetailedPost = ({
 }: IPost) => {
   return (
     <div className={styles.DetailedPost}>
-      <h2 className={styles.Title}>{postID} {title}</h2>
+      <h2 className={styles.Title}>{title}</h2>
       <p className={styles.Date}>{getFormattedDate(createdAt)}</p>
       <Link
         href={{
-          pathname: "user/[username]",
+          pathname: "/user/[username]",
           query: { username: username}
         }}
         >
           <p className={styles.Author}>{username}</p>
       </Link>
       <p className={styles.Content}>{content}</p>
+      <p className={styles.Content}>{postID}</p>
       <Button
         action={"button"}
         variant={"secondary"}
