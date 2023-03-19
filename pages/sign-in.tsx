@@ -27,7 +27,7 @@ const SignIn: NextPage = () => {
         color={'sun-blue'}
         />
       <Hero text={headline} />
-      <Login setToken={setToken} />
+      <Login />
     </div>
   )
 }
