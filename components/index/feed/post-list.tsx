@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { IPost } from "types/interfaces";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import { Post } from "./post";
-import { fetchPosts } from 'utils/restClient'
+import { getPosts } from 'utils/restClient'
 
 export const PostList = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
@@ -16,13 +16,12 @@ export const PostList = () => {
 
     setLoading(true);
 
-    fetchPosts()
-    .then((res) => setPosts(res))
-    .then(() => {
-      setLoading(false)
-    })
-
-  }, []);
+    getPosts()
+      .then((res) => setPosts(res))
+      .then(() => {
+        setLoading(false)
+      })
+  }, [router]);
 
   if (isLoading) return <LoadingSpinner />;
   if (!posts) return <p>No posts data</p>;

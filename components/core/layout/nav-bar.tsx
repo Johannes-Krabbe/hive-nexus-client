@@ -167,7 +167,7 @@ const OverlayNav = ({
           <br />
           {user.email}
           <br />
-          {user.userId}
+          {user.userID}
           <br />
           {user.createdAt}
         </p>

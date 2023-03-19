@@ -21,9 +21,9 @@ export const Login = () => {
   const [password, setPassword] = useState('')
 
   const handleSubmit = async () => {
-    const { userId, createdAt, username, token } = await signIn(email, password);
+    const { userID, createdAt, username, token } = await signIn(email, password);
     setToken(token);
-    setUser({userId: userId, createdAt: createdAt, username: username, email: email})
+    setUser({userID: userID, createdAt: createdAt, username: username, email: email})
 
     Router.push('/')
   }

@@ -2,12 +2,10 @@ import type { NextPage } from 'next'
 import { useEffect } from 'react'
 import Router from 'next/router'
 
-
 import { Sun } from 'components/core/layout/sun/sun'
 import { Hero } from 'components/core/hero/hero';
 import { Login } from 'components/auth/login'
 import { useToken } from 'lib/hooks';
-
 
 import styles from 'components/core/layout/index.module.scss'
 
