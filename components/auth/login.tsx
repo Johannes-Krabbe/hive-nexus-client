@@ -7,15 +7,13 @@ import { Button } from 'components/button/button'
 
 import { signIn } from 'utils/restClient'
 
-import { useUserContext } from "context/userContext";
-import { useToken } from 'lib/hooks';
+import { useToken, useUser } from 'lib/hooks';
 
 import styles from './login.module.scss'
 
 export const Login = () => {
-  const { user, setUser } = useUserContext();
-
   const { token, setToken } = useToken();
+  const { user, setUser } = useUser();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -23,7 +21,9 @@ export const Login = () => {
   const handleSubmit = async () => {
     const { userID, createdAt, username, token } = await signIn(email, password);
     setToken(token);
-    setUser({userID: userID, createdAt: createdAt, username: username, email: email})
+    setUser({ userID, createdAt, username})
+    console.log('getUser')
+    console.log(user)
 
     Router.push('/')
   }
