@@ -6,9 +6,8 @@ import { Button } from "components/button/button";
 import { debounce } from "utils/documentHelpers";
 import { useRouter } from 'next/router'
 
-import { useUserContext } from "context/userContext";
-
 import { useScrollLock } from "lib/hooks";
+import { useAuthContext, AuthProvider } from 'context/auth-context'
 
 import { INavLink } from "types/interfaces";
 import { useToken } from 'lib/hooks';
@@ -37,9 +36,8 @@ interface NavLinkListProps {
 }
 
 export const NavBar = () => {
-  const { user, setUser } = useUserContext();
   const { token, setToken } = useToken();
-
+  const { authState, setAuthState } = useAuthContext();
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -69,6 +67,9 @@ export const NavBar = () => {
 
   const signOut = () => {
     setToken('');
+    setAuthState(false)
+    console.log("logged out, authState:")
+    console.log(authState)
     router.reload()
   }
 
@@ -128,9 +129,10 @@ const OverlayNav = ({
   toggleOverlay,
   signOut,
 }: OverlayNavProps) => {
-  const { user, setUser } = useUserContext();
+  // const user = localStorage.getItem('hn-user')
   const { token, setToken } = useToken();
 
+  const { authState, setAuthState } = useAuthContext();
   return (
     <div
       className={styles.Overlay}
@@ -146,11 +148,11 @@ const OverlayNav = ({
             &times;
           </a>
         </div>
-        { token &&
+        { authState &&
           <NavLinksList navLinks={navLinks} toggleOverlay={toggleOverlay} />
         }
         <div>
-          { token &&
+          { authState &&
             <Button
               action={"button"}
               variant={"dark"}
@@ -162,7 +164,7 @@ const OverlayNav = ({
           }
         </div>
         <p>Logged In:</p>
-        <p>
+        {/* <p>
           {user.username}
           <br />
           {user.email}
@@ -170,7 +172,7 @@ const OverlayNav = ({
           {user.userID}
           <br />
           {user.createdAt}
-        </p>
+        </p> */}
       </nav>
       <div
         className={styles.BottomBar}

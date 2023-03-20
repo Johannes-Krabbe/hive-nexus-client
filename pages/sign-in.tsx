@@ -6,18 +6,21 @@ import { Sun } from 'components/core/layout/sun/sun'
 import { Hero } from 'components/core/hero/hero';
 import { Login } from 'components/auth/login'
 import { useToken } from 'lib/hooks';
-
+import { useAuthContext, AuthProvider } from 'context/auth-context'
 import styles from 'components/core/layout/index.module.scss'
 
 const SignIn: NextPage = () => {
-  const { token, setToken } = useToken();
-  const headline = 'Welcome to hivenexus'
+  const { authState, isUserAuthenticated, setAuthState } = useAuthContext();
 
   useEffect(() => {
-    if (token) {
-      Router.push('/')
-      }
-  }, [token]);
+    console.log('authState')
+    console.log(JSON.stringify(authState))
+    isUserAuthenticated
+    && Router.push("/")
+  }, []);
+
+  const { token, setToken } = useToken();
+  const headline = 'Welcome to hivenexus'
 
   return (
     <div className={styles.Container}>

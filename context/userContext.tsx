@@ -1,35 +1,34 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+export const User = () => {
+  var userID: string;
+  var createdAt: Date;
+  var username: string;
 
-// TODO: define types, replace any
-interface UserContext {
-  user: any;
-  setUser: React.Dispatch<React.SetStateAction<any>>;
-}
-
-const UserContext = createContext<UserContext | undefined>(
-  undefined
-);
-
-interface Props {
-  children?: ReactNode;
-}
-
-export const UserProvider = ({ children }: Props) => {
-  const [user, setUser] = useState({});
-
-  return (
-    <UserContext.Provider value={{ user, setUser }}>
-      {children}
-    </UserContext.Provider>
-  );
-};
-
-export const useUserContext = () => {
-  const ctx = useContext(UserContext);
-
-  if (ctx === undefined) {
-    throw new Error("useUserContext must be within UserProvider");
+  var getUser = function() {
+    const user = localStorage.getItem('hn-user')
+    return user
   }
 
-  return ctx;
-};
+  var setUser = function(id: string, date: Date, name: string) {
+    userID = id;
+    createdAt = date;
+    username = name;
+
+    localStorage.setItem('hn-user', JSON.stringify({
+      userID,
+      createdAt,
+      username
+    }))
+  }
+
+  // var getUserID = function() {
+  //   return userID;
+  // }
+
+  // var getCreatedAt = function() {
+  //   return createdAt;
+  // }
+
+  var getUsername = function() {
+    return username;
+  }
+}

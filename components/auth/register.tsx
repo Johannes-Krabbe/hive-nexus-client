@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
+import { useAuthContext, AuthProvider } from 'context/auth-context'
 import { AuthError } from 'types/types'
 
-import { useUserContext } from "context/userContext";
 
 import { signUp } from 'utils/restClient'
 
@@ -14,9 +14,10 @@ import { useToken } from 'lib/hooks';
 import styles from './register.module.scss'
 
 export const Register = () => {
-  const { user, setUser } = useUserContext();
+  // const { user, setUser } = useUserContext();
   const { token, setToken } = useToken();
 
+  const { authState, isUserAuthenticated, setAuthState } = useAuthContext();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordRepeat, setPasswordRepeat] = useState('')
@@ -27,15 +28,21 @@ export const Register = () => {
   const handleSubmit = async () => {
     const { userID, createdAt, token } = await signUp(email, password, username);
     setToken(token);
-    setUser({userID: userID, createdAt: createdAt, username: username, email: email})
+    setAuthState({user: {
+      userID,
+      createdAt,
+      username
+    }})
+
+    // store the user in localStorage
+    // localStorage.setItem('user', JSON.stringify({
+    //   userID,
+    //   createdAt,
+    //   username
+    // }))
+
     Router.push('/')
   }
-
-  useEffect(() => {
-    if (token) {
-      Router.push('/')
-      }
-  }, []);
 
   return (
     <div className={styles.Register}>

@@ -19,7 +19,7 @@ import { useToken } from 'lib/hooks';
 
 export const Home: NextPage = () => {
   const { token, setToken } = useToken();
-  const { theme, setTheme } = useThemeContext();
+  // const { theme, setTheme } = useThemeContext();
 
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const { lockScroll, unlockScroll } = useScrollLock();
@@ -35,18 +35,18 @@ export const Home: NextPage = () => {
 
   const headline = "hivenexus";
 
-  useEffect(() => {
-    if (!token) {
-      Router.push('/sign-in')
-      }
-  }, [token]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     Router.push('/sign-in')
+  //     }
+  // }, [token]);
 
   return (
     <div className={styles.Container}>
       <button
         onClick={() => {
-          theme == "light" ? setTheme("dark") : setTheme("light");
-          console.log(`theme now: ${theme}`)
+          // theme == "light" ? setTheme("dark") : setTheme("light");
+          console.log(`theme now: ${''}`)
         }}
       >SetTheme</button>
       <Sun color={"sun-blue"} />

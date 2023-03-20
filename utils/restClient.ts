@@ -15,7 +15,7 @@ export async function signUp(
 
     return res.data.data;
   } catch (e) {
-    console.log("request failed", e);
+    console.log("signUp failed", e);
   }
 }
 
@@ -27,7 +27,7 @@ export async function signIn(email: string, password: string) {
     });
     return res.data.data;
   } catch (e) {
-    console.log("request failed", e);
+    console.log("signIn failed", e);
   }
 }
 
@@ -36,7 +36,7 @@ export async function getPosts() {
     const res = await request.get(`/post/all`);
     return res.data.data;
   } catch (e) {
-    console.log("request failed", e);
+    // console.log("getPosts failed", e);
   }
 }
 
@@ -49,7 +49,7 @@ export async function createPost(title: string, content: string) {
 
     return res;
   } catch (e) {
-    console.log("request failed", e);
+    console.log("createPost failed", e);
   }
 }
 
@@ -76,6 +76,6 @@ export async function getUser(options: GetUserOptions) {
 
     return res.data.data;
   } catch (e) {
-    console.log("request failed", e);
+    console.log(`getUser by ${options.property} failed`, e);
   }
 }

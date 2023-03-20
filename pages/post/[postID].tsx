@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import { IPost } from "types/interfaces";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 
 import { getPost } from 'utils/restClient'
 import { Sun } from "components/core/layout/sun/sun";
+import { useAuthContext, AuthProvider } from 'context/auth-context'
 import {  dummyLikes, dummyComments } from "dummyData/data";
 import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import Router from 'next/router'
@@ -16,7 +17,15 @@ import styles from "components/core/layout/index.module.scss";
 import { useToken } from 'lib/hooks';
 
 const PostPage: NextPage = () => {
-  const { token, setToken } = useToken();
+  const { authState, isUserAuthenticated, setAuthState } = useAuthContext();
+
+  useEffect(() => {
+    // authContext.isUserAuthenticated()
+    // ? Router.push("/")
+    // : Router.push("/sign-in");
+  }, []);
+
+  // const { token, setToken } = useToken();
 
   const [postData, setPostData] = useState<IPost | null>(null);
   const [isLoading, setLoading] = useState(false);
@@ -25,11 +34,11 @@ const PostPage: NextPage = () => {
   const { asPath } = router;
   const postID = asPath.substring(asPath.lastIndexOf("/") + 1);
 
-  useEffect(() => {
-    if (!token) {
-      Router.push('/sign-in')
-      }
-  }, [token]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     Router.push('/sign-in')
+  //     }
+  // }, [token]);
 
   useEffect(() => {
     if (!router.isReady) return;

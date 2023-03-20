@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useAuthContext, AuthProvider } from 'context/auth-context'
 import Router from 'next/router'
 import { AuthError } from 'types/types'
 
@@ -6,24 +7,32 @@ import { TextInput } from 'components/index/feed/create-post/text-input/text-inp
 import { Button } from 'components/button/button'
 
 import { signIn } from 'utils/restClient'
-
-import { useUserContext } from "context/userContext";
 import { useToken } from 'lib/hooks';
 
 import styles from './login.module.scss'
 
 export const Login = () => {
-  const { user, setUser } = useUserContext();
 
+  const { authState, setAuthState } = useAuthContext();
   const { token, setToken } = useToken();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  console.log("authState")
+  console.log(authState)
+
   const handleSubmit = async () => {
     const { userID, createdAt, username, token } = await signIn(email, password);
     setToken(token);
-    setUser({userID: userID, createdAt: createdAt, username: username, email: email})
+
+    setAuthState(true)
+
+    // localStorage.setItem('hn-user', JSON.stringify({
+    //   userID,
+    //   createdAt,
+    //   username
+    // }))
 
     Router.push('/')
   }
