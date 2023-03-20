@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { IUser } from 'types/interfaces'
 import { getCookie, getCookies, setCookie } from 'cookies-next';
 
 export const useScrollLock = () => {
@@ -39,12 +40,35 @@ export const useToken = () => {
 };
 
   return {
-    setToken: saveToken,
-    token
+    token,
+    setToken: saveToken
   }
 }
 
 // just for debugging
 export const printCookies = () => {
   const cookies = getCookies();
+}
+
+export const useUser = () => {
+  const hnUser = 'hn-user'
+
+  const getUser = (): IUser | ''  => {
+    const user = localStorage.getItem(hnUser)
+
+    return user ? JSON.parse(user) : ''
+  }
+
+  const [user, setUser] = useState(getUser())
+
+  const saveUser = (user: IUser | '') => {
+    localStorage.setItem(hnUser, JSON.stringify(user))
+
+    setUser(user)
+  }
+
+  return {
+    user,
+    setUser: saveUser,
+  }
 }

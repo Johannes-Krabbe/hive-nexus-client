@@ -2,16 +2,15 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "components/button/button";
-
+import { getFormattedDate } from 'utils/dateHelpers'
 import { debounce } from "utils/documentHelpers";
 import { useRouter } from 'next/router'
 
-import { useUserContext } from "context/userContext";
 
 import { useScrollLock } from "lib/hooks";
 
 import { INavLink } from "types/interfaces";
-import { useToken } from 'lib/hooks';
+import { useToken, useUser } from 'lib/hooks';
 
 import styles from "./nav-bar.module.scss";
 
@@ -28,6 +27,8 @@ interface OverlayNavProps {
   navLinks: INavLink[];
   overlayIsShowing: boolean;
   toggleOverlay: () => void;
+  token: any
+  user: any
   signOut: () => void;
 }
 
@@ -37,8 +38,8 @@ interface NavLinkListProps {
 }
 
 export const NavBar = () => {
-  const { user, setUser } = useUserContext();
   const { token, setToken } = useToken();
+  const { user, setUser } = useUser()
 
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -69,6 +70,7 @@ export const NavBar = () => {
 
   const signOut = () => {
     setToken('');
+    setUser('');
     router.reload()
   }
 
@@ -116,6 +118,8 @@ export const NavBar = () => {
         navLinks={navLinks}
         overlayIsShowing={overlayIsShowing}
         toggleOverlay={toggleOverlay}
+        user={user}
+        token={token}
         signOut={signOut}
       />
     </header>
@@ -126,11 +130,12 @@ const OverlayNav = ({
   navLinks,
   overlayIsShowing,
   toggleOverlay,
+  user,
+  token,
   signOut,
 }: OverlayNavProps) => {
-  const { user, setUser } = useUserContext();
-  const { token, setToken } = useToken();
-
+  console.log('user')
+  console.log(user)
   return (
     <div
       className={styles.Overlay}
@@ -161,16 +166,21 @@ const OverlayNav = ({
             />
           }
         </div>
-        <p>Logged In:</p>
-        <p>
-          {user.username}
-          <br />
-          {user.email}
-          <br />
-          {user.userID}
-          <br />
-          {user.createdAt}
-        </p>
+        {!user && (<p>not logged in</p>)}
+        { user && (
+          <>
+            <p>Logged In:</p>
+            <p>
+              {user.username}
+            </p>
+            <p>
+              {user.userID}
+            </p>
+            <p>
+              {getFormattedDate(user.createdAt)}
+            </p>
+          </>
+        )}
       </nav>
       <div
         className={styles.BottomBar}
