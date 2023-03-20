@@ -1,13 +1,11 @@
 import Link from "next/link";
-import { useUserContext } from "context/userContext";
+import { useUser } from "lib/hooks";
 import Router from 'next/router'
 import { deletePost } from 'utils/restClient'
 import { IPost } from "types/interfaces";
 import { Button } from "components/button/button";
 import { getFormattedDate } from 'utils/dateHelpers'
 import styles from "./post.module.scss";
-
-import { request } from 'utils/axios';
 
 export const Post = ({
   postID,
@@ -18,10 +16,9 @@ export const Post = ({
   // likesCount,
   // commentsCount,
 }: IPost) => {
-  const { user, setUser } = useUserContext();
-  console.log(JSON.stringify(user))
+  const { user, setUser } = useUser()
   // TODO: replace with logic check
-  const isUserAuthor = true
+  const isUserOwner = user.username === username
 
   const handleDelete = async (postID: string) => {
     deletePost(postID);
@@ -68,7 +65,7 @@ export const Post = ({
             console.log(`Liked postID ${postID}`);
           }}
         />
-        { isUserAuthor && (
+        { isUserOwner && (
             <Button
               action={"button"}
               variant={"dark"}

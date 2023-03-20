@@ -1,5 +1,5 @@
 import { Button } from "components/button/button";
-import { useUserContext } from "context/userContext";
+import { useUser } from "lib/hooks";
 import { deletePost } from 'utils/restClient'
 import Router from 'next/router'
 import Link from "next/link";
@@ -14,10 +14,8 @@ export const DetailedPost = ({
   title,
   content,
 }: IPost) => {
-  const { user, setUser } = useUserContext();
-  console.log(JSON.stringify(user))
-  // TODO: replace with logic check
-  const isUserOwner = true
+  const { user, setUser } = useUser()
+  const isUserOwner = user.username === username
 
   const handleDelete = async (postID: string) => {
     deletePost(postID);
@@ -46,7 +44,6 @@ export const DetailedPost = ({
             console.log(`Like postID ${postID}`);
           }}
         />
-        {/* TODO: handleDelete */}
         { isUserOwner && (
           <Button
             action={"button"}
