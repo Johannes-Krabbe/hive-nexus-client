@@ -28,15 +28,9 @@
     @include typeface.p1;
   }
 
-  .BottomBar {
+  .Wrapper {
     display: flex;
-    width: 100%;
-    justify-content: flex-end;
-    @include typeface.h3;
-    margin: 0 0 32px 0px;
-
-    .Likes {
-      margin: 0 16px 0 0;
-    }
+    justify-content: space-between;
+    align-items: center;
   }
 }

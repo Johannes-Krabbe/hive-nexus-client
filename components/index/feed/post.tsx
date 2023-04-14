@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { useUser } from "lib/hooks";
+import Router from 'next/router'
+import { deletePost } from 'utils/restClient'
 import { IPost } from "types/interfaces";
 import { Button } from "components/button/button";
 import { getFormattedDate } from 'utils/dateHelpers'
@@ -13,6 +16,16 @@ export const Post = ({
   // likesCount,
   // commentsCount,
 }: IPost) => {
+  const { user, setUser } = useUser()
+  // TODO: replace with logic check
+  const isUserOwner = user.username === username
+
+  const handleDelete = async (postID: string) => {
+    deletePost(postID);
+
+    Router.push('/')
+  }
+
   return (
     <div className={styles.Post}>
       <div className={styles.TitleBar}>
@@ -52,6 +65,14 @@ export const Post = ({
             console.log(`Liked postID ${postID}`);
           }}
         />
+        { isUserOwner && (
+            <Button
+              action={"button"}
+              variant={"dark"}
+              text={"Delete Post"}
+              onClick={() => { handleDelete(postID) }}
+            />
+        )}
         <Link
           className={styles.Anchor}
           href={{

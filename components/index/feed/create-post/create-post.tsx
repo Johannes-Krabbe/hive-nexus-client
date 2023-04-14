@@ -3,8 +3,7 @@ import Image from 'next/image'
 import { FormError } from "types/types";
 import smiley from "/public/assets/images/core/smiley.png";
 
-import { useUserContext } from "context/userContext";
-
+import { useUser } from 'lib/hooks'
 import { createPost } from 'utils/restClient'
 
 import { Button } from "components/button/button";
@@ -13,7 +12,7 @@ import { TextAreaInput } from "components/index/feed/create-post/text-area-input
 import styles from "./create-post.module.scss";
 
 export const CreatePost = () => {
-  const { user, setUser } = useUserContext();
+  const { user, setUser } = useUser();
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -24,6 +23,7 @@ export const CreatePost = () => {
 
   const handleSubmit = async () => {
     const res = await createPost(title, content);
+    console.log(res)
   }
 
   return (
@@ -41,7 +41,7 @@ export const CreatePost = () => {
             width={32}
             alt={`Your avatar`}
           />
-          <p className={styles.Username}>{user.username}</p>
+          <p className={styles.Username}>{user.username ?? 'not logged in'}</p>
         </div>
         <div className={styles.FormWrapper}>
           <form
