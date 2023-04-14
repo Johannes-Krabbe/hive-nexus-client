@@ -1,14 +1,12 @@
 import { useState, useEffect} from 'react'
 import { AppProps } from 'next/app'
 
+import { useToken } from 'lib/hooks';
+import { ThemeProvider } from "context/themeContext";
+
 import { Layout } from 'components/core/layout/layout'
 
 import 'styles/app.scss'
-
-import { useToken } from 'lib/hooks';
-import { ThemeProvider } from "context/themeContext";
-import { UserProvider } from "context/userContext";
-
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { token, setToken } = useToken();
@@ -24,13 +22,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 	}
 
   return (
-    <UserProvider>
-      <ThemeProvider>
-        <Layout setToken={setToken}>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
-    </UserProvider>
+    <ThemeProvider>
+      <Layout setToken={setToken}>
+        <Component {...pageProps} />
+      </Layout>
+    </ThemeProvider>
   )
 }
 

@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react'
 import { AuthError } from 'types/types'
 
-import { useUserContext } from "context/userContext";
-
+import { useToken, useUser } from 'lib/hooks';
 import { signUp } from 'utils/restClient'
 
 import Router from 'next/router'
 
 import { TextInput } from 'components/index/feed/create-post/text-input/text-input'
 import { Button } from 'components/button/button'
-import { useToken } from 'lib/hooks';
 
 import styles from './register.module.scss'
+import { create } from 'domain'
 
 export const Register = () => {
-  const { user, setUser } = useUserContext();
+  const { user, setUser } = useUser();
   const { token, setToken } = useToken();
 
   const [email, setEmail] = useState('')
@@ -27,7 +26,8 @@ export const Register = () => {
   const handleSubmit = async () => {
     const { userID, createdAt, token } = await signUp(email, password, username);
     setToken(token);
-    setUser({userID: userID, createdAt: createdAt, username: username, email: email})
+    setUser({ userID, createdAt, username})
+    Router.reload()
     Router.push('/')
   }
 

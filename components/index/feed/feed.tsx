@@ -5,7 +5,11 @@ import { LoadingSpinner } from "components/core/layout/loading/loading-spinner";
 import { Post } from "./post";
 import { getPosts } from 'utils/restClient'
 
-export const PostList = () => {
+const byDate = ( a: IPost, b: IPost ) => {
+  return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+}
+
+export const Feed = () => {
   const [posts, setPosts] = useState<IPost[]>([]);
   const [isLoading, setLoading] = useState(false);
 
@@ -28,7 +32,7 @@ export const PostList = () => {
 
   return (
     <>
-      {posts.map(p => {
+      {posts.sort(byDate).map(p => {
         return (
           <Post
             key={p.postID}
