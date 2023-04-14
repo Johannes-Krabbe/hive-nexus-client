@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react'
 import { IUser } from 'types/interfaces'
 import { getCookie, getCookies, setCookie } from 'cookies-next';
+import { CLIENT_RENEG_LIMIT } from 'tls'
 
 export const useScrollLock = () => {
   const lockScroll = useCallback(() => {
@@ -48,6 +49,7 @@ export const useToken = () => {
 // just for debugging
 export const printCookies = () => {
   const cookies = getCookies();
+  console.log(cookies);
 }
 
 export const useUser = () => {

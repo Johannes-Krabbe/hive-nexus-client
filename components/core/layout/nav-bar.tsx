@@ -6,7 +6,6 @@ import { getFormattedDate } from 'utils/dateHelpers'
 import { debounce } from "utils/documentHelpers";
 import { useRouter } from 'next/router'
 
-
 import { useScrollLock } from "lib/hooks";
 
 import { INavLink } from "types/interfaces";
@@ -39,7 +38,7 @@ interface NavLinkListProps {
 
 export const NavBar = () => {
   const { token, setToken } = useToken();
-  const { user, setUser } = useUser()
+  const { user, setUser } = useUser();
 
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
