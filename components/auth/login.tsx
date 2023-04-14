@@ -22,9 +22,8 @@ export const Login = () => {
     const { userID, createdAt, username, token } = await signIn(email, password);
     setToken(token);
     setUser({ userID, createdAt, username})
-    console.log('getUser')
-    console.log(user)
 
+    Router.reload();
     Router.push('/')
   }
 

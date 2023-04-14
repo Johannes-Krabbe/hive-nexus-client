@@ -19,7 +19,7 @@ import { useToken } from 'lib/hooks';
 
 export const Home: NextPage = () => {
   const { token, setToken } = useToken();
-  const { theme, setTheme } = useThemeContext();
+  // const { theme, setTheme } = useThemeContext();
 
   const [overlayIsShowing, setOverlayIsShowing] = useState(false);
   const { lockScroll, unlockScroll } = useScrollLock();
@@ -43,12 +43,14 @@ export const Home: NextPage = () => {
 
   return (
     <div className={styles.Container}>
-      <button
+      {/* <button
         onClick={() => {
           theme == "light" ? setTheme("dark") : setTheme("light");
           console.log(`theme now: ${theme}`)
         }}
-      >SetTheme</button>
+      >
+        SetTheme
+      </button> */}
       <Sun color={"sun-blue"} />
       <Hero text={headline} />
         <>
