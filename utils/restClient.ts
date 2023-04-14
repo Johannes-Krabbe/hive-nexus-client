@@ -1,4 +1,3 @@
-import { CLIENT_RENEG_LIMIT } from "tls";
 import { request } from "utils/axios";
 
 export async function signUp(
@@ -15,7 +14,7 @@ export async function signUp(
 
     return res.data.data;
   } catch (e) {
-    console.log("request failed", e);
+    console.log("signUp request failed", e);
   }
 }
 
@@ -27,7 +26,7 @@ export async function signIn(email: string, password: string) {
     });
     return res.data.data;
   } catch (e) {
-    console.log("request failed", e);
+    console.log("signIn request failed", e);
   }
 }
 
@@ -36,7 +35,7 @@ export async function getPosts() {
     const res = await request.get(`/post/all`);
     return res.data.data;
   } catch (e) {
-    console.log("request failed", e);
+    console.log("getPosts request failed", e);
   }
 }
 
@@ -49,7 +48,7 @@ export async function createPost(title: string, content: string) {
 
     return res;
   } catch (e) {
-    console.log("request failed", e);
+    console.log("createPost request failed", e);
   }
 }
 
@@ -58,8 +57,8 @@ export async function deletePost(postID: string) {
     const res = await request.post(`/post/delete`, { postID: postID });
 
     return res;
-  } catch (err) {
-    console.log(err);
+  } catch (e) {
+    console.log("deletePost request failed", e);
   }
 }
 
@@ -69,7 +68,7 @@ export async function getPost(postID: string) {
 
     return res.data.data;
   } catch (e) {
-    console.log(e);
+    console.log("getPost request failed", e);
   }
 }
 
@@ -86,6 +85,6 @@ export async function getUser(options: GetUserOptions) {
 
     return res.data.data;
   } catch (e) {
-    console.log("request failed", e);
+    console.log("getUser request failed", e);
   }
 }
