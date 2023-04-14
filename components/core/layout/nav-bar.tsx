@@ -164,7 +164,7 @@ const OverlayNav = ({
             />
           }
         </div>
-        {!user && (<p>not logged in</p>)}
+        { !user && (<p>not logged in</p>) }
         { user && (
           <>
             <p>Logged In:</p>
