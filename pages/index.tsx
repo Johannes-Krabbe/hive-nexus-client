@@ -3,12 +3,12 @@ import Router from 'next/router'
 
 import type { NextPage } from "next";
 
-import { useThemeContext } from "context/themeContext";
+// import { useThemeContext } from "context/themeContext";
 
 import { Button } from "components/button/button";
 import { Sun } from "components/core/layout/sun/sun";
 import { Hero } from "components/core/hero/hero";
-import { PostList } from "components/index/feed/post-list";
+import { Feed } from "components/index/feed/feed";
 import { CreatePost } from "components/index/feed/create-post/create-post";
 
 import { useScrollLock } from "lib/hooks";
@@ -60,7 +60,7 @@ export const Home: NextPage = () => {
             text={"Create post"}
             onClick={toggleOverlay}
           />
-          <PostList />
+          <Feed />
           {overlayIsShowing && (
             <div className={styles.Overlay}>
               <div className={styles.OverlayBackground} onClick={toggleOverlay}>

@@ -10,6 +10,7 @@ import { TextInput } from 'components/index/feed/create-post/text-input/text-inp
 import { Button } from 'components/button/button'
 
 import styles from './register.module.scss'
+import { create } from 'domain'
 
 export const Register = () => {
   const { user, setUser } = useUser();
