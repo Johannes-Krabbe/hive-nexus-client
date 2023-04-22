@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "components/button/button";
-import { getFormattedDate } from 'utils/dateHelpers'
+import { getFormattedDate } from "utils/dateHelpers";
 import { debounce } from "utils/documentHelpers";
-import { useRouter } from 'next/router'
+import { useRouter } from "next/router";
 
 import { useScrollLock } from "lib/hooks";
 
 import { INavLink } from "types/interfaces";
-import { useToken, useUser } from 'lib/hooks';
+import { useToken, useUser } from "lib/hooks";
 
 import styles from "./nav-bar.module.scss";
 
@@ -26,8 +26,8 @@ interface OverlayNavProps {
   navLinks: INavLink[];
   overlayIsShowing: boolean;
   toggleOverlay: () => void;
-  token: any
-  user: any
+  token: any;
+  user: any;
   signOut: () => void;
 }
 
@@ -65,13 +65,13 @@ export const NavBar = () => {
     setPrevScrollPos(currentScrollPos);
   }, 100);
 
-  const router = useRouter()
+  const router = useRouter();
 
   const signOut = () => {
-    setToken('');
-    setUser('');
-    router.reload()
-  }
+    setToken("");
+    setUser("");
+    router.reload();
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -95,21 +95,19 @@ export const NavBar = () => {
           <div className={styles.Burger} onClick={toggleOverlay}>
             <Image src={Burger} alt="Menu Icon" />
           </div>
-          { token &&
-            <NavLinksList navLinks={navLinks} />
-          }
+          {token && <NavLinksList navLinks={navLinks} />}
         </nav>
         <div className={styles.UserActions}>
-          { token &&
-              <Button
-                action={"button"}
-                variant={"dark"}
-                text={"Log Out"}
-                onClick={() => {
-                  signOut();
-                }}
-              />
-            }
+          {token && (
+            <Button
+              action={"button"}
+              variant={"dark"}
+              text={"Log Out"}
+              onClick={() => {
+                signOut();
+              }}
+            />
+          )}
         </div>
       </div>
       {overlayIsShowing && <div className={styles.Shadow} />}
@@ -140,19 +138,15 @@ const OverlayNav = ({
     >
       <nav id={"nav"} className={styles.Nav}>
         <div className={styles.TopBar}>
-          <a
-            role="button"
-            className={styles.CloseIcon}
-            onClick={toggleOverlay}
-          >
+          <a role="button" className={styles.CloseIcon} onClick={toggleOverlay}>
             &times;
           </a>
         </div>
-        { token &&
+        {token && (
           <NavLinksList navLinks={navLinks} toggleOverlay={toggleOverlay} />
-        }
+        )}
         <div>
-          { token &&
+          {token && (
             <Button
               action={"button"}
               variant={"dark"}
@@ -161,21 +155,15 @@ const OverlayNav = ({
                 signOut();
               }}
             />
-          }
+          )}
         </div>
-        { !user && (<p>not logged in</p>) }
-        { user && (
+        {!user && <p>not logged in</p>}
+        {user && (
           <>
             <p>Logged In:</p>
-            <p>
-              {user.username}
-            </p>
-            <p>
-              {user.userID}
-            </p>
-            <p>
-              {getFormattedDate(user.createdAt)}
-            </p>
+            <p>{user.username}</p>
+            <p>{user.userID}</p>
+            <p>{getFormattedDate(user.createdAt)}</p>
           </>
         )}
       </nav>

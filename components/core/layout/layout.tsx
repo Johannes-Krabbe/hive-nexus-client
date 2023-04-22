@@ -8,7 +8,6 @@ import { Footer } from "./footer";
 import styles from "components/core/layout/index.module.scss";
 
 interface LayoutProps {
-  setToken: any
   children: ReactNode;
 }
 
@@ -16,7 +15,7 @@ function capitalizeFirstLetter(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export const Layout = ({ setToken, children }: LayoutProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   const router = useRouter();
 
   let title = router.pathname;
@@ -30,11 +29,9 @@ export const Layout = ({ setToken, children }: LayoutProps) => {
 
   return (
     <div className={styles.Layout}>
-      <NavBar setToken={setToken} />
+      <NavBar />
       <CustomHead title={title} />
-      <main className="container">
-        {children}
-      </main>
+      <main className="container">{children}</main>
       <Footer />
     </div>
   );
