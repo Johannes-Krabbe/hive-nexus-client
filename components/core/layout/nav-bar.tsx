@@ -69,7 +69,7 @@ export const NavBar = () => {
 
   const signOut = () => {
     setToken("");
-    setUser("");
+    setUser(undefined);
     router.reload();
   };
 

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import { FormError } from "types/types";
 import smiley from "/public/assets/images/core/smiley.png";
 
-import { useUser } from 'lib/hooks'
-import { createPost } from 'utils/restClient'
+import { useUser } from "lib/hooks";
+import { createPost } from "utils/restClient";
 
 import { Button } from "components/button/button";
 import { TextInput } from "components/index/feed/create-post/text-input/text-input";
@@ -20,11 +20,10 @@ export const CreatePost = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
 
-
   const handleSubmit = async () => {
     const res = await createPost(title, content);
-    console.log(res)
-  }
+    console.log(res);
+  };
 
   return (
     <div className={styles.Wrapper}>
@@ -41,7 +40,7 @@ export const CreatePost = () => {
             width={32}
             alt={`Your avatar`}
           />
-          <p className={styles.Username}>{user.username ?? 'not logged in'}</p>
+          <p className={styles.Username}>{user?.username ?? "not logged in"}</p>
         </div>
         <div className={styles.FormWrapper}>
           <form
@@ -78,10 +77,12 @@ export const CreatePost = () => {
             />
             <div className={styles.ButtonContainer}>
               <Button
-                action={'button'}
-                variant={'primary'}
-                text={'Publish'}
-                onClick={() => { handleSubmit() }}
+                action={"button"}
+                variant={"primary"}
+                text={"Publish"}
+                onClick={() => {
+                  handleSubmit();
+                }}
               />
             </div>
             {showSuccessMessage ||

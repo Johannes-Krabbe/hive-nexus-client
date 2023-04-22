@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useUser } from "lib/hooks";
-import Router from 'next/router'
-import { deletePost } from 'utils/restClient'
+import Router from "next/router";
+import { deletePost } from "utils/restClient";
 import { IPost } from "types/interfaces";
 import { Button } from "components/button/button";
-import { getFormattedDate } from 'utils/dateHelpers'
+import { getFormattedDate } from "utils/dateHelpers";
 import styles from "./post.module.scss";
 
 export const Post = ({
@@ -13,18 +13,18 @@ export const Post = ({
   username,
   title,
   content,
-  // likesCount,
-  // commentsCount,
-}: IPost) => {
-  const { user, setUser } = useUser()
+}: // likesCount,
+// commentsCount,
+IPost) => {
+  const { user, setUser } = useUser();
   // TODO: replace with logic check
-  const isUserOwner = user.username === username
+  const isUserOwner = user?.username === username;
 
   const handleDelete = async (postID: string) => {
     deletePost(postID);
 
-    Router.push('/')
-  }
+    Router.push("/");
+  };
 
   return (
     <div className={styles.Post}>
@@ -42,16 +42,16 @@ export const Post = ({
           <Link
             href={{
               pathname: "/user/[username]",
-              query: { username: username}
+              query: { username: username },
             }}
-            >
+          >
             <p>{username}</p>
           </Link>
           <p className={styles.Creation}>{getFormattedDate(createdAt)}</p>
         </div>
       </div>
       <p className={styles.Content}>{content}</p>
-      <p>{ postID }</p>
+      <p>{postID}</p>
       <div className={styles.BottomBar}>
         {/* <p className={styles.Likes}>{likesCount} 🔥</p>
         <p>{commentsCount} 💬</p> */}
@@ -65,13 +65,15 @@ export const Post = ({
             console.log(`Liked postID ${postID}`);
           }}
         />
-        { isUserOwner && (
-            <Button
-              action={"button"}
-              variant={"dark"}
-              text={"Delete Post"}
-              onClick={() => { handleDelete(postID) }}
-            />
+        {isUserOwner && (
+          <Button
+            action={"button"}
+            variant={"dark"}
+            text={"Delete Post"}
+            onClick={() => {
+              handleDelete(postID);
+            }}
+          />
         )}
         <Link
           className={styles.Anchor}
