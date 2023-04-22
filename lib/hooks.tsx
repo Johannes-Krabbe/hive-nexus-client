@@ -35,6 +35,7 @@ export const useToken = () => {
     setCookie(cookieName, token, {
       maxAge: 30 * 24 * 60 * 60,
       path: "/",
+      sameSite: "none",
     });
 
     setToken(token);
