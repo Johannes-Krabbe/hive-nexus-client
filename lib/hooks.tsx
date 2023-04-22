@@ -36,6 +36,7 @@ export const useToken = () => {
       path: "/",
       sameSite: "none",
       secure: true,
+      httpOnly: false,
     });
 
     setToken(token);
