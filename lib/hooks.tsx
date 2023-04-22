@@ -56,16 +56,18 @@ export const printCookies = () => {
 export const useUser = () => {
   const hnUser = "hn-user";
 
-  const getUser = (): IUser | {} => {
+  const getUser = (): IUser | undefined => {
     const user = localStorage.getItem(hnUser);
 
-    return user ? JSON.parse(user) : {};
+    return user ? JSON.parse(user) : undefined;
   };
 
   const [user, setUser] = useState(getUser());
 
-  const saveUser = (user: IUser | {}) => {
-    localStorage.setItem(hnUser, JSON.stringify(user));
+  const saveUser = (user: IUser | undefined) => {
+    if (user) {
+      localStorage.setItem(hnUser, JSON.stringify(user));
+    }
 
     setUser(user);
   };
