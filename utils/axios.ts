@@ -6,5 +6,14 @@ export const request = axios.create({
       ? "https://hive-nexus-api-sep6lno5xq-ey.a.run.app"
       : "http://localhost:8080",
   timeout: 1000,
-  withCredentials: true,
+});
+
+request.interceptors.request.use((config) => {
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("hn-token");
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  }
+  return config;
 });

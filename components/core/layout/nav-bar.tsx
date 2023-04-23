@@ -68,8 +68,8 @@ export const NavBar = () => {
   const router = useRouter();
 
   const signOut = () => {
-    setToken("");
-    setUser(undefined);
+    localStorage.removeItem("hn-token");
+    localStorage.removeItem("hn-user");
     router.reload();
   };
 
