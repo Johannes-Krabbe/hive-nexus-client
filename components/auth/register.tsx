@@ -55,7 +55,7 @@ export const Register = () => {
                   inputType="text"
                   name="email"
                   placeholder="Email"
-                  pattern="^(\D+)$"
+                  pattern="\S+@\S+\.\S+"
                   errorMessage={AuthError.Email}
                   title={'email'}
                   value={email}
@@ -68,7 +68,7 @@ export const Register = () => {
                   inputType="password"
                   name="password"
                   placeholder="Password"
-                  pattern="^(\D+)$"
+                  pattern={"[^]*"}
                   errorMessage={AuthError.Password}
                   title={'password'}
                   value={password}
@@ -81,8 +81,8 @@ export const Register = () => {
                   inputType="password"
                   name="passwordRepeat"
                   placeholder="Repeat Password"
-                  pattern="^(\D+)$"
-                  errorMessage={AuthError.Password}
+                  pattern={password}
+                  errorMessage={AuthError.PasswordMatch}
                   title={'passwordRepeat'}
                   value={passwordRepeat}
                   onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -104,7 +104,7 @@ export const Register = () => {
                   inputType="text"
                   name="username"
                   placeholder="Username"
-                  pattern="^(\D+)$"
+                  pattern="^[a-zA-Z0-9]*$"
                   errorMessage={AuthError.Username}
                   title={'username'}
                   value={username}

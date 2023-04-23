@@ -35,6 +35,7 @@ export const TextInput = ({
 
   const blurHandler = (e: FocusEvent<HTMLInputElement>) => {
     setIsActive(false)
+
     if (e.currentTarget.value.length > 0) {
       setIsFilled(true)
     } else {
@@ -74,7 +75,7 @@ export const TextInput = ({
         pattern={pattern}
         required
       />
-      <p className={styles.ErrorField}>{errorMessage}</p>
+      {!isValid && <p className={styles.ErrorField}>{errorMessage}</p>}
     </div>
   )
 }

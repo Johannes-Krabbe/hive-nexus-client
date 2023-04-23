@@ -43,7 +43,7 @@ export const Login = () => {
                   inputType="text"
                   name="email"
                   placeholder="Email"
-                  pattern="^(\D+)$"
+                  pattern="\S+@\S+\.\S+"
                   errorMessage={AuthError.Email}
                   title={'email'}
                   value={email}
@@ -56,7 +56,7 @@ export const Login = () => {
                   inputType="password"
                   name="password"
                   placeholder="Password"
-                  pattern="^(\D+)$"
+                  pattern={"[^]*"}
                   errorMessage={AuthError.Email}
                   title={'password'}
                   value={password}

@@ -55,7 +55,7 @@ export const CreatePost = () => {
               inputType="text"
               name="title"
               placeholder="Title"
-              pattern="^(\D+)$"
+              pattern="[^]*"
               errorMessage={FormError.Title}
               title={"title"}
               value={title}
