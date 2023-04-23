@@ -4,8 +4,8 @@ export enum FormError {
 }
 
 export enum AuthError {
-  Email = "fail",
+  Email = "Please enter a valid email address.",
   Password = "fail",
-  PasswordMatch = "fail",
-  Username = "fail",
+  PasswordMatch = "Passwords do not match.",
+  Username = "Your username may contain letters and numbers only.",
 }
