@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Image from "next/image";
+import Router from 'next/router'
 import { FormError } from "types/types";
 import smiley from "/public/assets/images/core/smiley.png";
 
@@ -23,6 +24,9 @@ export const CreatePost = () => {
   const handleSubmit = async () => {
     const res = await createPost(title, content);
     console.log(res);
+
+    Router.reload();
+    Router.push('/')
   };
 
   return (
