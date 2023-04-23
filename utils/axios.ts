@@ -13,6 +13,7 @@ request.interceptors.request.use((config) => {
     const token = localStorage.getItem("hn-token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+      config.headers.post["x-access-token"] = token;
     }
   }
   return config;
