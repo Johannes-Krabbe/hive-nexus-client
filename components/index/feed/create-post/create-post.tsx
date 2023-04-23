@@ -76,14 +76,7 @@ export const CreatePost = () => {
               }}
             />
             <div className={styles.ButtonContainer}>
-              <Button
-                action={"button"}
-                variant={"primary"}
-                text={"Publish"}
-                onClick={() => {
-                  handleSubmit();
-                }}
-              />
+              <Button action={"button"} variant={"primary"} text={"Publish"} />
             </div>
             {showSuccessMessage ||
               (showFailureMessage && (
