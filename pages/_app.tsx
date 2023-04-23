@@ -22,7 +22,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider>
       <Layout>
-        <h1>ENV: {process.env.NODE_ENV}</h1>
         <Component {...pageProps} />
       </Layout>
     </ThemeProvider>
