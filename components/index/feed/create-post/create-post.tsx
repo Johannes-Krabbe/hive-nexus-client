@@ -24,8 +24,8 @@ export const CreatePost = () => {
   const handleSubmit = () => {
     createPost(title, content);
 
-    Router.reload();
     Router.push('/')
+    Router.reload();
   };
 
   return (
