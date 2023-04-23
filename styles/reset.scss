@@ -28,10 +28,11 @@ p {
 
 body {
   position: relative;
-  padding-top: 58.25px;
+  margin-top: 60px;
+  overflow: hidden;
 
   @include br.size(md) {
-    padding-top: 90px;
+    margin-top: 80px;
   }
 }
 
