@@ -32,17 +32,7 @@ export async function signIn(email: string, password: string) {
 
 export async function getPosts() {
   try {
-    // @ts-ignore
-    const cookieValue = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith(`${"hn-token"}=`))
-      .split("=")[1];
-
-    const res = await request.get(`/post/all`, {
-      headers: {
-        Cookie: `${"hn-token"}=${cookieValue}`,
-      },
-    });
+    const res = await request.get(`/post/all`);
     return res.data.data;
   } catch (e) {
     console.log("getPosts request failed", e);
