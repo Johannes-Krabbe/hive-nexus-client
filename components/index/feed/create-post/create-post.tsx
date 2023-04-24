@@ -21,10 +21,9 @@ export const CreatePost = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showFailureMessage, setShowFailureMessage] = useState(false);
 
-  const handleSubmit = () => {
-    createPost(title, content);
+  const handleSubmit = async () => {
+    await createPost(title, content);
 
-    Router.push('/')
     Router.reload();
   };
 
@@ -50,6 +49,9 @@ export const CreatePost = () => {
             id="CreatePost"
             name="Post"
             className={styles.Form}
+            onSubmit={() => {
+              return false
+            }}
           >
             <TextInput
               id="title"
@@ -77,7 +79,12 @@ export const CreatePost = () => {
               }}
             />
             <div className={styles.ButtonContainer}>
-              <Button action={"button"} variant={"primary"} text={"Publish"} onClick={() => {handleSubmit()}}/>
+              <Button
+                action={"button"}
+                variant={"primary"}
+                text={"Publish"}
+                onClick={() => {handleSubmit()}}
+                />
             </div>
             {showSuccessMessage ||
               (showFailureMessage && (
