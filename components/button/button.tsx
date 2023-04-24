@@ -7,7 +7,7 @@ export const Button = ({action, variant, text, href, onClick}: IButton) => {
   switch(action) {
     case 'button': {
       return (
-        <button className={buttonStyles} onClick={onClick}>
+        <button type={'button'} className={buttonStyles} onClick={onClick}>
           {text}
         </button>
       )
