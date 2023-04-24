@@ -26,8 +26,8 @@ export const Register = () => {
     const { userID, createdAt, token } = await signUp(email, password, username);
     setToken(token);
     setUser({ userID, createdAt, username})
-    Router.reload()
     Router.push('/')
+    Router.reload()
   }
 
   useEffect(() => {

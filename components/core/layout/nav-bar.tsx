@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Router from 'next/router'
 import { Button } from "components/button/button";
 import { getFormattedDate } from "utils/dateHelpers";
 import { debounce } from "utils/documentHelpers";
-import { useRouter } from "next/router";
 
 import { useScrollLock } from "lib/hooks";
 
@@ -65,12 +65,10 @@ export const NavBar = () => {
     setPrevScrollPos(currentScrollPos);
   }, 100);
 
-  const router = useRouter();
-
   const signOut = () => {
     localStorage.removeItem("hn-token");
     localStorage.removeItem("hn-user");
-    router.reload();
+    Router.reload();
   };
 
   useEffect(() => {

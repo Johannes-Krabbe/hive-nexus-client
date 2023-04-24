@@ -21,9 +21,9 @@ IPost) => {
   const isUserOwner = user?.username === username;
 
   const handleDelete = async (postID: string) => {
-    deletePost(postID);
+    await deletePost(postID);
 
-    Router.push("/");
+    Router.reload();
   };
 
   return (

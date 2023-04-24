@@ -23,8 +23,8 @@ export const Login = () => {
     setToken(token);
     setUser({ userID, createdAt, username})
 
-    Router.reload();
     Router.push('/')
+    Router.reload();
   }
 
   return (
